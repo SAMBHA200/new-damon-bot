@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "avatar",
-  aliases: ["av","com],
+  aliases: ["av", "icon", "pfp"],
   category: "info",
   description: "Get dp of any user",
   run: async (client, message, args) => {
