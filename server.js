@@ -20,7 +20,7 @@ client.on("ready", async () => {
     console.log(client.user.tag + " Has Logged In");
 
     function pickStatus() {
-      let status = ["v!help ╏ VILLAIN  OP", "MADE BY :- VILLAIN"];
+      let status = ["v!help ╏ VILLAIN  OP", "MADE BY :- VILLAIN & ShaDoW"];
 
       let Status = Math.floor(Math.random() * status.length);
 
