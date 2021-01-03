@@ -17,10 +17,6 @@ module.exports = {
     } else {
       msg = args.join(" ");
       message.channel.send(msg);
-
-      if ((message.author.id !== "672027578181353473", "679264557205684244"))
-        return;
-      const sayMessage = args.join(" ");
     }
   }
 };
