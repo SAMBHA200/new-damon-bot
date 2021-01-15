@@ -25,10 +25,8 @@ module.exports = {
     if (!prize) return message.channel.send(`No prize specified!`);
     message.channel.send(`*Giveaway created in ${channel}*`);
     let Embed = new MessageEmbed()
-      .setTitle(`New giveaway!`)
-      .setDescription(
-        `The user ${message.author} is hosting a giveaway for the prize of **${prize}**`
-      )
+      .setTitle(`**${prize}**`)
+      .setDescription(`HOSTED BY :- ${message.author}`)
       .setTimestamp(Date.now() + ms(args[0]))
       .setColor(`BLUE`);
     let m = await channel.send(Embed);
@@ -43,11 +41,11 @@ module.exports = {
 
       let winner = m.reactions.cache
         .get("🎉")
-        .users.cache.filter((u) => !u.bot)
+        .users.cache.filter(u => !u.bot)
         .random();
       channel.send(
         `The winner of the giveaway for **${prize}** is... ${winner}`
       );
     }, ms(args[0]));
-  },
+  }
 };
