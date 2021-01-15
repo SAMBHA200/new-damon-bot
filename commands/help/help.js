@@ -27,9 +27,6 @@ __**WELCOME COMMANDS**__ 🎉
 
 __**SPECIAL COMMANDS**__ 👑
 \`giveaway,math,announce,emoji,weather \`
-
-__**CORONA COMMANDS**__ ⚠️
-\`corona all, corona<country>\`
  
 If any contact is not working contact the bot owner
 `
