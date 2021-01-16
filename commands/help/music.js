@@ -29,5 +29,7 @@ module.exports = {
       .setTimestamp((message.timestamp = Date.now()));
 
     await message.channel.send(embed);
+
+    message.react("🎶");
   }
 };
