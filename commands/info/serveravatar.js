@@ -2,7 +2,7 @@ const discord = require("discord.js")
 
 module.exports = {
   name: "servericon",
-  aliases: ["sav", "guildavatar"],
+  aliases: ["serverav", "guildavatar"],
   category: "info",
   description: "Get avatar of the server",
   run: async (client, message, args) => {

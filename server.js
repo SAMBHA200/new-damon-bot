@@ -20,12 +20,12 @@ client.on("ready", async () => {
     console.log(client.user.tag + " Has Logged In");
 
     function pickStatus() {
-      let status = ["shelp ╏ VILLAIN  OP", "MADE BY :- VILLAIN & ShaDoW"];
+      let status = ["shelp", "MADE BY :- DAMON OP", "PING DAMON TO BUY BOT"];
 
       let Status = Math.floor(Math.random() * status.length);
 
       client.user.setActivity(status[Status], {
-        type: "PLAYING"
+        type: "WATCHING"
       });
     }
 
@@ -39,30 +39,7 @@ client.on("message", async message => {
   const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
   if (message.content.match(prefixMention)) {
     return message.reply(`
-PREFIX FOR THE BOT IS = i
-
-__**MODERATION COMMANDS**__ 🔧
-\`addrole,removerole,clear[purge],ban,kick,voicekick,mute,unmute,slowmode,warn,warnings,resetwarns\`
-
-__**FUN COMMANDS**__ 🙃
-\`advice,suggest,ascii,dog,fact,hug,joke,kpop,math,meme,mw,slap,punch,cry\`
-
-__**INFORMATION COMMANDS**__ 💬
-\`avatar,botinfo,serverinfo,hastebin,imdb,membercount,weather,ping,pokemon,servericon,,whois,userinfo\`
-
-__**NSFW COMMANDS**__ ❌
-\`no nsfw in the bot\`
-
-__**WELCOME COMMANDS**__ 🎉
-\`setwelcome,setmessage\`
-
-__**SPECIAL COMMANDS**__ 👑
-\`giveaway,math,announce,emoji,weather \`
-
-__**CORONA COMMANDS**__ ⚠️
-\`corona all, corona<country>\`
- 
-If any command is not working contact the bot owner
+PREFIX FOR THE BOT IS = s
 `);
   }
 
