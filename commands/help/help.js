@@ -27,8 +27,13 @@ __**WELCOME COMMANDS**__ 🎉
 
 __**SPECIAL COMMANDS**__ 👑
 \`giveaway,math,announce,emoji,weather \`
+
+__**MUSIC**__
+\`helpmusic\`
  
 If any contact is not working contact the bot owner
+
+[Support Server](https://discord.gg/wXemeVm) 
 `
       )
 

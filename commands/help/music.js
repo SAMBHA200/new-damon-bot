@@ -1,15 +1,15 @@
 const discord = require("discord.js");
 
 module.exports = {
-  name: "music",
+  name: "helpmusic",
+  aliases: ["music"],
   category: "help",
-  description: "BOT GET SOON UPDATES ",
+  description: "MUSIC COMMANDS",
   run: async (client, message, args) => {
     let embed = new discord.MessageEmbed()
-      .setTitle(`BOT WILL SOON NEW FEATURES `)
+      .setTitle(`MUSIC COMMANDS`)
       .setDescription(
-   `
-__**MUSIC COMMAND**__
+        `
 \`play\` :- give name of song or link
 \`search\` :- give title of song
 \`skip\`:- skip the song
@@ -20,15 +20,14 @@ __**MUSIC COMMAND**__
 \`queue\` :- give list of queue songs
 \`volume\` :- set volume 0 to 100
 
-[Support Server]() 
+[Support Server](https://discord.gg/wXemeVm) 
 `
       )
       .setThumbnail(client.user.displayAvatarURL())
       .setColor("RANDOM")
-      .setFooter(`PARAS DEVELOPER `)
+      .setFooter(`DAMON OP`)
       .setTimestamp((message.timestamp = Date.now()));
 
     await message.channel.send(embed);
-
   }
 };
