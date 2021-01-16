@@ -48,7 +48,7 @@ module.exports = {
         .users.cache.filter(u => !u.bot)
         .random();
       channel.send(
-        `The winner of the giveaway for **${prize}** is... ${winner}`
+        `**The winner of the giveaway for** __**${prize}**__ is... ${winner}`
       );
     }, ms(args[0]));
   }
