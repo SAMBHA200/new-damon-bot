@@ -76,16 +76,10 @@ client.on("guildMemberAdd", async member => {
 
   let default_msg = `━━━━━━━━━━━━━━━━━━━━━━━━
   | WELCOME ${member} TO ${member.guild}
-        
-━━━━━━━━━━━━━━━━━━━━━━━━
- | BE SURE THAT YOU HAVE READ    
-           | 
-━━━━━━━━━━━━━━━━━━━━━━━━
- | username ${member.username}  
-|your rank is ${member.member_count}  ━━━━━━━━━━━━━━━━━━━━━━━━
- | YOU CAN ENJOY IN  CHATTING 
-━━━━━━━━━━━━━━━━━━━━━━━━
-            THANKS FOR JOINING US
+  | BE SURE THAT YOU HAVE READ    
+  | username ${member.username}  
+  |your rank is ${member.member_count}
+  | YOU CAN ENJOY IN  CHATTING 
 `;
 
   let m1 = db.get(`msg_${member.guild.id}`);
