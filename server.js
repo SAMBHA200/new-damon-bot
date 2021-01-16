@@ -153,5 +153,5 @@ setInterval(
       console.log(`[${++count}] here i pinged ${process.env.URL}`)
     ),
 
-  300000
+  270000
 );

@@ -27,10 +27,9 @@ module.exports = {
     let Embed = new MessageEmbed()
       .setTitle(`🎉**GIVEAWAY**🎉`)
       .setDescription(
-        `PRIZE :- **{prize}**
+        `PRIZE :- **${prize}**
       REACT WITH 🎉 TO PARTICIPATE
-      HOSTED BY :- ${message.author}
-      TIME :- {time}`
+      HOSTED BY :- ${message.author}`
       )
       .setTimestamp(Date.now() + ms(args[0]))
       .setColor(`BLUE`);
