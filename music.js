@@ -38,21 +38,6 @@ bot.on("message", async msg => {
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(PREFIX.length);
 
-  if (command === "" || command == "") {
-    const helpembed = new Discord.MessageEmbed()
-      .setColor("#7289DA")
-      .setAuthor(bot.user.tag, bot.user.displayAvatarURL())
-      .setDescription(
-        `
-__**Commands List**__
-> \`play\` > **\`play [title/url]\`**
-> \`search\` > **\`search [title]\`**
-> \`skip\`, \`stop\`,  \`pause\`, \`resume\`
-> \`nowplaying\`, \`queue\`, \`volume\``
-      )
-      .setFooter("MUSIC COMMANDS", "https://app.zealcord.xyz/assets/Logo.png");
-    msg.channel.send(helpembed);
-  }
   if (command === "play" || command === "p") {
     const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel)
