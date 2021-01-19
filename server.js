@@ -20,12 +20,12 @@ client.on("ready", async () => {
     console.log(client.user.tag + " Has Logged In");
 
     function pickStatus() {
-      let status = ["shelp", "MADE BY :- DAMON OP", "PING DAMON TO BUY BOT"];
+      let status = ["shelp", "SKULZ OFFICAL"];
 
       let Status = Math.floor(Math.random() * status.length);
 
       client.user.setActivity(status[Status], {
-        type: "WATCHING"
+        type: "PLAYING"
       });
     }
 
