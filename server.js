@@ -20,7 +20,7 @@ client.on("ready", async () => {
     console.log(client.user.tag + " Has Logged In");
 
     function pickStatus() {
-      let status = ["shelp", "SKULZ OFFICAL"];
+      let status = ["SKULZ OFIICIAL", "shelp"];
 
       let Status = Math.floor(Math.random() * status.length);
 
@@ -35,6 +35,36 @@ client.on("ready", async () => {
   }
 });
 
+client.on("message", async message => {
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  if (message.content.match(prefixMention)) {
+    return message.reply(`
+PREFIX FOR THE BOT IS = \`s\`
+`);
+  }
+
+  if (message.author.bot) return;
+  if (!message.guild) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  if (!message.member)
+    message.member = await message.guild.fetchMember(message);
+
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(/ +/g);
+  const cmd = args.shift().toLowerCase();
+
+  if (cmd.length === 0) return;
+
+  let command = client.commands.get(cmd);
+
+  if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+  if (command) command.run(client, message, args);
+});
+
 client.on("guildMemberAdd", async member => {
   let chx = db.get(`welchannel_${member.guild.id}`);
 
@@ -44,18 +74,9 @@ client.on("guildMemberAdd", async member => {
 
   let default_url = `https://cdn.discordapp.com/attachments/696417925418057789/716197399336583178/giphy.gif`;
 
-  let default_msg = `━━━━━━━━━━━━━━━━━━━━━━━━
-  | WELCOME ${member} TO ${member.guild}
-        
-━━━━━━━━━━━━━━━━━━━━━━━━
- | BE SURE THAT YOU HAVE READ    
-           | 
-━━━━━━━━━━━━━━━━━━━━━━━━
- | username ${member.username}  
-|your rank is ${member.member_count}  ━━━━━━━━━━━━━━━━━━━━━━━━
- | YOU CAN ENJOY IN  CHATTING 
-━━━━━━━━━━━━━━━━━━━━━━━━
-            THANKS FOR JOINING US
+  let default_msg = `
+  WECLOME {member} TO THE SERVER
+ 
 `;
 
   let m1 = db.get(`msg_${member.guild.id}`);
@@ -93,12 +114,10 @@ client.login(process.env.TOKEN);
 //auto pinging
 
 let count = 0;
-
 setInterval(
   () =>
     require("node-fetch")(process.env.URL).then(() =>
       console.log(`[${++count}] here i pinged ${process.env.URL}`)
     ),
-
   200000
 );
