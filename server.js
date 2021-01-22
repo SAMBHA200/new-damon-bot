@@ -72,16 +72,17 @@ client.on("guildMemberAdd", async member => {
     return;
   }
 
-  let default_url = `https://cdn.discordapp.com/attachments/696417925418057789/716197399336583178/giphy.gif`;
+  let default_url = `https://cdn.discordapp.com/icons/748061451306008616/a_9579123496050adfbfd72073542bdb42.gif?size=1024`;
 
   let default_msg = `
   WECLOME {member} TO THE SERVER
- 
+  COUNT {member.guild.membercout}
 `;
 
   let m1 = db.get(`msg_${member.guild.id}`);
   if (!m1) m1 = default_msg;
   const msg = m1
+  
     .replace("{member}", member.user)
     .replace("{member.guild}", member.guild)
     .replace("(:HEART)", `<a:BH:731369456634429493>`);
@@ -102,11 +103,11 @@ client.on("guildMemberAdd", async member => {
     )
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 2048 }))
     .setColor("RANDOM")
-    .setImage()
+    .setImage(url)
     .setDescription(msg);
 
   client.channels.cache.get(chx).send(wembed);
-  client.channels.cache.get(chx).send(attachment);
+//  client.channels.cache.get(chx).send(attachment);
 });
 
 client.login(process.env.TOKEN);
