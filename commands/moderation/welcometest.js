@@ -27,12 +27,8 @@ USER :- ${member}
 SERVER :- ${member.guild}
 𒃾────────╌╌╌╌╌╌┄┄┈┈┈𖣔︎`;
 
-   let m1 = db.get(`msg_${member.guild.id}`);
-  if (!m1) m1 = default_msg;
-  const msg = m1
-    .replace("{member}", member.user)
-    .replace("{member.guild}", member.guild)
-    .replace("(:HEART)", `<a:BH:731369456634429493>`);
+   let msg = db.get(`msg_${member.guild}`);
+    if (msg === null) msg = default_msg;
     
     let url = db.get(`url_${member.guild}`);
     if (url === null) url = default_url;
