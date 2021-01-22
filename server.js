@@ -72,17 +72,27 @@ client.on("guildMemberAdd", async member => {
     return;
   }
 
-  let default_url = `https://cdn.discordapp.com/icons/748061451306008616/a_9579123496050adfbfd72073542bdb42.gif?size=1024`;
+  let default_url = `https://cdn.discordapp.com/attachments/800690453484929095/801910235001651280/2020-pubg-game-4k-91-3840x2160.jpg`;
 
-  let default_msg = `
-  WECLOME {member} TO THE SERVER
-  COUNT {member.guild.membercout}
+  let default_msg = ` **HEY,** {member} **WELCOME TO INFAMOUS ESPORTS™**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a:Dot:752166556892397589> **ITS AN PUBG MOBILES ESPORT'S SERVER**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a:pandaHYPE:776061239889362974> **BEFORE GOING ANYWHERE CHECK THE BELOW LISTED THINGS**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a:INF_one:774591612146941972> **SERVER RULES WHICH NEED TO FOLLOW :-** <#764094389060108308>
+<a:INF_two:774591660524175370> **SERVER ANNOUNCEMENTS IN :-** <#764127348462190602>
+<a:INF_three:774591686709084160> **TAKE SCRIMS AND FUN ROLES FROM :-** <#764094622631854080>
+<a:INF_four:774591711602671646> **CHECK T3 SCRIMS INFO :-** <#782150389792768000>
+<a:INF_five:774591737304973312> **GO TO GENERAL CHAT FOR CHATTING :-** <#764128149550137384>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a:XTN47:787621650329632830> **THANKS FOR JOINING THE SERVER** <a:XTN47:787621650329632830>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `;
 
   let m1 = db.get(`msg_${member.guild.id}`);
   if (!m1) m1 = default_msg;
   const msg = m1
-  
     .replace("{member}", member.user)
     .replace("{member.guild}", member.guild)
     .replace("(:HEART)", `<a:BH:731369456634429493>`);
@@ -101,7 +111,6 @@ client.on("guildMemberAdd", async member => {
       member.user.username,
       member.user.avatarURL({ dynamic: true, size: 2048 })
     )
-    .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 2048 }))
     .setColor("RANDOM")
     .setImage(url)
     .setDescription(msg);
