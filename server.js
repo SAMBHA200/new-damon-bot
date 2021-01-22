@@ -100,11 +100,11 @@ client.on("guildMemberAdd", async member => {
   let url = db.get(`url_${member.guild.id}`);
   if (url === null) url = default_url;
 
-  let data = await canva.welcome(member, {
-    link: "https://wallpapercave.com/wp/wp5128415.jpg"
-  });
+ // let data = await canva.welcome(member, {
+ //   link: "https://wallpapercave.com/wp/wp5128415.jpg"
+ // });
 
-  const attachment = new discord.MessageAttachment(data, "welcome-image.png");
+ // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
 
   let wembed = new discord.MessageEmbed()
     .setAuthor(
