@@ -75,17 +75,17 @@ client.on("guildMemberAdd", async member => {
   let default_url = `https://cdn.discordapp.com/attachments/800690453484929095/801910235001651280/2020-pubg-game-4k-91-3840x2160.jpg`;
 
   let default_msg = ` ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-<a:SE_load:794475047309934619>WELCOME TO SKUŁZ・ESPORTS <a:SE_load:794475047309934619>
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-<a:SE_star:775358726742999040> ⠸ USER 〢𒌋𒄬」{member.username}
-<a:SE_star:775358726742999040> ⠸ MENTION 〢𒌋𒄬」{member}
-<a:SE_star:775358726742999040> ⠸ COUNT 〢𒌋𒄬」{member.memberCount}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-<a:SE_star:775358726742999040> ⠸ RULES 〢 <#775340432137388053>
-<a:SE_star:775358726742999040> ⠸ ROLES 〢 <#775340432833380352>
-<a:SE_star:775358726742999040> ⠸ CHAT 〢 <#775340446712725504>
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-THANKYOU FOR JOINING US ! <a:SE_star:775358726742999040>
+<a:SE_load:794475047309934619> **WELCOME TO SKUŁZ・ESPORTS** <a:SE_load:794475047309934619>
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+<a:SE_star:775358726742999040> **⠸ USER 〢𒌋𒄬」** {member.user.username}
+<a:SE_star:775358726742999040> **⠸ MENTION 〢𒌋𒄬」** {member}
+<a:SE_star:775358726742999040> **⠸ COUNT 〢𒌋𒄬」** {member.user.memberCount}
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+<a:SE_star:775358726742999040> **⠸ RULES 〢** <#775340432137388053>
+<a:SE_star:775358726742999040> **⠸ ROLES 〢** <#775340432833380352>
+<a:SE_star:775358726742999040> **⠸ CHAT 〢** <#775340446712725504>
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+**THANKYOU FOR JOINING US !** <a:SE_star:775358726742999040>
 `;
 
   let m1 = db.get(`msg_${member.guild.id}`);
@@ -93,7 +93,8 @@ THANKYOU FOR JOINING US ! <a:SE_star:775358726742999040>
   const msg = m1
     .replace("{member}", member.user)
     .replace("{member.guild}", member.guild)
-    .replace("(:HEART)", `<a:BH:731369456634429493>`);
+    .replace("(:HEART)", `<a:BH:731369456634429493
+  .replace("(member.username)",);
 
   let url = db.get(`url_${member.guild.id}`);
   if (url === null) url = default_url;
@@ -105,10 +106,10 @@ THANKYOU FOR JOINING US ! <a:SE_star:775358726742999040>
  // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
 
   let wembed = new discord.MessageEmbed()
- //   .setAuthor(
+   // .setAuthor(
  //     member.user.username,
-  //    member.user.avatarURL({ dynamic: true, size: 2048 })
-  //  )
+   //   member.user.avatarURL({ dynamic: true, size: 2048 })
+    //)
   
   .setTitle("SKULS ESPORTS")
     .setColor("RANDOM")
