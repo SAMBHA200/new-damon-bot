@@ -27,9 +27,6 @@ THANKYOU FOR JOINING US ! <a:SE_star:775358726742999040>`;
    let msg = db.get(`msg_${member.guild}`);
     if (msg === null) msg = default_msg;
     
-    conts = msg
-    .replace
-    
     let url = db.get(`url_${member.guild}`);
     if (url === null) url = default_url;
     
