@@ -104,12 +104,12 @@ client.on("guildMemberAdd", async member => {
  // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
 
   let wembed = new discord.MessageEmbed()
-   // .setAuthor(
+    .setAuthor(
+      member.guild
  //     member.user.username,
    //   member.user.avatarURL({ dynamic: true, size: 2048 })
-    //)
+    )
   
-  .setTitle("SKULS ESPORTS")
     .setColor("RANDOM")
     .setImage(url)
     .setDescription(msg);
