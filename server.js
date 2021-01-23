@@ -77,9 +77,9 @@ client.on("guildMemberAdd", async member => {
   let default_msg = ` ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <a:SE_load:794475047309934619> **WELCOME TO SKUŁZ・ESPORTS** <a:SE_load:794475047309934619>
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
-<a:SE_star:775358726742999040> **⠸ USER 〢𒌋𒄬」** {member.user.username}
+<a:SE_star:775358726742999040> **⠸ USER 〢𒌋𒄬」** {username}
 <a:SE_star:775358726742999040> **⠸ MENTION 〢𒌋𒄬」** {member}
-<a:SE_star:775358726742999040> **⠸ COUNT 〢𒌋𒄬」** {member.user.memberCount}
+<a:SE_star:775358726742999040> **⠸ COUNT 〢𒌋𒄬」** {count}
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 <a:SE_star:775358726742999040> **⠸ RULES 〢** <#775340432137388053>
 <a:SE_star:775358726742999040> **⠸ ROLES 〢** <#775340432833380352>
@@ -93,8 +93,8 @@ client.on("guildMemberAdd", async member => {
   const msg = m1
     .replace("{member}", member.user)
     .replace("{member.guild}", member.guild)
-    .replace("(:HEART)", `<a:BH:731369456634429493
-  .replace("(member.username)",);
+    .replace("(username)", member.username)
+    .replace("(count)", member.guild.memberCount);
 
   let url = db.get(`url_${member.guild.id}`);
   if (url === null) url = default_url;
