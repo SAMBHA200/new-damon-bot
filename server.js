@@ -16,6 +16,11 @@ client.aliases = new discord.Collection();
   require(`./handlers/${handler}`)(client);
 });
 client.on("ready", async () => {
+   const channel = client.channels.cache.get("805785436399861790");
+  channel.join().then(connection => {
+      connection.voice.setSelfDeaf(true);
+    });
+  
   try {
     console.log(client.user.tag + " Has Logged In");
 
