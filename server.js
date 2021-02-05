@@ -25,7 +25,7 @@ client.on("ready", async () => {
     console.log(client.user.tag + " Has Logged In");
 
     function pickStatus() {
-      let status = ["SKULZ OFIICIAL", "shelp"];
+      let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
 
       let Status = Math.floor(Math.random() * status.length);
 
