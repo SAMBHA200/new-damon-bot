@@ -70,6 +70,12 @@ PREFIX FOR THE BOT IS = \`s\`
   if (command) command.run(client, message, args);
 });
 
+client.on("message", async message => {
+  if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
+    return message.react(`764200230152830977`);
+  }
+});
+
 client.on("guildMemberAdd", async member => {
   let chx = db.get(`welchannel_${member.guild.id}`);
 
