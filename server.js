@@ -16,11 +16,11 @@ client.aliases = new discord.Collection();
   require(`./handlers/${handler}`)(client);
 });
 client.on("ready", async () => {
-   const channel = client.channels.cache.get("805785436399861790");
+  const channel = client.channels.cache.get("805785436399861790");
   channel.join().then(connection => {
-      connection.voice.setSelfDeaf(true);
-    });
-  
+    connection.voice.setSelfDeaf(true);
+  });
+
   try {
     console.log(client.user.tag + " Has Logged In");
 
@@ -43,9 +43,14 @@ client.on("ready", async () => {
 client.on("message", async message => {
   const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
   if (message.content.match(prefixMention)) {
-    return message.reply(`
-PREFIX FOR THE BOT IS = \`s\`
-`);
+    let mention = new discord.MessageEmbed()
+      .setTitle(client.user.username)
+      .addField("PREFIX", `\`${prefix}\``)
+      .addField("USAGE", `\`${prefix}help\``)
+      .setColor("RANDOM")
+      .setFooter(`Bot Mentioned By ${message.author.username}`);
+    message.channel.send(mention);
+    return;
   }
 
   if (message.author.bot) return;
@@ -103,30 +108,30 @@ client.on("guildMemberAdd", async member => {
   if (!m1) m1 = default_msg;
   const msg = m1
     .replace("{member}", member.user)
-    .replace("{member.guild}", member.guild)
+    .replace("{member.guild}", member.guild);
 
   let url = db.get(`url_${member.guild.id}`);
   if (url === null) url = default_url;
 
- // let data = await canva.welcome(member, {
- //   link: "https://wallpapercave.com/wp/wp5128415.jpg"
- // });
+  // let data = await canva.welcome(member, {
+  //   link: "https://wallpapercave.com/wp/wp5128415.jpg"
+  // });
 
- // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
+  // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
 
   let wembed = new discord.MessageEmbed()
     .setAuthor(
       member.guild
- //     member.user.username,
-   //   member.user.avatarURL({ dynamic: true, size: 2048 })
+      //     member.user.username,
+      //   member.user.avatarURL({ dynamic: true, size: 2048 })
     )
-  
+
     .setColor("RANDOM")
     .setImage(url)
     .setDescription(msg);
 
   client.channels.cache.get(chx).send(wembed);
-//  client.channels.cache.get(chx).send(attachment);
+  //  client.channels.cache.get(chx).send(attachment);
 });
 
 client.login(process.env.TOKEN);
