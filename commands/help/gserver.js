@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "gserver",
-  aliases: ["giveaway","GSERVER","Gserver"],
+  aliases: ["giveawayserver", "GSERVER", "Gserver"],
   category: "help",
   description: "INVITE BOT",
   run: async (client, message, args) => {
@@ -14,9 +14,9 @@ module.exports = {
         "<:marvel_arrow_right:815105698853552128> TERMS AND CONDITION",
         `ALL THE TERMS AND CONDITIONS WILL BE TOLD TO THE WINNERS AFTER GIVEAWAY IS OVER`
       )
-     .addField(
+      .addField(
         "<:marvel_arrow_right:815105698853552128> NEED ANY HELP",
-        `CONTACT SERVER MODS FOR ANY SOR OF HERLP REGARDING GIVEAWAY \nTO PARTICIPATE IN GIVEAWAY JOIN GIVEAWAY SERVER AND CHECK GIVEAWAY CHANEL THERE`
+        `CONTACT SERVER MODS FOR ANY SOR OF HERLP REGARDING GIVEAWAY \nTO PARTICIPATE IN GIVEAWAY JOIN GIVEAWAY SERVER AND CHECK GIVEAWAY CHANEL THERE \nREACT ON BOT MESSAGE AND PARTICIPATE`
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> GIVEAWAY SERVER",
@@ -35,7 +35,8 @@ module.exports = {
       .setFooter(
         "Requested By : " + message.author.tag,
         message.author.displayAvatarURL()
-      );
+      )
+      .setTimestamp((message.timestamp = Date.now()));
     message.channel.send(embed);
   }
 };
