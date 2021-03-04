@@ -43,7 +43,9 @@
     "neko-love-wrapper": "^1.2.1",
     "scrap": "^0.1.0",
     "reddit": "^1.2.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "srod-v2": "^1.0.2",
+    "booru": "^2.3.3"
   },
   "engines": {
     "node": "12.x"

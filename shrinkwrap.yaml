@@ -2,6 +2,7 @@ dependencies:
   akaneko: 4.5.3
   animejs: 3.2.1
   ascii-table: 0.0.9
+  booru: 2.4.0
   canvas-senpai: 1.0.0
   discord.js: 12.5.1
   dotenv: 8.2.0
@@ -31,6 +32,7 @@ dependencies:
   simple-youtube-api: 5.2.1
   snekfetch: 4.0.4
   something-random-on-discord: 0.0.1
+  srod-v2: 1.0.2
   weather-js: 2.0.0
   ytdl-core: 4.4.4
 packages:
@@ -692,6 +694,15 @@ packages:
     dev: false
     resolution:
       integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+  /booru/2.4.0:
+    dependencies:
+      fast-xml-parser: 3.18.0
+      node-fetch: 2.6.1
+    dev: false
+    engines:
+      node: '>=10.0.0'
+    resolution:
+      integrity: sha512-CYawPyAd4l7JA5tq4HmTbu9xAB146aFyQ2xfhU+lHvg28+fsIP8XD2Al/VY9rgQqdE78EvaR2Lvc1AhbsSdSbA==
   /brace-expansion/1.1.11:
     dependencies:
       balanced-match: 1.0.0
@@ -1112,6 +1123,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
+  /fast-xml-parser/3.18.0:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-tRrwShhppv0K5GKEtuVs92W0VGDaVltZAwtHbpjNF+JOT7cjIFySBGTEOmdBslXYyWYaZwEX/g4Su8ZeKg0LKQ==
   /fetch-blob/2.1.1:
     dev: false
     engines:
@@ -2419,6 +2435,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==
+  /srod-v2/1.0.2:
+    dependencies:
+      node-fetch: 2.6.1
+    dev: false
+    resolution:
+      integrity: sha512-bF871tXYNMYoxn74aQaZr2/aheLtzJTRDjBA4hT2ZWPkWM3DBfKmGGlmFdLsR7gmb32YDDVHJOniL36WdSp3wQ==
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -2771,6 +2793,7 @@ specifiers:
   akaneko: ^4.5.3
   animejs: ^3.2.1
   ascii-table: ^0.0.9
+  booru: ^2.3.3
   canvas-senpai: ^1.0.0
   discord.js: ^12.5.1
   dotenv: ^8.2.0
@@ -2800,5 +2823,6 @@ specifiers:
   simple-youtube-api: ^5.2.1
   snekfetch: ^4.0.4
   something-random-on-discord: ^0.0.1
+  srod-v2: ^1.0.2
   weather-js: ^2.0.0
   ytdl-core: ^4.4.4
