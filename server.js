@@ -7,7 +7,7 @@ const discord = require("discord.js");
 const client = new discord.Client({
   disableEveryone: false
 });
-require("./music.js");
+//require("./music.js");
 require("./uptime.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
@@ -21,27 +21,22 @@ client.on("ready", async () => {
     connection.voice.setSelfDeaf(true);
   });
 
-  try {
-    console.log(client.user.tag + " Has Logged In");
-
-    function pickStatus() {
-      let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
-
-      let Status = Math.floor(Math.random() * status.length);
-
-      client.user.setActivity(status[Status], {
-        type: "PLAYING"
-      });
-    }
-
-    setInterval(pickStatus, 5000);
-  } catch (err) {
-    console.log(err);
-  }
+  // try {
+  //    console.log(client.user.tag + " Has Logged In");
+  //   function pickStatus() {
+  //     let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
+  //    let Status = Math.floor(Math.random() * status.length);
+  //   client.user.setActivity(status[Status], {
+  //       type: "PLAYING"
+  //      });    }
+  //    setInterval(pickStatus, 5000);
+  // } catch (err) {
+  //    console.log(err);
+  //  }
 });
 
 client.on("message", async message => {
-  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  const prefixMention = new RegExp(`^<@!?z>( |)$`);
   if (message.content.match(prefixMention)) {
     let mention = new discord.MessageEmbed()
       .setTitle(client.user.username)
