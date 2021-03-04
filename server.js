@@ -40,46 +40,46 @@ client.on("ready", async () => {
   //  }
 });
 
-//client.on("message", async message => {
-//  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-//  if (message.content.match(prefixMention)) {
-//    let mention = new discord.MessageEmbed()
-//    .setTitle(client.user.username)
-//    .addField("PREFIX", `\`${prefix}\``)
-//    .addField("USAGE", `\`${prefix}help\``)
-//    .setColor("RANDOM")
-//     .setFooter(`Bot Mentioned By ${message.author.username}`);
-//   message.channel.send(mention);
-//    return;
-// }
-
-//  if (message.author.bot) return;
-// if (!message.guild) return;
-// if (!message.content.startsWith(prefix)) return;
-
-//  if (!message.member)
-//   message.member = await message.guild.fetchMember(message);
-
-//  const args = message.content
-//    .slice(prefix.length)
-//    .trim()
-//    .split(/ +/g);
-//  const cmd = args.shift().toLowerCase();
-
-// if (cmd.length === 0) return;
-
-// let command = client.commands.get(cmd);
-
-// if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-//  if (command) command.run(client, message, args);
-//  });
-
 client.on("message", async message => {
-  if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
-    return message.react(`764200230152830977`);
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  if (message.content.match(prefixMention)) {
+    let mention = new discord.MessageEmbed()
+      .setTitle(client.user.username)
+      .addField("PREFIX", `\`${prefix}\``)
+      .addField("USAGE", `\`${prefix}help\``)
+      .setColor("RANDOM")
+      .setFooter(`Bot Mentioned By ${message.author.username}`);
+    //   message.channel.send(mention);
+    return;
   }
+
+  if (message.author.bot) return;
+  if (!message.guild) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  if (!message.member)
+    message.member = await message.guild.fetchMember(message);
+
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(/ +/g);
+  const cmd = args.shift().toLowerCase();
+
+  if (cmd.length === 0) return;
+
+  let command = client.commands.get(cmd);
+
+  if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+  if (command) command.run(client, message, args);
 });
+
+//client.on("message", async message => {
+// if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
+//   return message.react(`764200230152830977`);
+//  }
+//});
 
 client.on("guildMemberAdd", async member => {
   let chx = db.get(`welchannel_${member.guild.id}`);
