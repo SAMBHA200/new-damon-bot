@@ -16,64 +16,64 @@ client.aliases = new discord.Collection();
   require(`./handlers/${handler}`)(client);
 });
 client.on("ready", async () => {
-  const channel = client.channels.cache.get("805785436399861790");
-  channel.join().then(connection => {
-    connection.voice.setSelfDeaf(true);
-  });
+  //const channel = client.channels.cache.get("805785436399861790");
+  // channel.join().then(connection => {
+  //   connection.voice.setSelfDeaf(true);
+  //  });
 
-  try {
-    console.log(client.user.tag + " Has Logged In");
+  // try {
+  console.log(client.user.tag + " Has Logged In");
 
-    function pickStatus() {
-      let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
+  //   function pickStatus() {
+  //    let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
 
-      let Status = Math.floor(Math.random() * status.length);
+  //    let Status = Math.floor(Math.random() * status.length);
+  //
+  //     client.user.setActivity(status[Status], {
+  //        type: "PLAYING"
+  //      });
+  //    }
 
-      client.user.setActivity(status[Status], {
-        type: "PLAYING"
-      });
-    }
-
-    setInterval(pickStatus, 5000);
-  } catch (err) {
-    console.log(err);
-  }
+  //   setInterval(pickStatus, 5000);
+  //  } catch (err) {
+  //   console.log(err);
+  //  }
 });
 
-client.on("message", async message => {
-  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-  if (message.content.match(prefixMention)) {
-    let mention = new discord.MessageEmbed()
-      .setTitle(client.user.username)
-      .addField("PREFIX", `\`${prefix}\``)
-      .addField("USAGE", `\`${prefix}help\``)
-      .setColor("RANDOM")
-      .setFooter(`Bot Mentioned By ${message.author.username}`);
-    message.channel.send(mention);
-    return;
-  }
+//client.on("message", async message => {
+//  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+//  if (message.content.match(prefixMention)) {
+//    let mention = new discord.MessageEmbed()
+//    .setTitle(client.user.username)
+//    .addField("PREFIX", `\`${prefix}\``)
+//    .addField("USAGE", `\`${prefix}help\``)
+//    .setColor("RANDOM")
+//     .setFooter(`Bot Mentioned By ${message.author.username}`);
+//   message.channel.send(mention);
+//    return;
+// }
 
-  if (message.author.bot) return;
-  if (!message.guild) return;
-  if (!message.content.startsWith(prefix)) return;
+//  if (message.author.bot) return;
+// if (!message.guild) return;
+// if (!message.content.startsWith(prefix)) return;
 
-  if (!message.member)
-    message.member = await message.guild.fetchMember(message);
+//  if (!message.member)
+//   message.member = await message.guild.fetchMember(message);
 
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(/ +/g);
-  const cmd = args.shift().toLowerCase();
+//  const args = message.content
+//    .slice(prefix.length)
+//    .trim()
+//    .split(/ +/g);
+//  const cmd = args.shift().toLowerCase();
 
-  if (cmd.length === 0) return;
+// if (cmd.length === 0) return;
 
-  let command = client.commands.get(cmd);
+// let command = client.commands.get(cmd);
 
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
+// if (!command) command = client.commands.get(client.aliases.get(cmd));
 
-  if (command) command.run(client, message, args);
-});
+//  if (command) command.run(client, message, args);
+//  });
 
 client.on("message", async message => {
   if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
