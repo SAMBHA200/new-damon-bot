@@ -21,18 +21,18 @@ client.on("ready", async () => {
     connection.voice.setSelfDeaf(true);
   });
 
-  // try {
-  //    console.log(client.user.tag + " Has Logged In");
-  //   function pickStatus() {
-  //     let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
-  //    let Status = Math.floor(Math.random() * status.length);
-  //   client.user.setActivity(status[Status], {
-  //       type: "PLAYING"
-  //      });    }
-  //    setInterval(pickStatus, 5000);
-  // } catch (err) {
-  //    console.log(err);
-  //  }
+  try {
+    console.log(client.user.tag + " Has Logged In");
+    //   function pickStatus() {
+    //     let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
+    //    let Status = Math.floor(Math.random() * status.length);
+    //   client.user.setActivity(status[Status], {
+    //       type: "PLAYING"
+    //      });    }
+    //    setInterval(pickStatus, 5000);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 client.on("message", async message => {

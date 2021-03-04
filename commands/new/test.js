@@ -16,7 +16,6 @@ module.export = {
 
       return message.channel.send(errMessage);
     }
-
     const query = args.join(" ");
     if (!query)
       return message.channel.send("Command Usage: `gelbooru <Query>`");
