@@ -7,7 +7,7 @@ const discord = require("discord.js");
 const client = new discord.Client({
   disableEveryone: false
 });
-//require("./music.js");
+require("./music.js");
 require("./uptime.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
@@ -16,28 +16,28 @@ client.aliases = new discord.Collection();
   require(`./handlers/${handler}`)(client);
 });
 client.on("ready", async () => {
-  //const channel = client.channels.cache.get("805785436399861790");
-  // channel.join().then(connection => {
-  //   connection.voice.setSelfDeaf(true);
-  //  });
+  const channel = client.channels.cache.get("805785436399861790");
+  channel.join().then(connection => {
+    connection.voice.setSelfDeaf(true);
+  });
 
-  // try {
-  console.log(client.user.tag + " Has Logged In");
+  try {
+    console.log(client.user.tag + " Has Logged In");
 
-  //   function pickStatus() {
-  //    let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
+    function pickStatus() {
+      let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
 
-  //    let Status = Math.floor(Math.random() * status.length);
-  //
-  //     client.user.setActivity(status[Status], {
-  //        type: "PLAYING"
-  //      });
-  //    }
+      let Status = Math.floor(Math.random() * status.length);
 
-  //   setInterval(pickStatus, 5000);
-  //  } catch (err) {
-  //   console.log(err);
-  //  }
+      client.user.setActivity(status[Status], {
+        type: "PLAYING"
+      });
+    }
+
+    setInterval(pickStatus, 5000);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 client.on("message", async message => {
@@ -49,7 +49,7 @@ client.on("message", async message => {
       .addField("USAGE", `\`${prefix}help\``)
       .setColor("RANDOM")
       .setFooter(`Bot Mentioned By ${message.author.username}`);
-    //   message.channel.send(mention);
+    message.channel.send(mention);
     return;
   }
 
@@ -75,11 +75,11 @@ client.on("message", async message => {
   if (command) command.run(client, message, args);
 });
 
-//client.on("message", async message => {
-// if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
-//   return message.react(`764200230152830977`);
-//  }
-//});
+client.on("message", async message => {
+  if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
+    return message.react(`764200230152830977`);
+  }
+});
 
 client.on("guildMemberAdd", async member => {
   let chx = db.get(`welchannel_${member.guild.id}`);
