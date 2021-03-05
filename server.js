@@ -22,55 +22,59 @@ client.on("ready", async () => {
   });
 
   try {
-    console.log(client.user.tag + " Has Logged In");
+    console.log(`Logged in as ${client.user.tag}!`);
+    //   function pickStatus() {
+    //    let status = ["BLACKOUT OFFICIAL", "bhelp | bsupport"];
+    //    let Status = Math.floor(Math.random() * status.length);
     client.user.setPresence({
-      status: "idle",
+      status: "dnd", // You can show online, idle... Do not disturb is dnd
       game: {
-        name: "MARVEL BETA",
-        type: "WATCHING"
+        name: "!help", // The message shown
+        type: "PLAYING" // PLAYING, WATCHING, LISTENING, STREAMING,
       }
     });
+
+    //  }
+
+    client.on("message", async message => {
+      const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+      if (message.content.match(prefixMention)) {
+        let mention = new discord.MessageEmbed()
+          .setTitle(client.user.username)
+          .addField("PREFIX", `\`${prefix}\``)
+          .addField("USAGE", `\`${prefix}help\``)
+          .setColor("RANDOM")
+          .setFooter(`Bot Mentioned By ${message.author.username}`);
+        message.channel.send(mention);
+        return;
+      }
+
+      if (message.author.bot) return;
+      if (!message.guild) return;
+      if (!message.content.startsWith(prefix)) return;
+
+      if (!message.member)
+        message.member = await message.guild.fetchMember(message);
+
+      const args = message.content
+        .slice(prefix.length)
+        .trim()
+        .split(/ +/g);
+      const cmd = args.shift().toLowerCase();
+
+      if (cmd.length === 0) return;
+
+      let command = client.commands.get(cmd);
+
+      if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+      if (command) command.run(client, message, args);
+    });
+
+    //  setInterval(pickStatus, 5000);
   } catch (err) {
     console.log(err);
   }
-});
-
-client.on("ready", async () =>{
-  client.user.set
-
-client.on("message", async message => {
-  const prefixMention = new RegExp(`^<@!?z>( |)$`);
-  if (message.content.match(prefixMention)) {
-    let mention = new discord.MessageEmbed()
-      .setTitle(client.user.username)
-      .addField("PREFIX", `\`${prefix}\``)
-      .addField("USAGE", `\`${prefix}help\``)
-      .setColor("RANDOM")
-      .setFooter(`Bot Mentioned By ${message.author.username}`);
-    message.channel.send(mention);
-    return;
-  }
-
-  if (message.author.bot) return;
-  if (!message.guild) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  if (!message.member)
-    message.member = await message.guild.fetchMember(message);
-
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(/ +/g);
-  const cmd = args.shift().toLowerCase();
-
-  if (cmd.length === 0) return;
-
-  let command = client.commands.get(cmd);
-
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-  if (command) command.run(client, message, args);
 });
 
 client.on("message", async message => {
