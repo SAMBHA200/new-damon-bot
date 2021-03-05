@@ -23,14 +23,13 @@ client.on("ready", async () => {
 
   try {
     console.log(client.user.tag + " Has Logged In");
-    //   function pickStatus() {
-    //     let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
-    //    let Status = Math.floor(Math.random() * status.length);
-    client.user.setActivity("BETA VERSION", {
-      type: "PLAYING"
+    client.user.setPresence({
+      status: "idle",
+      game: {
+        name: "MARVEL BETA",
+        type: "WATCHING"
+      }
     });
-    //}
-    //    setInterval(pickStatus, 5000);
   } catch (err) {
     console.log(err);
   }
