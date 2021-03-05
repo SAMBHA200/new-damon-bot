@@ -26,9 +26,10 @@ client.on("ready", async () => {
     //   function pickStatus() {
     //     let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
     //    let Status = Math.floor(Math.random() * status.length);
-    //   client.user.setActivity(status[Status], {
-    //       type: "PLAYING"
-    //      });    }
+       client.user.setActivity("BETA VERSION", {
+           type: "PLAYING"
+          });    
+    //}
     //    setInterval(pickStatus, 5000);
   } catch (err) {
     console.log(err);
