@@ -35,6 +35,9 @@ client.on("ready", async () => {
   }
 });
 
+client.on("ready", async () =>{
+  client.user.set
+
 client.on("message", async message => {
   const prefixMention = new RegExp(`^<@!?z>( |)$`);
   if (message.content.match(prefixMention)) {
