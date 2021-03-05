@@ -8,9 +8,7 @@ module.exports = {
   category: "help",
   description: "KNOW ABOUT THE CREATOR OF BOT",
   run: async (client, message, args) => {
-    
-
-    message.channel.send("**Welcome {member} To ${member.guild}** <a:vshield:764199958257336321> 
+    let msg = `**Welcome <@${message.author.id}> To ${message.guild}** <a:vshield:764199958257336321> 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -18,8 +16,8 @@ module.exports = {
 
 <a:rainbowleft:764200797629186049> **Make Sure You Read Rules.**
 
-<a:rainbowleft:764200797629186049> **Have Fun In Chatting.**");
+<a:rainbowleft:764200797629186049> **Have Fun In Chatting.**`;
 
+    message.channel.send(msg);
   }
-
 };

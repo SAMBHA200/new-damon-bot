@@ -1,3 +1,5 @@
 {
-  "prefix": "t"
+  "prefix": "*",
+  "bowner": "672027578181353473",
+  "binvite": "https://discord.com/oauth2/authorize?client_id=748583869527097376&permissions=21174635438&scope=bot"
 }

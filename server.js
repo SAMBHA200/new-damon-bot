@@ -91,9 +91,7 @@ client.on("guildMemberAdd", async member => {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 <a:rainbowleft:764200797629186049> **Make Sure To Take Self Roles.**
-
 <a:rainbowleft:764200797629186049> **Make Sure You Read Rules.**
-
 <a:rainbowleft:764200797629186049> **Have Fun In Chatting.**`;
 
   let m1 = db.get(`msg_${member.guild.id}`);
