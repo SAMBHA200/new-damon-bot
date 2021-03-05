@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const { prefix, binvite } = require("../../config.json");
+const { prefix, binvite, sserver } = require("../../config.json");
 module.exports = {
   name: "nhelpwelcome",
   aliases: ["nwelcome"],
@@ -53,7 +53,7 @@ module.exports = {
       )
       .addField(
         "<:marvel_discord:814792681157820416>  **Support Server**",
-        "[discord.gg/support](https://discord.gg/wXemeVm)"
+        "[discord.gg/support](" + sserver + ")"
       )
       //   .addField(
       //    "<:marvel_image:814798025066020884> Image",
