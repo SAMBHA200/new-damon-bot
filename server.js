@@ -26,12 +26,9 @@ client.on("ready", async () => {
     //   function pickStatus() {
     //    let status = ["BLACKOUT OFFICIAL", "bhelp | bsupport"];
     //    let Status = Math.floor(Math.random() * status.length);
-    client.user.setPresence({
-      status: "dnd", // You can show online, idle... Do not disturb is dnd
-      game: {
-        name: "!help", // The message shown
-        type: "PLAYING" // PLAYING, WATCHING, LISTENING, STREAMING,
-      }
+    client.user.setActivity("MARVEL BETA", {
+      type: "STREAMING",
+      url: "https://twitch.tv/4matxshadow"
     });
 
     //  }
