@@ -1,4 +1,4 @@
-//const Command = require("../../base/Command.js");
+const Command = require("../../base/Command.js");
 const { MessageEmbed } = require("discord.js");
 const booru = require("booru");
 const errors = require("../../assets/json/errors");
