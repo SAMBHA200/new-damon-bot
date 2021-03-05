@@ -59,9 +59,9 @@ module.exports = {
       //    "<:marvel_image:814798025066020884> Image",
       //     "Below Is An Image Of What Things Can Be Changed"
       //   )
-      // .setImage(
-      //      "https://cdn.discordapp.com/attachments/799624878109622312/814738236869836830/20210226_112833.jpg"
-      //   )
+      .setImage(
+        "https://cdn.discordapp.com/attachments/817403879305379851/817434114545549312/Screenshot_20210305-220039.jpg"
+      )
       .setColor("RED")
       .setThumbnail(client.user.avatarURL())
       .setFooter(
