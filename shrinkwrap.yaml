@@ -7,6 +7,7 @@ dependencies:
   discord.js: 12.5.1
   dotenv: 8.2.0
   express: 4.17.1
+  fetch: 1.1.0
   figlet: 1.5.0
   fs: 0.0.2
   hastebin-gen: 2.0.5
@@ -650,6 +651,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==
+  /biskviit/1.0.1:
+    dependencies:
+      psl: 1.8.0
+    dev: false
+    engines:
+      node: '>=1.0.0'
+    resolution:
+      integrity: sha1-A3oM1LcbnjMf2QoRIt4X3EnkIKc=
   /bl/2.2.1:
     dependencies:
       readable-stream: 2.3.7
@@ -1022,6 +1031,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /encoding/0.1.12:
+    dependencies:
+      iconv-lite: 0.4.24
+    dev: false
+    resolution:
+      integrity: sha1-U4tm8+5izRq1HsMjgp0flIDHS+s=
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -1136,6 +1151,13 @@ packages:
       domexception: ^2.0.1
     resolution:
       integrity: sha512-Uf+gxPCe1hTOFXwkxYyckn8iUSk6CFXGy5VENZKifovUTZC9eUODWSBhOBS7zICGrAetKzdwLMr85KhIcePMAQ==
+  /fetch/1.1.0:
+    dependencies:
+      biskviit: 1.0.1
+      encoding: 0.1.12
+    dev: false
+    resolution:
+      integrity: sha1-CoJ58Gvjf58Ou1Z1YKMKSA2lmi4=
   /figlet/1.5.0:
     dev: false
     engines:
@@ -2798,6 +2820,7 @@ specifiers:
   discord.js: ^12.5.1
   dotenv: ^8.2.0
   express: ^4.17.1
+  fetch: ^1.1.0
   figlet: ^1.5.0
   fs: ^0.0.2
   hastebin-gen: ^2.0.5
