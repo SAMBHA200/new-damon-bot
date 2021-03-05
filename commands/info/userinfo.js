@@ -56,30 +56,17 @@ module.exports = {
 
       .setAuthor(target.tag, avatar)
       .setThumbnail(avatar)
-      .setDescription(
-        `
-
-**❯ Name:** ${target.username}
-
-**❯ ID:** ${target.id}
-
-**❯ Nickname:** ${nickname}
-
-**❯ Account Creation:** ${createdate} | ${created} day(s) ago
-
-**❯ Server Joined At:** ${joindate} | ${joined} day(s) ago
-
-**❯ Status:** ${status}
-
-**❯ Game:** ${game()}
-
-**❯ Badges:** ${flags}
-
-**❯ Roles:** <@&${member._roles.join("> <@&")}>`
-      )
-
+      .addField("Name:",`${target.username}`)
+      .addField("ID:",`${target.id}`)
+      .addField("Nickname:",`${nickname}`)
+      .addField("Account Creation:", `${createdate} | ${created} day(s) ago`)
+      .addField("Server Joined At:", `${joindate} | ${joined} day(s) ago`)
+      .addField("Status:",`${status}`)
+      .addField("Game:", `${game()}`)
+      .addField("Badges:",`${flags}`)
+      .addField("Roles:",`<@&${member._roles.join("> <@&")}>`)
       .setColor("RED")
-    //  .setImage(target.displayAvatarURL({ dynamic: true, size: 1024 }))
+      //  .setImage(target.displayAvatarURL({ dynamic: true, size: 1024 }))
       .setFooter(`Asked by : ${message.author.username}`, aicon)
       .setTimestamp();
 
