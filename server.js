@@ -26,9 +26,9 @@ client.on("ready", async () => {
     //   function pickStatus() {
     //     let status = ["BUY BOT LIKE ME FROM DAMON", "shelp"];
     //    let Status = Math.floor(Math.random() * status.length);
-       client.user.setActivity("BETA VERSION", {
-           type: "PLAYING"
-          });    
+    client.user.setActivity("BETA VERSION", {
+      type: "PLAYING"
+    });
     //}
     //    setInterval(pickStatus, 5000);
   } catch (err) {
@@ -86,19 +86,15 @@ client.on("guildMemberAdd", async member => {
 
   let default_url = `https://cdn.discordapp.com/attachments/800690453484929095/801910235001651280/2020-pubg-game-4k-91-3840x2160.jpg`;
 
-  let default_msg = ` ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-<a:SE_load:794475047309934619> **WELCOME TO SKUŁZ・ESPORTS** <a:SE_load:794475047309934619>
-**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
-<a:SE_star:775358726742999040> **⠸ USER 〢𒌋𒄬」** ${member.user.tag}
-<a:SE_star:775358726742999040> **⠸ MENTION 〢𒌋𒄬」** {member}
-<a:SE_star:775358726742999040> **⠸ COUNT 〢𒌋𒄬」** ${member.guild.memberCount}
-**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
-<a:SE_star:775358726742999040> **⠸ RULES 〢** <#775340432137388053>
-<a:SE_star:775358726742999040> **⠸ ROLES 〢** <#775340432833380352>
-<a:SE_star:775358726742999040> **⠸ CHAT 〢** <#775340446712725504>
-**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
-**THANKYOU FOR JOINING US !** <a:SE_star:775358726742999040>
-`;
+  let default_msg = `**Welcome {member} To ${member.guild}** :vshield: 
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+:rainbowleft: **Make Sure To Take Self Roles.**
+
+:rainbowleft: **Make Sure You Read Rules.**
+
+:rainbowleft: **Have Fun In Chatting.**`;
 
   let m1 = db.get(`msg_${member.guild.id}`);
   if (!m1) m1 = default_msg;
@@ -126,7 +122,7 @@ client.on("guildMemberAdd", async member => {
     .setImage(url)
     .setDescription(msg);
 
-  client.channels.cache.get(chx).send(wembed);
+  client.channels.cache.get(chx).send(msg);
   //  client.channels.cache.get(chx).send(attachment);
 });
 
