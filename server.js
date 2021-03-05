@@ -86,15 +86,15 @@ client.on("guildMemberAdd", async member => {
 
   let default_url = `https://cdn.discordapp.com/attachments/800690453484929095/801910235001651280/2020-pubg-game-4k-91-3840x2160.jpg`;
 
-  let default_msg = `**Welcome {member} To ${member.guild}** :vshield: 
+  let default_msg = `**Welcome {member} To ${member.guild}** <a:vshield:764199958257336321> 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-:rainbowleft: **Make Sure To Take Self Roles.**
+<a:rainbowleft:764200797629186049> **Make Sure To Take Self Roles.**
 
-:rainbowleft: **Make Sure You Read Rules.**
+<a:rainbowleft:764200797629186049> **Make Sure You Read Rules.**
 
-:rainbowleft: **Have Fun In Chatting.**`;
+<a:rainbowleft:764200797629186049> **Have Fun In Chatting.**`;
 
   let m1 = db.get(`msg_${member.guild.id}`);
   if (!m1) m1 = default_msg;
