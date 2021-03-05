@@ -10,7 +10,7 @@ module.export = {
   usage: "status <online | idle | dnd | invisible>",
   // permLevel: "Bot Owner",
 
-  async run(client, message, args) {
+  run(client, message, args) {
     const status = args[0];
     if (!status) return message.reply("A status type must be provided.");
     const statusType = args[0].toLowerCase();
