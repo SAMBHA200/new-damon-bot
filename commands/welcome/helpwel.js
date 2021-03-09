@@ -43,7 +43,11 @@ module.exports = {
         "<:marvel_arrow_right:815105698853552128> Reset Message",
         "`" + prefix + "nresetmsg` to reset welcome message"
       )
-      .addField(
+     .addField(
+        "<:marvel_arrow_right:815105698853552128> Diable Welcomer",
+        "`" + prefix + "ndisable` to disable non embed welcome"
+      )
+    .addField(
         "<:marvel_arrow_right:815105698853552128> Miscellaneous Settings",
         "use {member} in your description for mentioning the new member"
       )
