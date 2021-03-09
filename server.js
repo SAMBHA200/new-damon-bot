@@ -34,7 +34,7 @@ client.on("ready", async () => {
     //  }
 
     client.on("message", async message => {
-      const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+      const prefixMention = new RegExp(`^<@!?${client.user.username}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
           .setTitle(client.user.username)
