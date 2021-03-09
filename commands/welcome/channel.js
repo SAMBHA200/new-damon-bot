@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
-  name: "setwelcome",
+  name: "nsetwelcome",
   category: "moderation",
   usage: "setwelcome <#channel>",
   description: "Set the welcome channel",
