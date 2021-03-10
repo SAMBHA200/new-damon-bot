@@ -7,7 +7,7 @@ const discord = require("discord.js");
 const client = new discord.Client({
   disableEveryone: false
 });
-require("./bot.js");
+//require("./bot.js");
 require("./uptime.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
@@ -22,7 +22,7 @@ client.on("ready", async () => {
   });
 
   try {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Successfully logged in as ${client.user.tag}!`);
     //   function pickStatus() {
     //    let status = ["BLACKOUT OFFICIAL", "bhelp | bsupport"];
     //    let Status = Math.floor(Math.random() * status.length);
