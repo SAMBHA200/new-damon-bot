@@ -38,7 +38,7 @@ client.on("messageDelete", async message => {
     if (message.author.bot) return;
     var y = db.get("messagedelete_" + message.guild.id);
     if (y !== `enabled`) return;
-    var x = db.get("msglog_" + message.guild.id);
+    var x = db.get("loggingchannel_" + message.guild.id);
     x = client.channels.cache.get(x);
     if (message.channel == x) return;
     var embed = new discord.MessageEmbed()
