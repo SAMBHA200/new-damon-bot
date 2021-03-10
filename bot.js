@@ -24,14 +24,10 @@ client.on("message", async message => {
       return message.author.send("You may not use everyone/here mentions.");
 
     let active = await table.get(`support_${message.author.id}`);
-
     let guild = client.guilds.cache.get(config.guild);
-
     let channel,
       found = true;
-
     let user = await table.get(`isBlocked${message.author.id}`);
-
     if (user === true || user === "true") return message.react("❌");
 
     if (active === null) {

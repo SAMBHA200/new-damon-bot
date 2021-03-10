@@ -46,7 +46,8 @@
     "node-fetch": "^2.6.1",
     "srod-v2": "^1.0.2",
     "booru": "^2.3.3",
-    "fetch": "^1.1.0"
+    "fetch": "^1.1.0",
+    "tickets": "^0.2.2"
   },
   "engines": {
     "node": "12.x"
