@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
-  name: "channellog",
-  aliases: ["chlog"],
+  name: "deletechannellog",
+  aliases: ["dchlog"],
   category: "moderation",
   usage: "setwelcome <#channel>",
   description: "Set the welcome channel",
@@ -15,7 +15,7 @@ module.exports = {
     }
 
     //Now we gonna use quick.db
-    db.set(`chxlog_${channel.guild.id}`, channel.id);
-    message.channel.send(`New Channel Create Channel Is ${channel}`);
+    db.set(`dchxlog_${channel.guild.id}`, channel.id);
+    message.channel.send(`New Delete Channel Logs Channel Is ${channel}`);
   }
 };

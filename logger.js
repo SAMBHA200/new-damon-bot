@@ -57,7 +57,7 @@ client.on("channelCreate", async function(channel) {
   if (!channel.guild) return;
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("loggingchannel_" + channel.guild.id);
+  var x = db.get("chxlog_" + channel.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
@@ -275,7 +275,7 @@ client.on("roleCreate", async function(role) {
 
   var x = client.channels.cache.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -334,7 +334,7 @@ client.on("message", async message => {
     }
   }
 
-  if (command === "help") {
+  if (command === "helplog") {
     if (!message.guild)
       return message.channel.send(`use this command in a server, not dm!`);
 

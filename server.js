@@ -110,7 +110,6 @@ client.on("guildMemberAdd", async member => {
   // let data = await canva.welcome(member, {
   //   link: "https://wallpapercave.com/wp/wp5128415.jpg"
   // });
-
   // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
 
   let wembed = new discord.MessageEmbed()
