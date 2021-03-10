@@ -58,7 +58,7 @@ client.on("channelCreate", async function(channel) {
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
   var x = db.get("loggingchannel_" + channel.guild.id);
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
     .setAuthor("channel created", channel.guild.iconURL)
@@ -73,7 +73,7 @@ client.on("channelDelete", async function(channel) {
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
   var x = db.get("loggingchannel_" + channel.guild.id);
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
@@ -89,7 +89,7 @@ client.on("emojiCreate", async function(emoji) {
   var y = db.get(`emojicreate_${emoji.guild.id}`);
   if (y !== "enabled") return;
   var x = db.get("loggingchannel_" + emoji.guild.id);
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
     .setAuthor("emoji created", emoji.guild.iconURL)
@@ -103,7 +103,7 @@ client.on("emojiDelete", async function(emoji) {
   var y = db.get(`emojidelete_${emoji.guild.id}`);
   if (y !== "enabled") return;
   var x = db.get("loggingchannel_" + emoji.guild.id);
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
     .setAuthor("emoji deleted", emoji.guild.iconURL)
@@ -119,7 +119,7 @@ client.on("guildBanAdd", async function(guild, user) {
 
   var x = db.get("loggingchannel_" + guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   var embed = new discord.MessageEmbed()
 
@@ -143,7 +143,7 @@ client.on("guildBanRemove", async function(guild, user) {
 
   var x = db.get("loggingchannel_" + guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   var embed = new discord.MessageEmbed()
 
@@ -167,7 +167,7 @@ client.on("guildMemberAdd", async function(member) {
 
   var x = db.get("loggingchannel_" + member.guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   var embed = new discord.MessageEmbed()
 
@@ -191,7 +191,7 @@ client.on("guildMemberRemove", async function(member) {
 
   var x = db.get("loggingchannel_" + member.guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   var embed = new discord.MessageEmbed()
 
@@ -215,7 +215,7 @@ client.on("messageDeleteBulk", async function(messages) {
 
   var x = db.get("loggingchannel_" + messages.random().guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   if (messages.random().channel == x) return;
 
@@ -273,7 +273,7 @@ client.on("roleCreate", async function(role) {
 
   var x = db.get("loggingchannel_" + role.guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   var embed = new discord.RichEmbed()
 
@@ -297,7 +297,7 @@ client.on("roleDelete", async function(role) {
 
   var x = db.get("loggingchannel_" + role.guild.id);
 
-  var x = client.channels.get(x);
+  var x = client.channels.cache.get(x);
 
   var embed = new discord.RichEmbed()
 
@@ -380,7 +380,7 @@ client.on("message", async message => {
         );
 
       if (x !== null) {
-        var y = client.channels.get(x);
+        var y = client.channels.cache.get(x);
 
         embed.addField(
           `----------------------`,
@@ -416,7 +416,7 @@ client.on("message", async message => {
           `\`${prefix}setchannel #channel\``
         );
       if (x !== null) {
-        var y = client.channels.get(x);
+        var y = client.channels.cache.get(x);
         embed.addField(
           `----------------------`,
           `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
@@ -507,7 +507,7 @@ client.on("message", async message => {
           `\`${prefix}setchannel #channel\``
         );
       if (x !== null) {
-        var y = client.channels.get(x);
+        var y = client.channels.cache.get(x);
         embed.addField(
           `----------------------`,
           `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
