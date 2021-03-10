@@ -9,6 +9,7 @@ const client = new discord.Client({
 });
 require("./logger.js");
 require("./uptime.js");
+require("./extra.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 

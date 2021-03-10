@@ -45,7 +45,7 @@ client.on("messageDelete", async message => {
 
     var x = db.get("loggingchannel_" + message.guild.id);
 
-    x = client.channels.get(x);
+    x = client.channels.cache.get(x);
 
     if (message.channel == x) return;
 
