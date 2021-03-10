@@ -72,7 +72,7 @@ client.on("channelDelete", async function(channel) {
   if (!channel.guild) return;
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("dchannellog_" + channel.guild.id);
+  var x = db.get("channellog_" + channel.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
 
@@ -102,7 +102,7 @@ client.on("emojiCreate", async function(emoji) {
 client.on("emojiDelete", async function(emoji) {
   var y = db.get(`emojidelete_${emoji.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("demojilog_" + emoji.guild.id);
+  var x = db.get("emojilog_" + emoji.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
@@ -114,74 +114,117 @@ client.on("emojiDelete", async function(emoji) {
 });
 client.on("guildBanAdd", async function(guild, user) {
   var y = db.get(`guildbanadd_${guild.id}`);
+
   if (y !== "enabled") return;
+
   var x = db.get("banlog_" + guild.id);
+
   var x = client.channels.cache.get(x);
+
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
+
     .setAuthor("user banned", guild.iconURL)
+
     .addField("banned user", user.tag)
+
     .addField("user id", user.id + `\n**----------------------**`)
+
     .setTimestamp();
+
   x.send(embed).catch();
 });
 
 client.on("guildBanRemove", async function(guild, user) {
   var y = db.get(`guildbanremove_${guild.id}`);
+
   if (y !== "enabled") return;
-  var x = db.get("unbanlog_" + guild.id);
+
+  var x = db.get("banlog_" + guild.id);
+
   var x = client.channels.cache.get(x);
+
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
+
     .setAuthor("user unbanned", guild.iconURL)
+
     .addField("unbanned user", user.tag)
+
     .addField("user id", user.id + `\n**----------------------**`)
+
     .setTimestamp();
+
   x.send(embed).catch();
 });
 
 client.on("guildMemberAdd", async function(member) {
   var y = db.get(`guildmemberadd_${member.guild.id}`);
+
   if (y !== "enabled") return;
+
   var x = db.get("joinlog_" + member.guild.id);
+
   var x = client.channels.cache.get(x);
+
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
+
     .setAuthor("user join", member.guild.iconURL)
+
     .addField("user tag", member.user.tag)
+
     .addField("user id", member.user.id + `\n**----------------------**`)
+
     .setTimestamp();
+
   x.send(embed).catch();
 });
+
 client.on("guildMemberRemove", async function(member) {
   var y = db.get(`guildmemberremove_${member.guild.id}`);
+
   if (y !== "enabled") return;
+
   var x = db.get("leavelog_" + member.guild.id);
+
   var x = client.channels.cache.get(x);
+
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
+
     .setAuthor("user left", member.guild.iconURL)
+
     .addField("user tag", member.user.tag)
+
     .addField("user id", member.user.id + `\n**----------------------**`)
+
     .setTimestamp();
+
   x.send(embed).catch();
 });
 
 client.on("messageDeleteBulk", async function(messages) {
   var y = db.get(`messagebulkdelete_${messages.random().guild.id}`);
+
   if (y !== "enabled") return;
+
   var x = db.get("bulk_" + messages.random().guild.id);
+
   var x = client.channels.cache.get(x);
+
   if (messages.random().channel == x) return;
+
   await messages
     .array()
     .reverse()
     .forEach(m => {
       var x = m.createdAt.toString().split(" ");
+
       fs.appendFile(
         "messagebulkdelete.txt",
         `[${m.author.tag}], [#${m.channel.name}]: ["${
@@ -189,30 +232,45 @@ client.on("messageDeleteBulk", async function(messages) {
         }"], created at [${x[0]} ${x[1]} ${x[2]} ${x[3]} ${x[4]}]\n\n`,
         function(err) {
           if (err) throw err;
+
           console.log("Saved!");
         }
       );
     });
+
   var embed = new discord.RichEmbed()
+
     .setColor("RANDOM")
+
     .setAuthor("message bulk delete", messages.random().guild.iconURL)
+
     .addField("channel", messages.random().channel)
+
     .addField(
       "messages count",
       messages.array().length + `\n**----------------------**`
     )
+
     .setTimestamp();
+
   await x.send(embed).catch();
+
   await x.send(`Here is the log file for the deleted messages: \n`).catch();
+
   await x.send({ files: [{ attachment: "messagebulkdelete.txt" }] }).catch();
+
   fs.unlink("messagebulkdelete.txt", function(err) {
     if (err) throw err;
+
     console.log("File deleted!");
   });
 });
+
 client.on("roleCreate", async function(role) {
   var y = db.get(`rolecreate_${role.guild.id}`);
+
   if (y !== "enabled") return;
+
   var x = db.get("rolelog_" + role.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.RichEmbed()
@@ -227,7 +285,7 @@ client.on("roleCreate", async function(role) {
 client.on("roleDelete", async function(role) {
   var y = db.get(`roledelete_${role.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("drolelog_" + role.guild.id);
+  var x = db.get("rolelog_" + role.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.RichEmbed()
 
@@ -255,7 +313,7 @@ client.on("message", async message => {
       }
     }
   }
-  if (command === "helplog") {
+  if (command === "help") {
     if (!message.guild)
       return message.channel.send(`use this command in a server, not dm!`);
 
@@ -290,25 +348,23 @@ client.on("message", async message => {
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
-      //     var x = await db.get("loggingchannel_" + message.guild.id);
-      //    if (x == null)
-      //     embed.addField(
-      //      `there is no logging channel set up for this server. to set one up, type:`,
-      //       `\`${prefix}setchannel #channel\``
-      //     );
-      //    if (x !== null) {
-      //      var y = client.channels.cache.get(x);
-      //     embed.addField(
-      //       `----------------------`,
-      //         `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
-      //      );
-      //     }
-      embed
-        .setFooter(
-          "Requested By : " + message.author.tag,
-          message.author.displayAvatarURL()
-        )
-        .setTimestamp((message.timestamp = Date.now()));
+      var x = await db.get("loggingchannel_" + message.guild.id);
+      if (x == null)
+        embed.addField(
+          `there is no logging channel set up for this server. to set one up, type:`,
+          `\`${prefix}setchannel #channel\``
+        );
+      if (x !== null) {
+        var y = client.channels.cache.get(x);
+        embed.addField(
+          `----------------------`,
+          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+        );
+      }
+      embed.setFooter(
+        `any suggestions for the bot or the setting up process? hit me up:\n`
+        //    `${client.users.get("672027578181353473").tag}  `
+      );
     } else if (y == "disabled") {
       embed.addField("logging deleted messages [1]", "disabled");
       embed.addField("logging created roles [2]", "disabled");
@@ -326,19 +382,19 @@ client.on("message", async message => {
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
-      //   var x = await db.get("loggingchannel_" + message.guild.id);
-      //   if (x == null)
-      //    embed.addField(
-      //       `there is no logging channel set up for this server. to set one up, type:`,
-      //       `\`${prefix}slog to setup\``
-      //      );
-      //  if (x !== null) {
-      //     var y = client.channels.cache.get(x);
-      //    embed.addField(
-      //       `----------------------`,
-      //       `logging channel rn is ${y}. to set up channel, type **${prefix}slog to setup**`
-      //     );
-      //  }
+      var x = await db.get("loggingchannel_" + message.guild.id);
+      if (x == null)
+        embed.addField(
+          `there is no logging channel set up for this server. to set one up, type:`,
+          `\`${prefix}slog to setup\``
+        );
+      if (x !== null) {
+        var y = client.channels.cache.get(x);
+        embed.addField(
+          `----------------------`,
+          `logging channel rn is ${y}. to set up channel, type **${prefix}slog to setup**`
+        );
+      }
     } else {
       var x = await db.get("messagedelete_" + message.guild.id);
 
@@ -413,30 +469,28 @@ client.on("message", async message => {
       } else {
         embed.addField("logging channel deletions [12]", "enabled");
       }
-      //    embed.addField(
-      //       `----------------------`,
-      //        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
-      //      );
-      //      var x = await db.get("loggingchannel_" + message.guild.id);
-      //     if (x == null)
-      //        embed.addField(
-      //         `there is no logging channel set up for this server. to set one up, type:`,
-      //          `\`${prefix}setchannel #channel\``
-      //       );
-      //      if (x !== null) {
-      //     var y = client.channels.cache.get(x);
-      //      embed.addField(
-      //        `----------------------`,
-      //        `logging channel rn is ${y}. to set up another channel, type **${prefix}slog to setup**`
-      //      );
-      //   }
+      embed.addField(
+        `----------------------`,
+        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+      );
+      var x = await db.get("loggingchannel_" + message.guild.id);
+      if (x == null)
+        embed.addField(
+          `there is no logging channel set up for this server. to set one up, type:`,
+          `\`${prefix}setchannel #channel\``
+        );
+      if (x !== null) {
+        var y = client.channels.cache.get(x);
+        embed.addField(
+          `----------------------`,
+          `logging channel rn is ${y}. to set up another channel, type **${prefix}slog to setup**`
+        );
+      }
     }
-    embed
-      .setFooter(
-        "Requested By : " + message.author.tag,
-        message.author.displayAvatarURL()
-      )
-      .setTimestamp((message.timestamp = Date.now()));
+    embed.setFooter(
+      `any suggestions for the bot? hit me up:\nJoin Our Support Server`
+      //     `${client.users.get("672027578181353473").tag}`
+    );
     embed.addField(
       `----------------------\n`,
       `[bot invite](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`
@@ -488,12 +542,12 @@ client.on("message", async message => {
       return message.channel.send(
         `you need to specify a number with the event u want to not log. type \`${prefix}help\``
       );
-    //   var x = await db.get("loggingchannel_" + message.guild.id);
-    //    if (x == null || x == "none") {
-    //     return message.channel.send(
-    //        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
-    //      );
-    //    }
+    var x = await db.get("loggingchannel_" + message.guild.id);
+    if (x == null || x == "none") {
+      return message.channel.send(
+        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
+      );
+    }
 
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
@@ -516,7 +570,7 @@ client.on("message", async message => {
       case "3":
         await db.set(`roledelete_${message.guild.id}`, "disabled");
         message.channel.send(`ok, disabled the logging for deleted roles`);
-        await db.delete(`allenabled_${message.guild.id}`);
+       await db.delete(`allenabled_${message.guild.id}`);
         break;
 
       case "4":
@@ -529,7 +583,7 @@ client.on("message", async message => {
 
       case "5":
         await db.set(`guildmemberremove_${message.guild.id}`, "disabled");
-        message.channel.send(
+       message.channel.send(
           `ok, disabled the logging member leaves/user kicks`
         );
         await db.delete(`allenabled_${message.guild.id}`);
@@ -611,12 +665,12 @@ client.on("message", async message => {
       return message.channel.send(
         `you need to specify a number with the event u want to log. type \`${prefix}help\``
       );
-    //    var x = await db.get("loggingchannel_" + message.guild.id);
-    //   if (x == null || x == "none") {
-    //    return message.channel.send(
-    //      `you haven't set up a logging channel for this guild. type \`${prefix}help\``
-    //    );
-    //  }
+    var x = await db.get("loggingchannel_" + message.guild.id);
+    if (x == null || x == "none") {
+      return message.channel.send(
+        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
+      );
+    }
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
         `type \`${prefix}help\` and find the number with what event u want to enable logging for`
@@ -627,7 +681,7 @@ client.on("message", async message => {
         message.channel.send(`ok, enabled the logging for deleted messages`);
         await db.delete(`allenabled_${message.guild.id}`);
         break;
-
+        
       case "2":
         await db.set(`rolecreate_${message.guild.id}`, "enabled");
         message.channel.send(`ok, enabled the logging for created roles`);
@@ -670,7 +724,7 @@ client.on("message", async message => {
 
       case "8":
         await db.set(`guildbanremove_${message.guild.id}`, "enabled");
-        message.channel.send(`ok, enabled the logging unbanned users`);
+       message.channel.send(`ok, enabled the logging unbanned users`);
         await db.delete(`allenabled_${message.guild.id}`);
         break;
 
@@ -715,7 +769,8 @@ client.on("message", async message => {
         message.channel.send(`ok enabled logging for all events in this guild`);
     }
   }
-  if (command == "..setchannel") {
+
+  if (command == "setchannel") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
     if (

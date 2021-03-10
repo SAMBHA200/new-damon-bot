@@ -23,7 +23,7 @@
     "imdb-api": "^4.4.0",
     "akaneko": "^4.5.3",
     "ascii-table": "^0.0.9",
-    "mongoose": "^5.11.19",
+    "mongoose": "^5.11.13",
     "request-promise-native": "^1.0.9",
     "request": "^2.88.2",
     "canvas-senpai": "^1.0.0",
