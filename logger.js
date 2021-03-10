@@ -3,6 +3,7 @@ var client = new discord.Client();
 var fs = require("fs");
 var prefix = "*";
 var db = require("quick.db");
+//var RichEmbed = new discord.MessageEmbed();
 
 client.on("ready", async function() {
   console.log("ready, logged in ");
@@ -48,7 +49,7 @@ client.on("messageDelete", async message => {
 
     if (message.channel == x) return;
 
-    var embed = new discord.RichEmbed()
+    var embed = new discord.MessageEmbed()
 
       .setColor("RANDOM")
 
@@ -77,7 +78,7 @@ client.on("channelCreate", async function(channel) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -103,7 +104,7 @@ client.on("channelDelete", async function(channel) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -127,7 +128,7 @@ client.on("emojiCreate", async function(emoji) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -151,7 +152,7 @@ client.on("emojiDelete", async function(emoji) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -175,7 +176,7 @@ client.on("guildBanAdd", async function(guild, user) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -199,7 +200,7 @@ client.on("guildBanRemove", async function(guild, user) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -223,7 +224,7 @@ client.on("guildMemberAdd", async function(member) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -247,7 +248,7 @@ client.on("guildMemberRemove", async function(member) {
 
   var x = client.channels.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -400,43 +401,26 @@ client.on("message", async message => {
         `sorry, you need manage channels / manage guild permission to use this!`
       );
 
-    var embed = new discord.RichEmbed()
-
+    var embed = new discord.MessageEmbed()
       .setAuthor(`help`, message.guild.iconURL)
-
       .setTitle(
         `configuration for logging bot in ${message.guild.name}\n----------------------`
       )
-
       .setColor("RANDOM");
-
     var y = await db.get(`allenabled_${message.guild.id}`);
-
     if (y == "enabled") {
       embed.addField("logging deleted messages [1]", "enabled");
-
       embed.addField("logging created roles [2]", "enabled");
-
       embed.addField("logging deleted roles [3]", "enabled");
-
       embed.addField("logging bulk message deletes [4]", "enabled");
-
       embed.addField("logging member leaves/user kicks [5]", "enabled");
-
       embed.addField("logging member joins [6]", "enabled");
-
       embed.addField("logging guild bans [7]", "enabled");
-
       embed.addField("logging guild unbans [8]", "enabled");
-
       embed.addField("logging emoji creations [9]", "enabled");
-
       embed.addField("logging emoji deletions [10]", "enabled");
-
       embed.addField("logging channel creations [11]", "enabled");
-
       embed.addField("logging channel deletions [12]", "enabled");
-
       embed.addField(
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
@@ -465,29 +449,17 @@ client.on("message", async message => {
       );
     } else if (y == "disabled") {
       embed.addField("logging deleted messages [1]", "disabled");
-
       embed.addField("logging created roles [2]", "disabled");
-
       embed.addField("logging deleted roles [3]", "disabled");
-
       embed.addField("logging bulk message deletes [4]", "disabled");
-
       embed.addField("logging member leaves/user kicks [5]", "disabled");
-
       embed.addField("logging member joins [6]", "disabled");
-
       embed.addField("logging guild bans [7]", "disabled");
-
       embed.addField("logging guild unbans [8]", "disabled");
-
       embed.addField("logging emoji creations [9]", "disabled");
-
       embed.addField("logging emoji deletions [10]", "disabled");
-
       embed.addField("logging channel creations [11]", "disabled");
-
       embed.addField("logging channel deletions [12]", "disabled");
-
       embed.addField(
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
