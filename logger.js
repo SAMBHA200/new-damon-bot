@@ -38,16 +38,16 @@ client.on("messageDelete", async message => {
     if (message.author.bot) return;
     var y = db.get("messagedelete_" + message.guild.id);
     if (y !== `enabled`) return;
-    var x = db.get("loggingchannel_" + message.guild.id);
+    var x = db.get("msglog_" + message.guild.id);
     x = client.channels.cache.get(x);
     if (message.channel == x) return;
     var embed = new discord.MessageEmbed()
 
       .setColor("RANDOM")
-      .setAuthor("message deleted", message.guild.iconURL)
-      .addField("user", message.author.tag)
-      .addField("message", message.content)
-      .addField("channel", message.channel)
+      .setAuthor("Message Deleted", message.guild.iconURL)
+      .addField("User", message.author.tag)
+      .addField("Message", message.content)
+      .addField("From Channel", message.channel)
       .setTimestamp();
     x.send(embed).catch();
   }
@@ -61,9 +61,9 @@ client.on("channelCreate", async function(channel) {
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
-    .setAuthor("channel created", channel.guild.iconURL)
-    .addField("channel", channel)
-    .addField("channel id", channel.id + `\n**----------------------**`)
+    .setAuthor("Channel Created", channel.guild.iconURL)
+    .addField("Channel Name", channel.name)
+    .addField("Channel Id", channel.id + `\n**----------------------**`)
     .setTimestamp();
   x.send(embed).catch();
 });
@@ -72,14 +72,14 @@ client.on("channelDelete", async function(channel) {
   if (!channel.guild) return;
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("loggingchannel_" + channel.guild.id);
+  var x = db.get("dchxlog_" + channel.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-    .setAuthor("channel deleted", channel.guild.iconURL)
-    .addField("channel name", channel.name)
-    .addField("channel id", channel.id + `\n**----------------------**`)
+    .setAuthor("Channel Deleted", channel.guild.iconURL)
+    .addField("Channel Name", channel.name)
+    .addField("Channel Id", channel.id + `\n**----------------------**`)
     .setTimestamp();
 
   x.send(embed).catch();
