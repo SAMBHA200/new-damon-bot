@@ -303,11 +303,12 @@ client.on("message", async message => {
       //         `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
       //      );
       //     }
-      embed.setFooter(
-      "Requested By : " + message.author.tag,
-      message.author.displayAvatarURL()
-    )
-    .setTimestamp((message.timestamp = Date.now()));
+      embed
+        .setFooter(
+          "Requested By : " + message.author.tag,
+          message.author.displayAvatarURL()
+        )
+        .setTimestamp((message.timestamp = Date.now()));
     } else if (y == "disabled") {
       embed.addField("logging deleted messages [1]", "disabled");
       embed.addField("logging created roles [2]", "disabled");
@@ -430,10 +431,12 @@ client.on("message", async message => {
       //      );
       //   }
     }
-    embed.setFooter(
-      `any suggestions for the bot? hit me up:\nJoin Our Support Server`
-      //     `${client.users.get("672027578181353473").tag}`
-    );
+    embed
+      .setFooter(
+        "Requested By : " + message.author.tag,
+        message.author.displayAvatarURL()
+      )
+      .setTimestamp((message.timestamp = Date.now()));
     embed.addField(
       `----------------------\n`,
       `[bot invite](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`
@@ -608,12 +611,12 @@ client.on("message", async message => {
       return message.channel.send(
         `you need to specify a number with the event u want to log. type \`${prefix}help\``
       );
-    var x = await db.get("loggingchannel_" + message.guild.id);
-    if (x == null || x == "none") {
-      return message.channel.send(
-        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
-      );
-    }
+    //    var x = await db.get("loggingchannel_" + message.guild.id);
+    //   if (x == null || x == "none") {
+    //    return message.channel.send(
+    //      `you haven't set up a logging channel for this guild. type \`${prefix}help\``
+    //    );
+    //  }
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
         `type \`${prefix}help\` and find the number with what event u want to enable logging for`
@@ -712,8 +715,7 @@ client.on("message", async message => {
         message.channel.send(`ok enabled logging for all events in this guild`);
     }
   }
-
-  if (command == "setchannel") {
+  if (command == "..setchannel") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
     if (
