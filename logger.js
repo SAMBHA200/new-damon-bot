@@ -131,7 +131,7 @@ client.on("guildBanAdd", async function(guild, user) {
 client.on("guildBanRemove", async function(guild, user) {
   var y = db.get(`guildbanremove_${guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("unban_" + guild.id);
+  var x = db.get("unbanlog_" + guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
 
