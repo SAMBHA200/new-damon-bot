@@ -19,10 +19,20 @@ module.exports = {
       .setTitle(
         "<:marvel_bot:814481094732415026> Bot Uptime <:marvel_bot:814481094732415026>"
       )
-      .addField("<:marvel_arrow_right:815105698853552128> Day's", days)
-      .addField("<:marvel_arrow_right:815105698853552128> Hour's", hours)
-      .addField("<:marvel_arrow_right:815105698853552128> Minute's", minutes)
-      .addField("<:marvel_arrow_right:815105698853552128> Second's", seconds)
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> UPTIME",
+        days +
+          "Day's, " +
+          hours +
+          "Hour's, " +
+          minutes +
+          "Minute's, " +
+          seconds +
+          "Second's"
+      )
+      //    .addField("<:marvel_arrow_right:815105698853552128> Hour's", hours)
+      //    .addField("<:marvel_arrow_right:815105698853552128> Minute's", minutes)
+      //     .addField("<:marvel_arrow_right:815105698853552128> Second's", seconds)
       .setThumbnail(client.user.displayAvatarURL())
       .setColor("RED")
       .setFooter(
