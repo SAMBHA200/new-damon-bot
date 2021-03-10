@@ -279,10 +279,8 @@ client.on("message", async message => {
       );
 
     var embed = new discord.MessageEmbed()
-      .setAuthor(`help`, message.guild.iconURL)
-      .setTitle(
-        `configuration for logging bot in ${message.guild.name}\n----------------------`
-      )
+      //   .setAuthor(`help`, message.guild.iconURL)
+      .setTitle(`Configuration For Logging\n----------------------`)
       .setColor("RANDOM");
     var y = await db.get(`allenabled_${message.guild.id}`);
     if (y == "enabled") {
@@ -300,7 +298,7 @@ client.on("message", async message => {
       embed.addField("logging channel deletions [12]", "enabled");
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `commands: \n\`${prefix}set [number] <#channel>\` - for setting up logs channel\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
 
       //    var x = await db.get("loggingchannel_" + message.guild.id);
@@ -336,11 +334,11 @@ client.on("message", async message => {
       embed.addField("logging channel deletions [12]", "disabled");
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `commands: \n\`${prefix}set [number] <#channel>\` - for setting up logs channel\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
       //      var x = await db.get("loggingchannel_" + message.guild.id);
       //      if (x == null)
-      //        embed.addField(
+      //        embed.addField(hi
       //          `there is no logging channel set up for this server. to set one up, type:`,
       ///          `\`${prefix}setchannel #channel\``
       //        )
@@ -452,7 +450,7 @@ client.on("message", async message => {
       `----------------------\n`,
       `[bot invite](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`
     );
-
+    embed.setThumbnail(client.user.displayAvatarURL());
     message.channel.send(embed);
   }
 

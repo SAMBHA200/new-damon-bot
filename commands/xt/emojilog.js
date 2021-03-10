@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 module.exports = {
   name: "emojilog",
-  //  aliases: ["chlog"],
+  aliases: ["set 9"],
   category: "moderation",
   usage: "setwelcome <#channel>",
   description: "Set the welcome channel",

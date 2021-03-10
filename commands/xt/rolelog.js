@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 module.exports = {
   name: "rolelog",
-  aliases: ["rlog"],
+  aliases: ["rlog", "set 2"],
   category: "moderation",
   usage: "setwelcome <#channel>",
   description: "Set the welcome channel",

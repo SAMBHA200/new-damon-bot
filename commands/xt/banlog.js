@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 module.exports = {
   name: "banlog",
-  //  aliases: ["chlog"],
+  aliases: ["set 7"],
   category: "moderation",
   usage: "setwelcome <#channel>",
   description: "Set the welcome channel",
