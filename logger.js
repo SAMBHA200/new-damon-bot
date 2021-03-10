@@ -570,7 +570,7 @@ client.on("message", async message => {
       case "3":
         await db.set(`roledelete_${message.guild.id}`, "disabled");
         message.channel.send(`ok, disabled the logging for deleted roles`);
-       await db.delete(`allenabled_${message.guild.id}`);
+        await db.delete(`allenabled_${message.guild.id}`);
         break;
 
       case "4":
@@ -583,7 +583,7 @@ client.on("message", async message => {
 
       case "5":
         await db.set(`guildmemberremove_${message.guild.id}`, "disabled");
-       message.channel.send(
+        message.channel.send(
           `ok, disabled the logging member leaves/user kicks`
         );
         await db.delete(`allenabled_${message.guild.id}`);
@@ -681,7 +681,7 @@ client.on("message", async message => {
         message.channel.send(`ok, enabled the logging for deleted messages`);
         await db.delete(`allenabled_${message.guild.id}`);
         break;
-        
+
       case "2":
         await db.set(`rolecreate_${message.guild.id}`, "enabled");
         message.channel.send(`ok, enabled the logging for created roles`);
@@ -724,7 +724,7 @@ client.on("message", async message => {
 
       case "8":
         await db.set(`guildbanremove_${message.guild.id}`, "enabled");
-       message.channel.send(`ok, enabled the logging unbanned users`);
+        message.channel.send(`ok, enabled the logging unbanned users`);
         await db.delete(`allenabled_${message.guild.id}`);
         break;
 
