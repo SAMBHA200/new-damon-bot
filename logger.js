@@ -272,45 +272,28 @@ client.on("roleCreate", async function(role) {
   if (y !== "enabled") return;
 
   var x = db.get("rolelog_" + role.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.RichEmbed()
 
     .setColor("RANDOM")
-
     .setAuthor("role deleted", role.guild.iconURL)
-
     .addField("role name", role.name)
-
     .addField("role id", role.id + `\n**----------------------**`)
-
     .setTimestamp();
-
   x.send(embed).catch();
 });
-
 client.on("roleDelete", async function(role) {
   var y = db.get(`roledelete_${role.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("rolelog_" + role.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.RichEmbed()
 
     .setColor("RANDOM")
-
     .setAuthor("role deleted", role.guild.iconURL)
-
     .addField("role name", role.name)
-
     .addField("role id", role.id + `\n**----------------------**`)
-
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
@@ -319,11 +302,8 @@ client.on("message", async message => {
     .slice(prefix.length)
     .trim()
     .split(/ +/g);
-
   const command = args.shift().toLowerCase();
-
   if (message.content.indexOf(prefix) !== 0) return;
-
   function sleep(milliseconds) {
     var start = new Date().getTime();
 
@@ -333,7 +313,6 @@ client.on("message", async message => {
       }
     }
   }
-
   if (command === "help") {
     if (!message.guild)
       return message.channel.send(`use this command in a server, not dm!`);
@@ -345,7 +324,6 @@ client.on("message", async message => {
       return message.channel.send(
         `sorry, you need manage channels / manage guild permission to use this!`
       );
-
     var embed = new discord.MessageEmbed()
       .setAuthor(`Help`, message.guild.iconURL)
       .setTitle(
@@ -370,24 +348,19 @@ client.on("message", async message => {
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
-
       var x = await db.get("loggingchannel_" + message.guild.id);
-
       if (x == null)
         embed.addField(
           `there is no logging channel set up for this server. to set one up, type:`,
           `\`${prefix}setchannel #channel\``
         );
-
       if (x !== null) {
         var y = client.channels.cache.get(x);
-
         embed.addField(
           `----------------------`,
           `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
         );
       }
-
       embed.setFooter(
         `any suggestions for the bot or the setting up process? hit me up:\n`
         //    `${client.users.get("672027578181353473").tag}  `
@@ -407,19 +380,19 @@ client.on("message", async message => {
       embed.addField("logging channel deletions [12]", "disabled");
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
       var x = await db.get("loggingchannel_" + message.guild.id);
       if (x == null)
         embed.addField(
           `there is no logging channel set up for this server. to set one up, type:`,
-          `\`${prefix}setchannel #channel\``
+          `\`${prefix}slog to setup\``
         );
       if (x !== null) {
         var y = client.channels.cache.get(x);
         embed.addField(
           `----------------------`,
-          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+          `logging channel rn is ${y}. to set up channel, type **${prefix}slog to setup**`
         );
       }
     } else {
@@ -498,7 +471,7 @@ client.on("message", async message => {
       }
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
       var x = await db.get("loggingchannel_" + message.guild.id);
       if (x == null)
@@ -510,7 +483,7 @@ client.on("message", async message => {
         var y = client.channels.cache.get(x);
         embed.addField(
           `----------------------`,
-          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+          `logging channel rn is ${y}. to set up another channel, type **${prefix}slog to setup**`
         );
       }
     }
@@ -518,19 +491,15 @@ client.on("message", async message => {
       `any suggestions for the bot? hit me up:\nJoin Our Support Server`
       //     `${client.users.get("672027578181353473").tag}`
     );
-
     embed.addField(
       `----------------------\n`,
       `[bot invite](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`
     );
-
     message.channel.send(embed);
   }
-
   if (command == "reset") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
-
     if (
       !message.member.hasPermission(`MANAGE_CHANNELS`) ||
       !message.member.hasPermission(`MANAGE_GUILD`)
@@ -538,35 +507,20 @@ client.on("message", async message => {
       return message.channel.send(
         `sorry, you need manage channels / manage guild permission to use this!`
       );
-
     await db.delete(`loggingchannel_${message.guild.id}`);
-
     await db.delete(`allenabled_${message.guild.id}`);
-
     await db.delete(`messagedelete_${message.guild.id}`);
-
     await db.delete("rolecreate_" + message.guild.id);
-
     await db.delete("roledelete_" + message.guild.id);
-
     await db.delete("messagebulkdelete_" + message.guild.id);
-
     await db.delete("guildmemberremove_" + message.guild.id);
-
     await db.delete("guildmemberadd_" + message.guild.id);
-
     await db.delete("guildbanadd_" + message.guild.id);
-
     await db.delete("guildbanremove_" + message.guild.id);
-
     await db.delete("emojicreate_" + message.guild.id);
-
     await db.delete("emojidelete_" + message.guild.id);
-
     await db.delete("channelcreate_" + message.guild.id);
-
     await db.delete("channeldelete_" + message.guild.id);
-
     message.channel.send(
       `done, cleared all cache for this server. type \`${prefix}help\` to setup again.`
     );
@@ -588,9 +542,7 @@ client.on("message", async message => {
       return message.channel.send(
         `you need to specify a number with the event u want to not log. type \`${prefix}help\``
       );
-
     var x = await db.get("loggingchannel_" + message.guild.id);
-
     if (x == null || x == "none") {
       return message.channel.send(
         `you haven't set up a logging channel for this guild. type \`${prefix}help\``
@@ -605,143 +557,94 @@ client.on("message", async message => {
     switch (args[0]) {
       case "1":
         await db.set(`messagedelete_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for deleted messages`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "2":
         await db.set(`rolecreate_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for created roles`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "3":
         await db.set(`roledelete_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for deleted roles`);
-
-        await db.delete(`allenabled_${message.guild.id}`);
-
+       await db.delete(`allenabled_${message.guild.id}`);
         break;
 
       case "4":
         await db.set(`messagebulkdelete_${message.guild.id}`, "disabled");
-
         message.channel.send(
           `ok, disabled the logging for message bulk deletes`
         );
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "5":
         await db.set(`guildmemberremove_${message.guild.id}`, "disabled");
-
-        message.channel.send(
+       message.channel.send(
           `ok, disabled the logging member leaves/user kicks`
         );
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "6":
         await db.set(`guildmemberadd_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for new members`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "7":
         await db.set(`guildbanadd_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging banned users`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "8":
         await db.set(`guildbanremove_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging unbanned users`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "9":
         await db.set(`emojicreate_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for emoji creations`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "10":
         await db.set(`emojidelete_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for emoji deletions`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "11":
         await db.set(`channelcreate_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for channel creations`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "12":
         await db.set(`channeldelete_${message.guild.id}`, "disabled");
-
         message.channel.send(`ok, disabled the logging for channel deletions`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "all":
         await db.set(`allenabled_${message.guild.id}`, "disabled");
-
         await db.set(`messagedelete_${message.guild.id}`, "disabled");
-
         await db.set("rolecreate_" + message.guild.id, "disabled");
-
         await db.set("roledelete_" + message.guild.id, "disabled");
-
         await db.set("messagebulkdelete_" + message.guild.id, "disabled");
-
         await db.set("guildmemberremove_" + message.guild.id, "disabled");
-
         await db.set("guildmemberadd_" + message.guild.id, "disabled");
-
         await db.set("guildbanadd_" + message.guild.id, "disabled");
-
         await db.set("guildbanremove_" + message.guild.id, "disabled");
-
         await db.set("emojicreate_" + message.guild.id, "disabled");
-
         await db.set("emojidelete_" + message.guild.id, "disabled");
-
         await db.set("channelcreate_" + message.guild.id, "disabled");
-
         await db.set("channeldelete_" + message.guild.id, "disabled");
-
         message.channel.send(
           `ok disabled logging for all events in this guild`
         );
@@ -751,7 +654,6 @@ client.on("message", async message => {
   if (command == "enable") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
-
     if (
       !message.member.hasPermission(`MANAGE_CHANNELS`) ||
       !message.member.hasPermission(`MANAGE_GUILD`)
@@ -759,165 +661,111 @@ client.on("message", async message => {
       return message.channel.send(
         `sorry, you need manage channels / manage guild permission to use this!`
       );
-
     if (!args[0])
       return message.channel.send(
         `you need to specify a number with the event u want to log. type \`${prefix}help\``
       );
-
     var x = await db.get("loggingchannel_" + message.guild.id);
-
     if (x == null || x == "none") {
       return message.channel.send(
         `you haven't set up a logging channel for this guild. type \`${prefix}help\``
       );
     }
-
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
         `type \`${prefix}help\` and find the number with what event u want to enable logging for`
       );
-
     switch (args[0]) {
       case "1":
         await db.set(`messagedelete_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for deleted messages`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
-
+        
       case "2":
         await db.set(`rolecreate_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for created roles`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "3":
         await db.set(`roledelete_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for deleted roles`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "4":
         await db.set(`messagebulkdelete_${message.guild.id}`, "enabled");
-
         message.channel.send(
           `ok, enabled the logging for message bulk deletes`
         );
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "5":
         await db.set(`guildmemberremove_${message.guild.id}`, "enabled");
-
         message.channel.send(
           `ok, enabled the logging member leaves/user kicks`
         );
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "6":
         await db.set(`guildmemberadd_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for new members`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "7":
         await db.set(`guildbanadd_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging banned users`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "8":
         await db.set(`guildbanremove_${message.guild.id}`, "enabled");
-
-        message.channel.send(`ok, enabled the logging unbanned users`);
-
+       message.channel.send(`ok, enabled the logging unbanned users`);
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "9":
         await db.set(`emojicreate_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for emoji creations`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "10":
         await db.set(`emojidelete_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for emoji deletions`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "11":
         await db.set(`channelcreate_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for channel creations`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "12":
         await db.set(`channeldelete_${message.guild.id}`, "enabled");
-
         message.channel.send(`ok, enabled the logging for channel deletions`);
-
         await db.delete(`allenabled_${message.guild.id}`);
-
         break;
 
       case "all":
         await db.set(`allenabled_${message.guild.id}`, "enabled");
-
         await db.set("rolecreate_" + message.guild.id, "enabled");
-
         await db.set(`messagedelete_${message.guild.id}`, "enabled");
-
         await db.set("roledelete_" + message.guild.id, "enabled");
-
         await db.set("messagebulkdelete_" + message.guild.id, "enabled");
-
         await db.set("guildmemberremove_" + message.guild.id, "enabled");
-
         await db.set("guildmemberadd_" + message.guild.id, "enabled");
-
         await db.set("guildbanadd_" + message.guild.id, "enabled");
-
         await db.set("guildbanremove_" + message.guild.id, "enabled");
-
         await db.set("emojicreate_" + message.guild.id, "enabled");
-
         await db.set("emojidelete_" + message.guild.id, "enabled");
-
         await db.set("channelcreate_" + message.guild.id, "enabled");
-
         await db.set("channeldelete_" + message.guild.id, "enabled");
-
         message.channel.send(`ok enabled logging for all events in this guild`);
     }
   }
@@ -925,7 +773,6 @@ client.on("message", async message => {
   if (command == "setchannel") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
-
     if (
       !message.member.hasPermission(`MANAGE_CHANNELS`) ||
       !message.member.hasPermission(`MANAGE_GUILD`)
@@ -933,21 +780,16 @@ client.on("message", async message => {
       return message.channel.send(
         `sorry, you need manage channels / manage guild permission to use this!`
       );
-
     if (!args[0] || args[1])
       return message.reply(
         `please specify the channel, like so: \`${prefix}setchannel #channel\``
       );
-
     x = message.mentions.channels.first();
-
     if (!x)
       return message.channel.send(
         `please specify the channel, like so: \`${prefix}setchannel #channel\``
       );
-
     await db.set(`loggingchannel_${message.guild.id}`, x.id);
-
     message.channel.send(`ok, logging channel for this guild set to ${x}`);
   }
 });
