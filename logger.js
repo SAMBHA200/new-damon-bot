@@ -255,7 +255,7 @@ client.on("message", async message => {
       }
     }
   }
-  if (command === "help") {
+  if (command === "helplog") {
     if (!message.guild)
       return message.channel.send(`use this command in a server, not dm!`);
 
