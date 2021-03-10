@@ -88,7 +88,7 @@ client.on("channelDelete", async function(channel) {
 client.on("emojiCreate", async function(emoji) {
   var y = db.get(`emojicreate_${emoji.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("loggingchannel_" + emoji.guild.id);
+  var x = db.get("emojilog_" + emoji.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
@@ -102,7 +102,7 @@ client.on("emojiCreate", async function(emoji) {
 client.on("emojiDelete", async function(emoji) {
   var y = db.get(`emojidelete_${emoji.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("loggingchannel_" + emoji.guild.id);
+  var x = db.get("delog_" + emoji.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
@@ -117,7 +117,7 @@ client.on("guildBanAdd", async function(guild, user) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + guild.id);
+  var x = db.get("banlog_" + guild.id);
 
   var x = client.channels.cache.get(x);
 
@@ -141,7 +141,7 @@ client.on("guildBanRemove", async function(guild, user) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + guild.id);
+  var x = db.get("unban_" + guild.id);
 
   var x = client.channels.cache.get(x);
 
@@ -165,7 +165,7 @@ client.on("guildMemberAdd", async function(member) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + member.guild.id);
+  var x = db.get("join_" + member.guild.id);
 
   var x = client.channels.cache.get(x);
 
@@ -189,7 +189,7 @@ client.on("guildMemberRemove", async function(member) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + member.guild.id);
+  var x = db.get("leave_" + member.guild.id);
 
   var x = client.channels.cache.get(x);
 
@@ -295,7 +295,7 @@ client.on("roleDelete", async function(role) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + role.guild.id);
+  var x = db.get("drolelog_" + role.guild.id);
 
   var x = client.channels.cache.get(x);
 
@@ -409,19 +409,19 @@ client.on("message", async message => {
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
-      var x = await db.get("loggingchannel_" + message.guild.id);
-      if (x == null)
-        embed.addField(
-          `there is no logging channel set up for this server. to set one up, type:`,
-          `\`${prefix}setchannel #channel\``
-        );
-      if (x !== null) {
-        var y = client.channels.cache.get(x);
-        embed.addField(
-          `----------------------`,
-          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
-        );
-      }
+      //      var x = await db.get("loggingchannel_" + message.guild.id);
+      //      if (x == null)
+      //        embed.addField(
+      //          `there is no logging channel set up for this server. to set one up, type:`,
+      ///          `\`${prefix}setchannel #channel\``
+      //        )
+      //      if (x !== null) {
+      //       var y = client.channels.cache.get(x);
+      //        embed.addField(
+      //         `----------------------`,
+      //         `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+      //        );
+      //     }
     } else {
       var x = await db.get("messagedelete_" + message.guild.id);
 
@@ -500,19 +500,19 @@ client.on("message", async message => {
         `----------------------`,
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
-      var x = await db.get("loggingchannel_" + message.guild.id);
-      if (x == null)
-        embed.addField(
-          `there is no logging channel set up for this server. to set one up, type:`,
-          `\`${prefix}setchannel #channel\``
-        );
-      if (x !== null) {
-        var y = client.channels.cache.get(x);
-        embed.addField(
-          `----------------------`,
-          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
-        );
-      }
+      //    var x = await db.get("loggingchannel_" + message.guild.id);
+      //      if (x == null)
+      //        embed.addField(
+      //          `there is no logging channel set up for this server. to set one up, type:`,
+      //          `\`${prefix}setchannel #channel\``
+      //        );
+      //     if (x !== null) {
+      //        var y = client.channels.cache.get(x);
+      //       embed.addField(
+      //        `----------------------`,
+      //         `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+      //       );
+      //      }
     }
     embed.setFooter(
       `any suggestions for the bot? hit me up:\nJoin Our Support Server` +
