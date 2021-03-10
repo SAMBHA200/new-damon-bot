@@ -238,7 +238,7 @@ client.on("messageDeleteBulk", async function(messages) {
       );
     });
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -299,7 +299,7 @@ client.on("roleDelete", async function(role) {
 
   var x = client.channels.cache.get(x);
 
-  var embed = new discord.RichEmbed()
+  var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
 
@@ -390,7 +390,7 @@ client.on("message", async message => {
 
       embed.setFooter(
         `any suggestions for the bot or the setting up process? hit me up:\n` +
-          `${client.users.get("672027578181353473").tag}  `
+          `${client.users.cache.get("672027578181353473").tag}  `
       );
     } else if (y == "disabled") {
       embed.addField("logging deleted messages [1]", "disabled");
@@ -515,8 +515,8 @@ client.on("message", async message => {
       }
     }
     embed.setFooter(
-      `any suggestions for the bot? hit me up:\nJoin Our Support Server`
-      //     `${client.users.get("672027578181353473").tag}`
+      `any suggestions for the bot? hit me up:\nJoin Our Support Server` +
+        `${client.users.cache.get("672027578181353473").tag}`
     );
 
     embed.addField(
@@ -922,7 +922,7 @@ client.on("message", async message => {
     }
   }
 
-  if (command == "setchannel") {
+  if (command == "setlog") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
 
