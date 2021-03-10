@@ -72,7 +72,7 @@ client.on("channelDelete", async function(channel) {
   if (!channel.guild) return;
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("channellog_" + channel.guild.id);
+  var x = db.get("dchannellog_" + channel.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
 
@@ -102,7 +102,7 @@ client.on("emojiCreate", async function(emoji) {
 client.on("emojiDelete", async function(emoji) {
   var y = db.get(`emojidelete_${emoji.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("emojilog_" + emoji.guild.id);
+  var x = db.get("demojilog_" + emoji.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
@@ -130,7 +130,7 @@ client.on("guildBanAdd", async function(guild, user) {
 client.on("guildBanRemove", async function(guild, user) {
   var y = db.get(`guildbanremove_${guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("banlog_" + guild.id);
+  var x = db.get("unbanlog_" + guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
 
@@ -227,7 +227,7 @@ client.on("roleCreate", async function(role) {
 client.on("roleDelete", async function(role) {
   var y = db.get(`roledelete_${role.guild.id}`);
   if (y !== "enabled") return;
-  var x = db.get("rolelog_" + role.guild.id);
+  var x = db.get("drolelog_" + role.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.RichEmbed()
 
@@ -484,12 +484,12 @@ client.on("message", async message => {
       return message.channel.send(
         `you need to specify a number with the event u want to not log. type \`${prefix}help\``
       );
-    var x = await db.get("loggingchannel_" + message.guild.id);
-    if (x == null || x == "none") {
-      return message.channel.send(
-        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
-      );
-    }
+    //   var x = await db.get("loggingchannel_" + message.guild.id);
+    //    if (x == null || x == "none") {
+    //     return message.channel.send(
+    //        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
+    //      );
+    //    }
 
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
