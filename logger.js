@@ -93,9 +93,9 @@ client.on("emojiCreate", async function(emoji) {
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
-    .setAuthor("emoji created", emoji.guild.iconURL)
-    .addField("emote name", emoji.name)
-    .addField("emote", emoji + `\n**----------------------**`)
+    .setAuthor("Emoji Created", emoji.guild.iconURL)
+    .addField("Emote Name", emoji.name)
+    .addField("Emote", emoji + `\n**----------------------**`)
     .setTimestamp();
   x.send(embed).catch();
 });
@@ -107,54 +107,38 @@ client.on("emojiDelete", async function(emoji) {
   var x = client.channels.cache.get(x);
   var embed = new discord.MessageEmbed()
     .setColor("RANDOM")
-    .setAuthor("emoji deleted", emoji.guild.iconURL)
-    .addField("emote name", emoji.name)
-    .addField("emote url", emoji.url + `\n**----------------------**`)
+    .setAuthor("Emoji Deleted", emoji.guild.iconURL)
+    .addField("Nmote Name", emoji.name)
+    .addField("Emote Url", emoji.url + `\n**----------------------**`)
     .setTimestamp();
   x.send(embed).catch();
 });
 client.on("guildBanAdd", async function(guild, user) {
   var y = db.get(`guildbanadd_${guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("banlog_" + guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
-    .setAuthor("user banned", guild.iconURL)
-
-    .addField("banned user", user.tag)
-
-    .addField("user id", user.id + `\n**----------------------**`)
-
+    .setAuthor("User Banned", guild.iconURL)
+    .addField("Banned User", user.tag)
+    .addField("User Id", user.id + `\n**----------------------**`)
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("guildBanRemove", async function(guild, user) {
   var y = db.get(`guildbanremove_${guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("unban_" + guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
-    .setAuthor("user unbanned", guild.iconURL)
-
-    .addField("unbanned user", user.tag)
-
-    .addField("user id", user.id + `\n**----------------------**`)
+    .setAuthor("User Unbanned", guild.iconURL)
+    .addField("Unbanned User", user.tag)
+    .addField("User Id", user.id + `\n**----------------------**`)
 
     .setTimestamp();
 
@@ -163,69 +147,45 @@ client.on("guildBanRemove", async function(guild, user) {
 
 client.on("guildMemberAdd", async function(member) {
   var y = db.get(`guildmemberadd_${member.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("join_" + member.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
-    .setAuthor("user join", member.guild.iconURL)
-
-    .addField("user tag", member.user.tag)
-
-    .addField("user id", member.user.id + `\n**----------------------**`)
-
+    .setAuthor("User Join", member.guild.iconURL)
+    .addField("User Tag", member.user.tag)
+    .addField("User Id", member.user.id + `\n**----------------------**`)
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("guildMemberRemove", async function(member) {
   var y = db.get(`guildmemberremove_${member.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("leave_" + member.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
-    .setAuthor("user left", member.guild.iconURL)
-
-    .addField("user tag", member.user.tag)
-
-    .addField("user id", member.user.id + `\n**----------------------**`)
-
+    .setAuthor("User Left", member.guild.iconURL)
+    .addField("User Tag", member.user.tag)
+    .addField("User Id", member.user.id + `\n**----------------------**`)
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("messageDeleteBulk", async function(messages) {
   var y = db.get(`messagebulkdelete_${messages.random().guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("bulk_" + messages.random().guild.id);
-
   var x = client.channels.cache.get(x);
-
   if (messages.random().channel == x) return;
-
   await messages
     .array()
     .reverse()
     .forEach(m => {
       var x = m.createdAt.toString().split(" ");
-
       fs.appendFile(
         "messagebulkdelete.txt",
         `[${m.author.tag}], [#${m.channel.name}]: ["${
@@ -233,7 +193,6 @@ client.on("messageDeleteBulk", async function(messages) {
         }"], created at [${x[0]} ${x[1]} ${x[2]} ${x[3]} ${x[4]}]\n\n`,
         function(err) {
           if (err) throw err;
-
           console.log("Saved!");
         }
       );
@@ -242,76 +201,48 @@ client.on("messageDeleteBulk", async function(messages) {
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
-    .setAuthor("message bulk delete", messages.random().guild.iconURL)
-
-    .addField("channel", messages.random().channel)
-
+    .setAuthor("Bulk Message Delete", messages.random().guild.iconURL)
+    .addField("From Channel", messages.random().channel)
     .addField(
-      "messages count",
+      "Messages Count",
       messages.array().length + `\n**----------------------**`
     )
-
     .setTimestamp();
-
   await x.send(embed).catch();
-
   await x.send(`Here is the log file for the deleted messages: \n`).catch();
-
   await x.send({ files: [{ attachment: "messagebulkdelete.txt" }] }).catch();
-
   fs.unlink("messagebulkdelete.txt", function(err) {
     if (err) throw err;
-
     console.log("File deleted!");
   });
 });
 
 client.on("roleCreate", async function(role) {
   var y = db.get(`rolecreate_${role.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("rolelog_" + role.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
-
     .setColor("RANDOM")
-
-    .setAuthor("role deleted", role.guild.iconURL)
-
-    .addField("role name", role.name)
-
-    .addField("role id", role.id + `\n**----------------------**`)
-
+    .setAuthor("Role Deleted", role.guild.iconURL)
+    .addField("Role Name", role.name)
+    .addField("Role Id", role.id + `\n**----------------------**`)
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("roleDelete", async function(role) {
   var y = db.get(`roledelete_${role.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("drolelog_" + role.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
-    .setAuthor("role deleted", role.guild.iconURL)
-
-    .addField("role name", role.name)
-
-    .addField("role id", role.id + `\n**----------------------**`)
-
+    .setAuthor("Role Deleted", role.guild.iconURL)
+    .addField("Role Name", role.name)
+    .addField("Role Id", role.id + `\n**----------------------**`)
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
@@ -372,19 +303,19 @@ client.on("message", async message => {
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
 
-  //    var x = await db.get("loggingchannel_" + message.guild.id);
-  //    if (x == null)
- //       embed.addField(
- //         `there is no logging channel set up for this server. to set one up, type:`,
- //         `\`${prefix}setchannel #channel\``
- //       );
-//      if (x !== null) {
- //       var y = client.channels.cache.get(x);
-  //      embed.addField(
-//          `----------------------`,
-//          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
-//       );
- //     }
+      //    var x = await db.get("loggingchannel_" + message.guild.id);
+      //    if (x == null)
+      //       embed.addField(
+      //         `there is no logging channel set up for this server. to set one up, type:`,
+      //         `\`${prefix}setchannel #channel\``
+      //       );
+      //      if (x !== null) {
+      //       var y = client.channels.cache.get(x);
+      //      embed.addField(
+      //          `----------------------`,
+      //          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+      //       );
+      //     }
 
       embed.setFooter(
         `any suggestions for the bot or the setting up process? hit me up:\n` +
@@ -513,7 +444,7 @@ client.on("message", async message => {
       //      }
     }
     embed.setFooter(
-      `any suggestions for the bot? hit me up:\nJoin Our Support Server\n` +
+      `any suggestions for the bot? hit me up:\n` +
         `${client.users.cache.get("672027578181353473").tag}`
     );
 
@@ -538,42 +469,38 @@ client.on("message", async message => {
       );
 
     await db.delete(`loggingchannel_${message.guild.id}`);
-
+    await db.delete(`msglog_${message.guild.id}`);
+    await db.delete(`chxlog_${message.guild.id}`);
+    await db.delete(`dchxlog_${message.guild.id}`);
+    await db.delete(`emojilog_${message.guild.id}`);
+    await db.delete(`delog_${message.guild.id}`);
+    await db.delete(`banlog_${message.guild.id}`);
+    await db.delete(`unbanlog_${message.guild.id}`);
+    await db.delete(`join_${message.guild.id}`);
+    await db.delete(`leave_${message.guild.id}`);
+    await db.delete(`bulk_${message.guild.id}`);
+    await db.delete(`role_${message.guild.id}`);
+    await db.delete(`drole_${message.guild.id}`);
     await db.delete(`allenabled_${message.guild.id}`);
-
     await db.delete(`messagedelete_${message.guild.id}`);
-
     await db.delete("rolecreate_" + message.guild.id);
-
     await db.delete("roledelete_" + message.guild.id);
-
     await db.delete("messagebulkdelete_" + message.guild.id);
-
     await db.delete("guildmemberremove_" + message.guild.id);
-
     await db.delete("guildmemberadd_" + message.guild.id);
-
     await db.delete("guildbanadd_" + message.guild.id);
-
     await db.delete("guildbanremove_" + message.guild.id);
-
     await db.delete("emojicreate_" + message.guild.id);
-
     await db.delete("emojidelete_" + message.guild.id);
-
     await db.delete("channelcreate_" + message.guild.id);
-
     await db.delete("channeldelete_" + message.guild.id);
-
     message.channel.send(
       `done, cleared all cache for this server. type \`${prefix}help\` to setup again.`
     );
   }
-
   if (command == "disable") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
-
     if (
       !message.member.hasPermission(`MANAGE_CHANNELS`) ||
       !message.member.hasPermission(`MANAGE_GUILD`)
@@ -581,7 +508,6 @@ client.on("message", async message => {
       return message.channel.send(
         `sorry, you need manage channels / manage guild permission to use this!`
       );
-
     if (!args[0])
       return message.channel.send(
         `you need to specify a number with the event u want to not log. type \`${prefix}help\``
