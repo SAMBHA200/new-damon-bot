@@ -213,7 +213,7 @@ client.on("messageDeleteBulk", async function(messages) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + messages.random().guild.id);
+  var x = db.get("bulk_" + messages.random().guild.id);
 
   var x = client.channels.cache.get(x);
 
@@ -271,7 +271,7 @@ client.on("roleCreate", async function(role) {
 
   if (y !== "enabled") return;
 
-  var x = db.get("loggingchannel_" + role.guild.id);
+  var x = db.get("rolelog_" + role.guild.id);
 
   var x = client.channels.cache.get(x);
 
