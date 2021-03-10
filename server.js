@@ -7,7 +7,7 @@ const discord = require("discord.js");
 const client = new discord.Client({
   disableEveryone: false
 });
-//require("./bot.js");
+require("./logger.js");
 require("./uptime.js");
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
