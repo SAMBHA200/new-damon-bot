@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.set(`emojilog_${channel.guild.id}`, channel.id);
-    message.channel.send(`New Channel Create Channel Is ${channel}`);
+    message.channel.send(`New Emoji Create Channel Is ${channel}`);
   }
 };

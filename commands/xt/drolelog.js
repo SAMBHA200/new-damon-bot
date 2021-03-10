@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.set(`drolelog_${message.guild.id}`, channel.id);
-    message.channel.send(`New Delete Channel Logs Channel Is ${channel}`);
+    message.channel.send(`New Delete Role Logs Channel Is ${channel}`);
   }
 };

@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.set(`delog_${channel.guild.id}`, channel.id);
-    message.channel.send(`New Delete Channel Logs Channel Is ${channel}`);
+    message.channel.send(`New Delete Emoji Logs Channel Is ${channel}`);
   }
 };

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
-  name: "banlog",
+  name: "joinlog",
   //  aliases: ["chlog"],
   category: "moderation",
   usage: "setwelcome <#channel>",
@@ -15,7 +15,7 @@ module.exports = {
     }
 
     //Now we gonna use quick.db
-    db.set(`banlog_${channel.guild.id}`, channel.id);
-    message.channel.send(`New Ban Log Channel Is ${channel}`);
+    db.set(`join_${channel.guild.id}`, channel.id);
+    message.channel.send(`New Join Log Channel Is ${channel}`);
   }
 };

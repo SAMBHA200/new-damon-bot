@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.set(`rolelog_${message.guild.id}`, channel.id);
-    message.channel.send(`New Channel Create Channel Is ${channel}`);
+    message.channel.send(`New Role Create Channel Is ${channel}`);
   }
 };

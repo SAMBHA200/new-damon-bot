@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.set(`leave_${channel.guild.id}`, channel.id);
-    message.channel.send(`New Channel Create Channel Is ${channel}`);
+    message.channel.send(`New Leave Log Channel Is ${channel}`);
   }
 };

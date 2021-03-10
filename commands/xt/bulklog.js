@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.set(`bulk_${message.guild.id}`, channel.id);
-    message.channel.send(`New Message Logs Channel Is ${channel}`);
+    message.channel.send(`New Bulk Message Logs Channel Is ${channel}`);
   }
 };

@@ -64,6 +64,7 @@ client.on("channelCreate", async function(channel) {
     .setAuthor("Channel Created", channel.guild.iconURL)
     .addField("Channel Name", channel.name)
     .addField("Channel Id", channel.id + `\n**----------------------**`)
+    //   .addField("Created By", channel.author.username)
     .setTimestamp();
   x.send(embed).catch();
 });
@@ -371,22 +372,19 @@ client.on("message", async message => {
         `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
 
-      var x = await db.get("loggingchannel_" + message.guild.id);
-
-      if (x == null)
-        embed.addField(
-          `there is no logging channel set up for this server. to set one up, type:`,
-          `\`${prefix}setchannel #channel\``
-        );
-
-      if (x !== null) {
-        var y = client.channels.cache.get(x);
-
-        embed.addField(
-          `----------------------`,
-          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
-        );
-      }
+  //    var x = await db.get("loggingchannel_" + message.guild.id);
+  //    if (x == null)
+ //       embed.addField(
+ //         `there is no logging channel set up for this server. to set one up, type:`,
+ //         `\`${prefix}setchannel #channel\``
+ //       );
+//      if (x !== null) {
+ //       var y = client.channels.cache.get(x);
+  //      embed.addField(
+//          `----------------------`,
+//          `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`
+//       );
+ //     }
 
       embed.setFooter(
         `any suggestions for the bot or the setting up process? hit me up:\n` +
@@ -515,7 +513,7 @@ client.on("message", async message => {
       //      }
     }
     embed.setFooter(
-      `any suggestions for the bot? hit me up:\nJoin Our Support Server` +
+      `any suggestions for the bot? hit me up:\nJoin Our Support Server\n` +
         `${client.users.cache.get("672027578181353473").tag}`
     );
 
@@ -589,13 +587,13 @@ client.on("message", async message => {
         `you need to specify a number with the event u want to not log. type \`${prefix}help\``
       );
 
-    var x = await db.get("loggingchannel_" + message.guild.id);
-
-    if (x == null || x == "none") {
-      return message.channel.send(
-        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
-      );
-    }
+    //   var x = await db.get("loggingchannel_" + message.guild.id);
+    //
+    //    if (x == null || x == "none") {
+    //      return message.channel.send(
+    //        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
+    //      );
+    //    }
 
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
