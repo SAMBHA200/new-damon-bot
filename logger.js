@@ -114,117 +114,74 @@ client.on("emojiDelete", async function(emoji) {
 });
 client.on("guildBanAdd", async function(guild, user) {
   var y = db.get(`guildbanadd_${guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("banlog_" + guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
     .setAuthor("user banned", guild.iconURL)
-
     .addField("banned user", user.tag)
-
     .addField("user id", user.id + `\n**----------------------**`)
-
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("guildBanRemove", async function(guild, user) {
   var y = db.get(`guildbanremove_${guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("banlog_" + guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
     .setAuthor("user unbanned", guild.iconURL)
-
     .addField("unbanned user", user.tag)
-
     .addField("user id", user.id + `\n**----------------------**`)
-
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("guildMemberAdd", async function(member) {
   var y = db.get(`guildmemberadd_${member.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("joinlog_" + member.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
     .setAuthor("user join", member.guild.iconURL)
-
     .addField("user tag", member.user.tag)
-
     .addField("user id", member.user.id + `\n**----------------------**`)
-
     .setTimestamp();
-
   x.send(embed).catch();
 });
-
 client.on("guildMemberRemove", async function(member) {
   var y = db.get(`guildmemberremove_${member.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("leavelog_" + member.guild.id);
-
   var x = client.channels.cache.get(x);
-
   var embed = new discord.MessageEmbed()
 
     .setColor("RANDOM")
-
     .setAuthor("user left", member.guild.iconURL)
-
     .addField("user tag", member.user.tag)
-
     .addField("user id", member.user.id + `\n**----------------------**`)
-
     .setTimestamp();
-
   x.send(embed).catch();
 });
 
 client.on("messageDeleteBulk", async function(messages) {
   var y = db.get(`messagebulkdelete_${messages.random().guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("bulk_" + messages.random().guild.id);
-
   var x = client.channels.cache.get(x);
-
   if (messages.random().channel == x) return;
-
   await messages
     .array()
     .reverse()
     .forEach(m => {
       var x = m.createdAt.toString().split(" ");
-
       fs.appendFile(
         "messagebulkdelete.txt",
         `[${m.author.tag}], [#${m.channel.name}]: ["${
@@ -232,45 +189,30 @@ client.on("messageDeleteBulk", async function(messages) {
         }"], created at [${x[0]} ${x[1]} ${x[2]} ${x[3]} ${x[4]}]\n\n`,
         function(err) {
           if (err) throw err;
-
           console.log("Saved!");
         }
       );
     });
-
   var embed = new discord.RichEmbed()
-
     .setColor("RANDOM")
-
     .setAuthor("message bulk delete", messages.random().guild.iconURL)
-
     .addField("channel", messages.random().channel)
-
     .addField(
       "messages count",
       messages.array().length + `\n**----------------------**`
     )
-
     .setTimestamp();
-
   await x.send(embed).catch();
-
   await x.send(`Here is the log file for the deleted messages: \n`).catch();
-
   await x.send({ files: [{ attachment: "messagebulkdelete.txt" }] }).catch();
-
   fs.unlink("messagebulkdelete.txt", function(err) {
     if (err) throw err;
-
     console.log("File deleted!");
   });
 });
-
 client.on("roleCreate", async function(role) {
   var y = db.get(`rolecreate_${role.guild.id}`);
-
   if (y !== "enabled") return;
-
   var x = db.get("rolelog_" + role.guild.id);
   var x = client.channels.cache.get(x);
   var embed = new discord.RichEmbed()
@@ -570,7 +512,7 @@ client.on("message", async message => {
       case "3":
         await db.set(`roledelete_${message.guild.id}`, "disabled");
         message.channel.send(`ok, disabled the logging for deleted roles`);
-       await db.delete(`allenabled_${message.guild.id}`);
+        await db.delete(`allenabled_${message.guild.id}`);
         break;
 
       case "4":
@@ -583,7 +525,7 @@ client.on("message", async message => {
 
       case "5":
         await db.set(`guildmemberremove_${message.guild.id}`, "disabled");
-       message.channel.send(
+        message.channel.send(
           `ok, disabled the logging member leaves/user kicks`
         );
         await db.delete(`allenabled_${message.guild.id}`);
@@ -681,7 +623,7 @@ client.on("message", async message => {
         message.channel.send(`ok, enabled the logging for deleted messages`);
         await db.delete(`allenabled_${message.guild.id}`);
         break;
-        
+
       case "2":
         await db.set(`rolecreate_${message.guild.id}`, "enabled");
         message.channel.send(`ok, enabled the logging for created roles`);
@@ -724,7 +666,7 @@ client.on("message", async message => {
 
       case "8":
         await db.set(`guildbanremove_${message.guild.id}`, "enabled");
-       message.channel.send(`ok, enabled the logging unbanned users`);
+        message.channel.send(`ok, enabled the logging unbanned users`);
         await db.delete(`allenabled_${message.guild.id}`);
         break;
 
