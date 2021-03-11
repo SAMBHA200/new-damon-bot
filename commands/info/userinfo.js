@@ -24,6 +24,9 @@ module.exports = {
     if (target.presence.status === "offline")
       target.presence.status = "Offline <:offline:808320999002996757>";
 
+    if (target.flags.toArray === "HOUSE_BRAVERY")
+      target.flags.toArray === "<:bravery:808320858279903232>";
+
     function game() {
       let game;
 
@@ -56,15 +59,15 @@ module.exports = {
 
       .setAuthor(target.tag, avatar)
       .setThumbnail(avatar)
-      .addField("Name:",`${target.username}`)
-      .addField("ID:",`${target.id}`)
-      .addField("Nickname:",`${nickname}`)
+      .addField("Name:", `${target.username}`)
+      .addField("ID:", `${target.id}`)
+      .addField("Nickname:", `${nickname}`)
       .addField("Account Creation:", `${createdate} | ${created} day(s) ago`)
       .addField("Server Joined At:", `${joindate} | ${joined} day(s) ago`)
-      .addField("Status:",`${status}`)
+      .addField("Status:", `${status}`)
       .addField("Game:", `${game()}`)
-      .addField("Badges:",`${flags}`)
-      .addField("Roles:",`<@&${member._roles.join("> <@&")}>`)
+      .addField("Badges:", `${flags}`)
+      .addField("Roles:", `<@&${member._roles.join("> <@&")}>`)
       .setColor("RED")
       //  .setImage(target.displayAvatarURL({ dynamic: true, size: 1024 }))
       .setFooter(`Asked by : ${message.author.username}`, aicon)
