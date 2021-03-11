@@ -8,12 +8,10 @@ const client = new discord.Client({
   disableEveryone: false
 });
 
-
 require("./logger.js");
 require("./uptime.js");
-require("./extra.js");
-require("./ticket/index.js")
-
+//require("./extra.js");
+//require("./ticket/index.js")
 
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
