@@ -10,12 +10,12 @@ var db = require("quick.db");
 client.on("ready", async function() {
   console.log(client.user.tag + " Logger Ready");
 
-  setInterval(() => {
-    client.user.setActivity(`${prefix}help | in ${client.guilds.cache.size} servers`, {
-      type: "WATCHING"
-    });
-    client.user.setStatus(`idle`);
-  }, 16000);
+  // setInterval(() => {
+  //  client.user.setActivity(`${prefix}help | in ${client.guilds.cache.size} servers`, {
+  //     type: "WATCHING"
+  //   });
+  //   client.user.setStatus(`idle`);
+  //  }, 16000);
 });
 
 //logging
