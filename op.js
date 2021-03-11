@@ -21,17 +21,14 @@ client.on("guildMemberAdd", async member => {
   }
   let default_url = `https://media.discordapp.net/attachments/796773670000394302/797056487818133534/ezgif-1-36139c9ce238.gif`;
 
-  let default_msg = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Welcome {member} To ${member.guild}
-
+  let default_msg = `Welcome {member} To ${member.guild}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<a:op2_:764200161793540106> **MAKE SURE TO READ RULES**
+<a:op2_:764200161793540106> **MAKE SURE TO READ <#794998071234527262>**
 
-<a:op2_:764200161793540106> **TAKE SELF ROLES**
+<a:op2_:764200161793540106> **TAKE <#794997991122403398>**
 
-<a:op2_:764200161793540106> **ENJOY YOUR STAY HERE**
+<a:op2_:764200161793540106> **CHAT IN <#794996468594769922>**
 
 `;
 

@@ -20,7 +20,9 @@ module.exports = {
       .setTitle(
         "<:marvel_bot:814481094732415026> LOG COMMANDS <:marvel_bot:814481094732415026>"
       )
-      .addField(
+    .addField(
+        "<:marvel_arrow_right:815105698853552128> NOTE","")
+     .addField(
         "<:marvel_arrow_right:815105698853552128> NOTE",
         "MAKE SURE TO ENABLE LOGGING MODULES FIRST.\n`" +
           prefix +
