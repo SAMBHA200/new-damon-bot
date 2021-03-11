@@ -24,8 +24,8 @@ module.exports = {
     if (target.presence.status === "offline")
       target.presence.status = "Offline <:offline:808320999002996757>";
 
-    if (target.flags.toArray === "HOUSE_BRAVERY")
-      target.flags.toArray === "<:bravery:808320858279903232>";
+    if (target.flags.toArray() === "HOUSE_BRAVERY")
+      target.flags.toArray() === "<:bravery:808320858279903232>";
 
     function game() {
       let game;
@@ -60,6 +60,7 @@ module.exports = {
       .setAuthor(target.tag, avatar)
       .setThumbnail(avatar)
       .addField("Name:", `${target.username}`)
+      .addField("Tag:", target.tag)
       .addField("ID:", `${target.id}`)
       .addField("Nickname:", `${nickname}`)
       .addField("Account Creation:", `${createdate} | ${created} day(s) ago`)
