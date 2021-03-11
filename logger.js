@@ -316,8 +316,9 @@ client.on("message", async message => {
       //     }
 
       embed.setFooter(
-        `any suggestions for the bot or the setting up process? hit me up:\n` +
-          `${client.users.cache.get("672027578181353473").tag}  `
+        `Any Suggestions Hit Me Up: ${
+          client.users.cache.get("672027578181353473").tag
+        }  `
       );
     } else if (y == "disabled") {
       embed.addField("logging deleted messages [1]", "disabled");
@@ -425,7 +426,7 @@ client.on("message", async message => {
       }
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n \`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n \`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
       //    var x = await db.get("loggingchannel_" + message.guild.id);
       //      if (x == null)
@@ -442,13 +443,14 @@ client.on("message", async message => {
       //      }
     }
     embed.setFooter(
-      `any suggestions for the bot? hit me up:\n` +
-        `${client.users.cache.get("672027578181353473").tag}`
+      `Any Suggestions Hit Me Up: ${
+        client.users.cache.get("672027578181353473").tag
+      }  `
     );
 
     embed.addField(
       `----------------------\n`,
-      `[bot invite](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`
+      `[INVITE](${)`
     );
     embed.setThumbnail(client.user.displayAvatarURL());
     message.channel.send(embed);
@@ -687,13 +689,13 @@ client.on("message", async message => {
         `you need to specify a number with the event u want to log. type \`${prefix}help\``
       );
 
-    var x = await db.get("loggingchannel_" + message.guild.id);
+    //    var x = await db.get("loggingchannel_" + message.guild.id);
 
-    if (x == null || x == "none") {
-      return message.channel.send(
-        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
-      );
-    }
+    //   if (x == null || x == "none") {
+    //      return message.channel.send(
+    //        `you haven't set up a logging channel for this guild. type \`${prefix}help\``
+    //     );
+    //    }
 
     if (args[0] > 12 || args[0] < 1)
       return message.reply(
