@@ -20,13 +20,15 @@ module.exports = {
       .setTitle(
         "<:marvel_bot:814481094732415026> LOG COMMANDS <:marvel_bot:814481094732415026>"
       )
-    .addField(
-        "<:marvel_arrow_right:815105698853552128> NOTE","")
-     .addField(
+      .addField(
         "<:marvel_arrow_right:815105698853552128> NOTE",
         "MAKE SURE TO ENABLE LOGGING MODULES FIRST.\n`" +
           prefix +
           "helplog` - to see all modules"
+      )
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> MESSAGE LOGGING",
+        "`" + prefix + "msglog or messagelog #channel` - for message deletiongs"
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Channel Logging",
@@ -44,8 +46,33 @@ module.exports = {
           prefix +
           "drlog or deleterolelog #channel` - for role deletion log"
       )
-      //    .addField("<:marvel_arrow_right:815105698853552128> Minute's", minutes)
-      //     .addField("<:marvel_arrow_right:815105698853552128> Second's", seconds)
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> Bulk Message Logging",
+        "`" + prefix + "bulklog #channel` - for bulk messages deletion logs"
+      )
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> Member Join Logging",
+        "`" + prefix + "joinlog #channel`- for new member join logs"
+      )
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> Member Leave Logging",
+        "`" + prefix + "leavelog #channel`- for member leave logs"
+      )
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> Member Ban Logging",
+        "`" + prefix + "banlog #channel`- for member ban logs"
+      )
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> Member Unban Logging",
+        "`" + prefix + "unbanlog #channel`- for member unban logs"
+      )
+    .addField(
+        "<:marvel_arrow_right:815105698853552128> Emoji Creation Logging",
+       "`" + prefix + "emojilog #channel`- for emoji creation logs"
+      ).addField(
+        "<:marvel_arrow_right:815105698853552128> Emoji Deletion Logging",
+       "`" + prefix + "delog #channel`- for emoji deletion logs"
+      )
       .setThumbnail(client.user.displayAvatarURL())
       .setColor("RED")
       .setFooter(
