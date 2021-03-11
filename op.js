@@ -2,26 +2,32 @@ const discord = require("discord.js");
 const client = new discord.Client();
 const db = require("quick.db");
 const moment = require("moment");
+const { bowner } = require("./config.json");
 
 client.on("ready", async => {
   console.log(client.user.tag + " ready");
 });
 
-//client.on("message", async message => {
-//  if (message.content.match(`^<@!?${bowner}>( |)$`)) {
-//    return message.react(`815466828028969000`);
-//  }
-//});
+client.on("message", async message => {
+  if (message.content.match(`^<@!?${bowner}>( |)$`)) {
+    return message.react(`815466828028969000`);
+  }
+});
 
 client.on("guildMemberAdd", async member => {
-  let chx = db.get(``);
-
+  let chx = `794997103814246421`;
   if (chx === null) {
     return;
   }
+  let default_url = `https://media.discordapp.net/attachments/796773670000394302/797056487818133534/ezgif-1-36139c9ce238.gif`;
 
-  let default_url = `https://cdn.discordapp.com/attachments/758912722821185557/814740225732640778/tenor.gif`;
-  let default_msg = `<a:op2_:764200161793540106> **MAKE SURE TO READ RULES**
+  let default_msg = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Welcome {member} To ${member.guild}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<a:op2_:764200161793540106> **MAKE SURE TO READ RULES**
 
 <a:op2_:764200161793540106> **TAKE SELF ROLES**
 
@@ -54,7 +60,7 @@ client.on("guildMemberAdd", async member => {
     .setAuthor(member.guild)
     .setTitle("━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     // .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 2048 }))
-    .setColor("RANDOM")
+    .setColor("YELLOW")
     .setImage(url)
     .setTimestamp()
     .setDescription(msg)
@@ -76,9 +82,8 @@ client.on("guildMemberAdd", async member => {
       `
 <a:emoji_24:764200718344126546> **THANKS FOR JOINING ${member.guild}** <a:emoji_24:764200718344126546>`
     );
-
   client.channels.cache.get(chx).send(wembed);
   //  client.channels.cache.get(chx).send(attachment);
 });
 
-client.login(process.env.OP_OFFICIAL)
+client.login(process.env.OP_OFFICIAL);

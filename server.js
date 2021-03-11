@@ -10,7 +10,7 @@ const client = new discord.Client({
 
 require("./logger.js");
 require("./uptime.js");
-//require("./extra.js");
+require("./op.js");
 //require("./ticket/index.js")
 
 client.commands = new discord.Collection();
