@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const db = require("quick.db");
 const dateFormat = require("dateformat");
-const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
+//const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 exports.run = async (bot, message, args, functions) => {
   let channel = message.mentions.channels.first();
@@ -23,7 +23,7 @@ exports.run = async (bot, message, args, functions) => {
     );
   let embed = new Discord.MessageEmbed()
     .setAuthor(`✅ | Salon Définit`)
-    .setColor(color.none)
+    .setColor("WHITE")
     .setTimestamp()
     .setFooter(`Ticket System`, bot.user.displayAvatarURL())
     .addField(`Salon définit`, channelFetched, true)

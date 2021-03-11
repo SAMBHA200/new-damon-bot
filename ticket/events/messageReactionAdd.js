@@ -8,7 +8,7 @@ const db = require("quick.db");
 
 const fs = require("fs");
 
-const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
+//const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 module.exports = async (bot, reaction, user) => {
   if (reaction.message.partial) await reaction.message.fetch();
@@ -27,7 +27,7 @@ module.exports = async (bot, reaction, user) => {
 
   let already = new Discord.MessageEmbed()
 
-    .setColor(color.red)
+    .setColor("RED")
 
     .setAuthor(`⛔ | Éh non ..`)
 
@@ -35,7 +35,7 @@ module.exports = async (bot, reaction, user) => {
 
   let success = new Discord.MessageEmbed()
 
-    .setColor(color.green)
+    .setColor("GREEN")
 
     .setTitle(`🎟️ | Système de Ticket`)
 
@@ -139,7 +139,7 @@ module.exports = async (bot, reaction, user) => {
 
               .setTimestamp()
 
-              .setColor(color.none)
+              .setColor("WHITE")
 
               .setFooter(`Système de Ticket`, bot.user.displayAvatarURL())
 
@@ -195,7 +195,7 @@ module.exports = async (bot, reaction, user) => {
 
           .setAuthor(`🗑️ | Ticket Fermé`)
 
-          .setColor(color.none)
+          .setColor("WHITE")
 
           .setDescription(`L'auteur a confirmé la fermeture du ticket.`)
 

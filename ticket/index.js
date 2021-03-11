@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
-const config = require("./Storage/config.json");
+const config = require("../config.json");
 const bot = new Discord.Client({
-  disableEveryone: true,
+  disableEveryone: false,
   autoReconnect: true,
   disabledEvents: ["TYPING_START"],
   partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION"]

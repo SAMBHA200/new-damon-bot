@@ -6,7 +6,7 @@ const db = require("quick.db");
 
 const dateFormat = require("dateformat");
 
-const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
+//const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 exports.run = async (bot, message, args, functions) => {
   let logsChannel = message.guild.channels.cache.find(
@@ -20,7 +20,7 @@ exports.run = async (bot, message, args, functions) => {
 
       .setAuthor(`🗑️ | Ticket Fermé`)
 
-      .setColor(color.none)
+      .setColor("WHITE")
 
       .setDescription(
         `L'auteur du ticket à procédé à la fermeture de celui-ci.`
@@ -63,7 +63,7 @@ exports.run = async (bot, message, args, functions) => {
 
         .setAuthor(`🗑️ | Ticket Fermé`)
 
-        .setColor(color.none)
+        .setColor("WHITE")
 
         .setDescription(
           `Un membre ayant le rôle ${support} a supprimé un ticket de force.`
@@ -89,7 +89,7 @@ exports.run = async (bot, message, args, functions) => {
 
         .setAuthor(`📥 | Ticket Fermé`)
 
-        .setColor(color.blue)
+        .setColor("BLUE")
 
         .setDescription(
           `\`${message.author.tag}\` a forcé la fermeture de votre ticket.`
@@ -113,7 +113,7 @@ exports.run = async (bot, message, args, functions) => {
 
         .setAuthor(`🗑️| Demande de Fermeture`)
 
-        .setColor(color.none)
+        .setColor("WHITE")
 
         .setDescription(
           `Un membre ayant le rôle ${support} a demandé la fermeture du ticket.`
@@ -144,7 +144,7 @@ exports.run = async (bot, message, args, functions) => {
 
       let embed2 = new Discord.MessageEmbed()
 
-        .setColor(color.green)
+        .setColor("WHITE")
 
         .setTitle(`🎟️ | Ticket Terminé`)
 
