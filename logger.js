@@ -1,7 +1,8 @@
 var discord = require("discord.js");
 var client = new discord.Client();
 var fs = require("fs");
-var prefix = "*";
+//var prefix = "*";
+var { prefix, binvite, bowner } = require("./config.json");
 //const prefix = require("/config.json");
 var db = require("quick.db");
 //var RichEmbed = new discord.MessageEmbed();
@@ -298,7 +299,7 @@ client.on("message", async message => {
       embed.addField("logging channel deletions [12]", "enabled");
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}set [number] <#channel>\` - for setting up logs channel\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `Commands: \n\`${prefix}log\` - to see logging commands\n\`${prefix}set [number] <#channel>\` - for setting up logs channel\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
 
       //    var x = await db.get("loggingchannel_" + message.guild.id);
@@ -316,9 +317,7 @@ client.on("message", async message => {
       //     }
 
       embed.setFooter(
-        `Any Suggestions Hit Me Up: ${
-          client.users.cache.get("672027578181353473").tag
-        }  `
+        `Any Suggestions Hit Me Up: ${client.users.cache.get(bowner).tag}  `
       );
     } else if (y == "disabled") {
       embed.addField("logging deleted messages [1]", "disabled");
@@ -335,7 +334,7 @@ client.on("message", async message => {
       embed.addField("logging channel deletions [12]", "disabled");
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}set [number] <#channel>\` - for setting up logs channel\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `Commands: \n\`${prefix}log\` - to see logging commands\n\`${prefix}set [number] <#channel>\` - for setting up logs channel\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
       //      var x = await db.get("loggingchannel_" + message.guild.id);
       //      if (x == null)
@@ -426,7 +425,7 @@ client.on("message", async message => {
       }
       embed.addField(
         `----------------------`,
-        `commands: \n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
+        `Commands: \n\`${prefix}log\` - to see logging commands\n\`${prefix}enable [number]\` - enable the logging for a module\n\`${prefix}enable all\` - enable all logging modules \n\`${prefix}disable [number]\` - disable a logging module \n\`${prefix}disable all\` - disable all logging modules\n\`${prefix}reset\` - refreshes the bots entire cache for the server; everything set to default, with no logging channel`
       );
       //    var x = await db.get("loggingchannel_" + message.guild.id);
       //      if (x == null)
@@ -443,15 +442,10 @@ client.on("message", async message => {
       //      }
     }
     embed.setFooter(
-      `Any Suggestions Hit Me Up: ${
-        client.users.cache.get("672027578181353473").tag
-      }  `
+      `Any Suggestions Hit Me Up: ${client.users.cache.get(bowner).tag}  `
     );
 
-    embed.addField(
-      `----------------------\n`,
-      `[INVITE](${)`
-    );
+    embed.addField(`----------------------\n`, `[INVITE](${binvite})`);
     embed.setThumbnail(client.user.displayAvatarURL());
     message.channel.send(embed);
   }
