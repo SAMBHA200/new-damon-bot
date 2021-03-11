@@ -42,7 +42,7 @@ module.exports = {
         "<:marvel_arrow_right:815105698853552128> Role Logging",
         "`" +
           prefix +
-          "rlog or rolelog #channel`- for role creation log\n`" +
+          "rlog or rolelog #channel` - for role creation log\n`" +
           prefix +
           "drlog or deleterolelog #channel` - for role deletion log"
       )
@@ -52,7 +52,7 @@ module.exports = {
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Member Join Logging",
-        "`" + prefix + "joinlog #channel`- for new member join logs"
+        "`" + prefix + "joinlog #channel` - for new member join logs"
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Member Leave Logging",
@@ -60,25 +60,25 @@ module.exports = {
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Member Ban Logging",
-        "`" + prefix + "banlog #channel`- for member ban logs"
+        "`" + prefix + "banlog #channel` - for member ban logs"
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Member Unban Logging",
-        "`" + prefix + "unbanlog #channel`- for member unban logs"
+        "`" + prefix + "unbanlog #channel` - for member unban logs"
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Emoji Creation Logging",
-        "`" + prefix + "emojilog #channel`- for emoji creation logs"
+        "`" + prefix + "emojilog #channel` - for emoji creation logs"
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> Emoji Deletion Logging",
-        "`" + prefix + "delog #channel`- for emoji deletion logs"
+        "`" + prefix + "delog #channel `- for emoji deletion logs"
       )
       .addField(
         "<:marvel_arrow_right:815105698853552128> NOTE AGAIN",
         "`" +
           prefix +
-          "helplog`- to check all logging modules are enabled or not"
+          "helplog` - to check all logging modules are enabled or not"
       )
       .setThumbnail(client.user.displayAvatarURL())
       .setColor("RED")
