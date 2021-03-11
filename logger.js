@@ -49,6 +49,7 @@ client.on("messageDelete", async message => {
       .addField("User", message.author.tag)
       .addField("Message", message.content)
       .addField("From Channel", message.channel)
+      .setThumbnail(message.user.displayAvatarURL())
       .setTimestamp();
     x.send(embed).catch();
   }
@@ -65,7 +66,7 @@ client.on("channelCreate", async function(channel) {
     .setAuthor("Channel Created", channel.guild.iconURL)
     .addField("Channel Name", channel.name)
     .addField("Channel Id", channel.id + `\n**----------------------**`)
-    //   .addField("Created By", channel.author.username)
+  //  .addField("Created By",  channel.user.username)
     .setTimestamp();
   x.send(embed).catch();
 });
