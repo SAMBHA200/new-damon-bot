@@ -10,12 +10,12 @@ var db = require("quick.db");
 client.on("ready", async function() {
   console.log(client.user.tag + " Logger Ready");
 
-  //  setInterval(() => {
-  //    client.user.setActivity(`-help | in ${client.guilds.size} servers`, {
-  //     type: "WATCHING"
-  //    });
-  //  client.user.setStatus(`idle`);
-  //  }, 16000);
+  setInterval(() => {
+    client.user.setActivity(`${prefix}help | in ${client.guilds.cache.size} servers`, {
+      type: "WATCHING"
+    });
+    client.user.setStatus(`idle`);
+  }, 16000);
 });
 
 //logging
@@ -283,7 +283,7 @@ client.on("message", async message => {
     var embed = new discord.MessageEmbed()
       //   .setAuthor(`help`, message.guild.iconURL)
       .setTitle(`Configuration For Logging\n----------------------`)
-      .setColor("RANDOM");
+      .setColor("RED");
     var y = await db.get(`allenabled_${message.guild.id}`);
     if (y == "enabled") {
       embed.addField("logging deleted messages [1]", "enabled");
@@ -841,7 +841,7 @@ client.on("message", async message => {
     }
   }
 
-  if (command == "setlog") {
+  if (command == "msglog") {
     if (!message.guild)
       return message.reply("use this command in a server pls");
 
@@ -867,7 +867,7 @@ client.on("message", async message => {
 
     await db.set(`loggingchannel_${message.guild.id}`, x.id);
 
-    message.channel.send(`ok, logging channel for this guild set to ${x}`);
+    //   message.channel.send(`ok, logging channel for this guild set to ${x}`);
   }
 });
 
