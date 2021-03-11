@@ -55,7 +55,7 @@ client.on("messageDelete", async message => {
   }
 });
 
-client.on("channelCreate", async function(channel) {
+client.on("channelCreate", async function(channel, message) {
   if (!channel.guild) return;
   var y = db.get(`channelcreate_${channel.guild.id}`);
   if (y !== "enabled") return;
@@ -66,7 +66,7 @@ client.on("channelCreate", async function(channel) {
     .setAuthor("Channel Created", channel.guild.iconURL)
     .addField("Channel Name", channel.name)
     .addField("Channel Id", channel.id + `\n**----------------------**`)
-    //  .addField("Created By",  channel.user.username)
+    //  .addField("Created By", message.author.username)
     .setTimestamp();
   x.send(embed).catch();
 });
