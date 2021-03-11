@@ -27,14 +27,21 @@ module.exports = {
           "helplog` - to see all modules"
       )
       .addField(
-        "<:marvel_arrow_right:815105698853552128> Channel",
+        "<:marvel_arrow_right:815105698853552128> Channel Logging",
         "`" +
           prefix +
-          "chlog` - for channel creation log \n`" +
+          "chlog or channellog #channel` - for channel creation log \n`" +
           prefix +
-          "dchlog` - for deleted channels log"
+          "dchlog or deletechannellog #channel` - for deleted channels log"
       )
-      //    .addField("<:marvel_arrow_right:815105698853552128> Hour's", hours)
+      .addField(
+        "<:marvel_arrow_right:815105698853552128> Role Logging",
+        "`" +
+          prefix +
+          "rlog or rolelog #channel`- for role creation log\n`" +
+          prefix +
+          "drlog or deleterolelog #channel` - for role deletion log"
+      )
       //    .addField("<:marvel_arrow_right:815105698853552128> Minute's", minutes)
       //     .addField("<:marvel_arrow_right:815105698853552128> Second's", seconds)
       .setThumbnail(client.user.displayAvatarURL())
