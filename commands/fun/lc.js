@@ -2,13 +2,13 @@ const { MessageEmbed } = require("discord.js");
 const md5 = require("md5");
 module.exports = {
   name: "love-calculator",
-  aliases: ["lc"],
+  //  aliases: ["lc"],
   description: "Finds Love Precentage Between 2 Users!",
   category: "Fun",
   usage: "love-calculator <@user1> <@user2>",
   example: "love-calculator @Konvex @Hotshot",
   timeout: "3",
-  aliases: ["lovecal", "love-cal", "lovecacl"],
+  aliases: ["lovecal", "love-cal", "lovecacl", "lc"],
 
   run: async (client, message, args) => {
     const firstMember = message.mentions.members
@@ -42,10 +42,16 @@ module.exports = {
     const embed = new MessageEmbed()
       .setAuthor("❤️ Love Calculator")
       .setDescription(
-        `User 1 - ${name1}\nUser2 - ${name2}\nLove Percentage - ${percent}%`
+        `User 1 - ${name1}\nUser2 - ${name2}`)Lov
+      .addField(`Lovercentage - ${percent}%`
       )
+      .setThumbnail(client.user.displayAvatarURL())
       .setColor("RED")
-      .setFooter(`Konvex ❤️ Calculator`, client.user.displayAvatarURL());
+      .setFooter(
+        "Requested By : " + message.author.tag,
+        message.author.displayAvatarURL()
+      )
+      .setTimestamp((message.timestamp = Date.now()));
     message.channel.send(embed);
   }
 };
