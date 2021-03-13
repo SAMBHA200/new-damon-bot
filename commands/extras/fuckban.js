@@ -4,8 +4,8 @@ const roasts = require("../../JSON/ban.json");
 const db = require("quick.db");
 
 module.exports = {
-  name: "ban",
-  aliases: ["b", "banish"],
+  name: "fuckban",
+  aliases: ["fuckyou"],
   category: "moderation",
   description: "Bans the user",
   usage: "[name | nickname | mention | ID] <reason> (optional)",
@@ -38,8 +38,7 @@ module.exports = {
             r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
         );
 
-      let roast =
-        roasts.an[Math.floor(Math.random() * roasts.hroast.length)];
+      let roast = roasts.ban[Math.floor(Math.random() * roasts.ban.length)];
 
       let banMember =
         message.mentions.members.first() ||
@@ -62,7 +61,7 @@ module.exports = {
           .send(
             `**Hello, You Have Been Banned From ${
               message.guild.name
-            } for - ${reason || "No Reason"}**`
+            } for - ${reason || roast}**`
           )
           .then(() =>
             message.guild.members.ban(banMember, { days: 7, reason: reason })
@@ -77,7 +76,7 @@ module.exports = {
           .setColor("RED")
           .setAuthor(message.guild.name, message.guild.iconURL())
           .setDescription(
-            `**${banMember.user.username}** has been banned for ${reason}`
+            `**${banMember.user.username}** has been banned for ${roast}`
           );
         message.channel.send(sembed);
         banMember.ban();
@@ -85,7 +84,9 @@ module.exports = {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
           .setAuthor(message.guild.name, message.guild.iconURL())
-          .setDescription(`**${banMember.user.username}** has been banned`);
+          .setDescription(
+            `**${banMember.user.username}** has been banned ${roast}`
+          );
         message.channel.send(sembed2);
         banMember.ban();
       }
