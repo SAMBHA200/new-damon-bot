@@ -14,17 +14,15 @@ module.exports = {
   run: async (client, message, args) => {
     try {
       if (!message.member.hasPermission("BAN_MEMBERS"))
-        return message.channel.send(
-          "**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**"
-        );
+        return message.reply("**Chiley huye lawde aukaat mein reh**");
 
       if (!message.guild.me.hasPermission("BAN_MEMBERS"))
-        return message.channel.send(
-          "**I Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**"
+        return message.reply(
+          "**Jhaantu phle permissions toh dede mujje aur security se whitelist kr dio**"
         );
 
       if (!args[0])
-        return message.channel.send("**Please Provide A User To Ban!**");
+        return message.reply("**bosdike ban kisko krna h vo toh bol**");
 
       let member =
         message.mentions.members.first() ||
@@ -50,12 +48,12 @@ module.exports = {
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
       if (!banMember)
-        return message.channel.send("**User Is Not In The Guild**");
+        return message.reply("**ye chutiya iss server me nhi h**");
       if (banMember === message.member)
-        return message.channel.send("**You Cannot Ban Yourself**");
+        return message.reply("**abe ohh saste nashe krke aaya h kya**");
       var reason = args.slice(1).join(" ");
       if (!banMember.bannable)
-        return message.channel.send("**Cant Kick That User**");
+        return message.reply("**me nhi kr rha isko ban jhaat phaad le **");
       try {
         banMember
           .send(
