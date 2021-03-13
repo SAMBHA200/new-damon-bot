@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const Poll_Emoji_1 = "👍";
-const Poll_Emoji_2 = "👎";
+const Poll_Emoji_1 = "814596834814197781";
+const Poll_Emoji_2 = "814596854436069376";
 const { prefix } = require("../../config.json");
 
 module.exports = {
