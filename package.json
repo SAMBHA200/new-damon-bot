@@ -51,7 +51,8 @@
     "dateformat": "^4.5.0",
     "canvacord": "^5.1.0",
     "morse": "^0.1.0",
-    "md5": "^2.3.0"
+    "md5": "^2.3.0",
+    "@mikemcbride/dad-jokes": "^1.0.0"
   },
   "engines": {
     "node": "12.x"
