@@ -1,14 +1,12 @@
 const axios = require("axios");
 const { prefix } = require("../../config.json");
 module.exports = {
-  name: "t",
-  aliases: ["test"],
-
+  name: "bc",
+  aliases: ["RAID", "raid"],
   description: "Returns the Discord.js Documentation",
-
   usage: `\`${prefix}docs <Message>\``,
-
   run(client, message, args) {
-    message.author.send("ye dick tere gaand me daal le chodu");
+    message.delete();
+    message.author.send("abe ee gandu hup");
   }
 };

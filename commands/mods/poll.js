@@ -21,9 +21,14 @@ module.exports = {
     let Message = args.slice(0).join(" ");
     let Poll = await message.channel.send(
       new Discord.MessageEmbed()
-        .setColor(`RANDOM`)
+        .setColor(`RED`)
+        .setTitle("POLL")
         .setDescription(`📋 ${Message}`)
-        .setFooter(`Poll Created By : ${message.author.username} ${`)
+        .setFooter(
+          "Poll Created By : " + message.author.tag,
+          message.author.displayAvatarURL()
+        )
+        .setTimestamp((message.timestamp = Date.now()))
     );
 
     await Poll.react(`${Poll_Emoji_1}`);
