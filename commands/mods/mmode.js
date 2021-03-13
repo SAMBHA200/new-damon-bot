@@ -55,7 +55,7 @@ module.exports = {
                   })
                 )
                 .then(
-                  message.guild.channels.create("MAINTENANCE", {
+                  message.guild.channels.create("MAINTENANCE VOICE ZONE", {
                     type: "voice",
                     position: 1,
                     permissionOverwrites: [
