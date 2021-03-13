@@ -48,7 +48,8 @@
     "booru": "^2.3.3",
     "fetch": "^1.1.0",
     "tickets": "^0.2.2",
-    "dateformat": "^4.5.0"
+    "dateformat": "^4.5.0",
+    "canvacord": "^5.1.0"
   },
   "engines": {
     "node": "12.x"
