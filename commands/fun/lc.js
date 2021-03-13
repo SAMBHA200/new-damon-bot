@@ -41,10 +41,8 @@ module.exports = {
     const name2 = secondMember.nickname || secondMember.user.username;
     const embed = new MessageEmbed()
       .setAuthor("❤️ Love Calculator")
-      .setDescription(
-        `User 1 - ${name1}\nUser2 - ${name2}`)Lov
-      .addField(`Lovercentage - ${percent}%`
-      )
+      .addField("Between", `User 1 - **${name1}**\nUser2 - **${name2}**`)
+      .addField(`Love Percentage`, `${percent}%`)
       .setThumbnail(client.user.displayAvatarURL())
       .setColor("RED")
       .setFooter(
