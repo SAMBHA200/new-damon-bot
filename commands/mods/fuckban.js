@@ -2,10 +2,19 @@ const { MessageEmbed } = require("discord.js");
 //const { MessageEmbed } = require("discord.js");
 const roasts = require("../../JSON/ban.json");
 const db = require("quick.db");
+const { bowner } = require("../../config.json");
 
 module.exports = {
   name: "fuckban",
-  aliases: ["fuckyou","gandban","lundban","lawdaban","muthban","makichutban","dickban"],
+  aliases: [
+    "fuckyou",
+    "gandban",
+    "lundban",
+    "lawdaban",
+    "muthban",
+    "makichutban",
+    "dickban"
+  ],
   category: "moderation",
   description: "Bans the user",
   usage: "[name | nickname | mention | ID] <reason> (optional)",
@@ -14,7 +23,9 @@ module.exports = {
   run: async (client, message, args) => {
     try {
       if (!message.member.hasPermission("BAN_MEMBERS"))
-        return message.reply("**Chiley huye lawde aukaat mein reh permission nhi h tere pass**");
+        return message.reply(
+          "**Chiley huye lawde aukaat mein reh permission nhi h tere pass**"
+        );
 
       if (!message.guild.me.hasPermission("BAN_MEMBERS"))
         return message.reply(
@@ -47,10 +58,16 @@ module.exports = {
         message.guild.members.cache.find(
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
+      if (banMember.id === bowner)
+        return message.reply(
+          `Bsdk Owner Hai Vo Mera Gaand Maar Lunga Tere Behenchod`
+        );
       if (!banMember)
         return message.reply("**ye chutiya iss server me nhi hai**");
       if (banMember === message.member)
-        return message.reply("**abe ohh saste nashe krke aaya h kya khud ki gaand maarne ka shauk h tujhe**");
+        return message.reply(
+          "**abe ohh saste nashe krke aaya h kya khud ki gaand maarne ka shauk h tujhe**"
+        );
       var reason = args.slice(1).join(" ");
       if (!banMember.bannable)
         return message.reply("**me nhi kr skta isko ban jhaat phaad le**");
