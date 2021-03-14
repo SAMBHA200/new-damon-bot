@@ -1,4 +1,4 @@
-const { prefix } = require("./config.json");
+const { prefix, sserver } = require("./brvconfig.json");
 const { config } = require("dotenv");
 const db = require("quick.db");
 const { CanvasSenpai } = require("canvas-senpai");
@@ -30,9 +30,9 @@ client.on("ready", async () => {
     //   function pickStatus() {
     //    let status = ["BLACKOUT OFFICIAL", "bhelp | bsupport"];
     //    let Status = Math.floor(Math.random() * status.length);
-    client.user.setActivity("MARVEL BETA", {
+    client.user.setActivity("BЯΛVΣ丶ΩFFICIΛŁ", {
       type: "STREAMING",
-      url: "https://twitch.tv/4matxshadow"
+      url: sserver
     });
 
     //  }
