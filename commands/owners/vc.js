@@ -14,8 +14,10 @@ module.exports = {
     const voiceChannel = message.member.voice.channel;
     voiceChannel.join();
     message.delete();
-    await message.channel.send(`JOINED VC SUCCESSFULLY`).then(msg => {
-      msg.delete({ timeout: 10000 });
-    });
+    await message.channel
+      .send(`<:marvel_tick:814596834814197781> JOINED VC`)
+      .then(msg => {
+        msg.delete({ timeout: 10000 });
+      });
   }
 };
