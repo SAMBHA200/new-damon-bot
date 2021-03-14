@@ -5,7 +5,7 @@ const db = require("quick.db");
 
 module.exports = {
   name: "fuckban",
-  aliases: ["fuckyou"],
+  aliases: ["fuckyou","gandban","lundban","lawdaban","muthban","makichutban","dickban"],
   category: "moderation",
   description: "Bans the user",
   usage: "[name | nickname | mention | ID] <reason> (optional)",
@@ -14,7 +14,7 @@ module.exports = {
   run: async (client, message, args) => {
     try {
       if (!message.member.hasPermission("BAN_MEMBERS"))
-        return message.reply("**Chiley huye lawde aukaat mein reh**");
+        return message.reply("**Chiley huye lawde aukaat mein reh permission nhi h tere pass**");
 
       if (!message.guild.me.hasPermission("BAN_MEMBERS"))
         return message.reply(
@@ -48,12 +48,12 @@ module.exports = {
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
       if (!banMember)
-        return message.reply("**ye chutiya iss server me nhi h**");
+        return message.reply("**ye chutiya iss server me nhi hai**");
       if (banMember === message.member)
-        return message.reply("**abe ohh saste nashe krke aaya h kya**");
+        return message.reply("**abe ohh saste nashe krke aaya h kya khud ki gaand maarne ka shauk h tujhe**");
       var reason = args.slice(1).join(" ");
       if (!banMember.bannable)
-        return message.reply("**me nhi kr rha isko ban jhaat phaad le **");
+        return message.reply("**me nhi kr skta isko ban jhaat phaad le**");
       try {
         banMember
           .send(
