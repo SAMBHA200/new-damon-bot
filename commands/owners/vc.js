@@ -11,14 +11,14 @@ module.exports = {
   description: "Add role to any user",
   run: async (client, message, args) => {
     if (message.author.id !== bowner) return;
+    //message.reply("Owner Only Command");
     const voiceChannel = message.member.voice.channel;
     voiceChannel.join();
     message.delete();
     await message.channel
       .send(`<:marvel_tick:814596834814197781> JOINED VC`)
       .then(msg => {
-        msg.delete({ timeout: 10000 })
-       
+        msg.delete({ timeout: 10000 });
       });
   }
 };
