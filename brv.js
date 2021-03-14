@@ -8,10 +8,10 @@ const client = new discord.Client({
   disableEveryone: false
 });
 
-require("./logger.js");
-require("./uptime.js");
-require("./op.js");
-require("./brv.js")
+require("./brvlogger.js");
+//require("./uptime.js");
+//require("./op.js");
+//require("./ticket/index.js")
 
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
@@ -130,7 +130,7 @@ client.on("guildMemberAdd", async member => {
   //  client.channels.cache.get(chx).send(attachment);
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.BRAVE);
 
 //auto pinging
 
