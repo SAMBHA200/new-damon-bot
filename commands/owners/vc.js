@@ -17,7 +17,8 @@ module.exports = {
     await message.channel
       .send(`<:marvel_tick:814596834814197781> JOINED VC`)
       .then(msg => {
-        msg.delete({ timeout: 10000 });
+        msg.delete({ timeout: 10000 })
+       
       });
   }
 };
