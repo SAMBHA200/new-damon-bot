@@ -1,25 +1,22 @@
 module.exports = {
   name: "test",
-  // aliases: ["mt"],
+  aliases: ["t"],
   desciption: "say command",
   category: "embed",
   usage: "reply <message> or say <message>",
 
   async run(client, message, args) {
+//    let something = ["hello", "hi", " Bye"];
     message.channel
-      .send(`Loading..`)
-      .then(message => {
+      .send(`Loading..`).then(message => {
         setTimeout(function() {
-          message.edit(`Loading.. 1`);
-        }, 10000);
+          message.edit("phase 1");
+        }, 2000);
       })
       .then(message => {
         setTimeout(function() {
-          message.edit(`Loading... 2`);
-        }, 10000);
+          message.edit("success");
+        }, 2000);
       });
-    //.then(msg => {
-    //   msg.edit({ timeout: 10000, msg: "hello success" });
-    //  });
   }
 };
