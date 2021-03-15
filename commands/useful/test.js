@@ -8,16 +8,15 @@ module.exports = {
   async run(client, message, args) {
     //    let something = ["hello", "hi", " Bye"];
     let m = message.channel.send("Loading..").then(m => {
-      setInterval(function() {
-        m.edit("hii", "hello", "supp");
-      }, 2000);
+      setTimeout(function() {
+        m.edit("hii");
+      }, 2000) &&
+        setTimeout(function() {
+          m.edit("success");
+        }, 4000) &&
+        setTimeout(function() {
+          m.edit("Third edit");
+        }, 6000);
     });
-    //      .then(m => m.edit("hii"));
-
-    //   .then(m => {
-    //    setTimeout(function() {
-    //       m.edit(`Loading...`);
-    //      }, 4000);
-    //    });
   }
 };
