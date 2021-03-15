@@ -9,15 +9,15 @@ module.exports = {
     //    let something = ["hello", "hi", " Bye"];
     message.channel
       .send(`Loading..`)
-      .then(message => {
-        setTimeout(function() {
-          message.edit("phase 1");
-        }, 2500);
+      .then(messageg => {
+        setInterval(function() {
+          message.edit(`Loading..`);
+        }, 2000);
       })
       .then(message => {
-        setTimeout(function() {
-          message.edit("success");
-        }, 5000);
+        setInterval(function() {
+          message.edit(`Loading...`);
+        }, 2000);
       });
   }
 };
