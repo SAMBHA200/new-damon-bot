@@ -126,7 +126,7 @@ module.exports = {
       sChannel.send(embed);
       banMember.ban();
     } catch (e) {
-      return message.channel.send(`**${e.message}**`);
+      return message.channel.send(`**BHAI MENE NASHA KIA HAI ${e.message}**`);
     }
   }
 };
