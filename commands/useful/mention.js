@@ -1,5 +1,3 @@
-const { MessageFlags } = require("discord.js");
-const { bowner } = require("../../config.json");
 module.exports = {
   name: "mention",
   aliases: ["mt"],
@@ -8,21 +6,13 @@ module.exports = {
   usage: "reply <message> or say <message>",
 
   async run(client, message, args) {
-    // if (message.author.id !== bowner) return;
     let msg;
-    let msg2
-    //  let textChannel = message.mentions.channels.first();
-    // message.delete();
-    if (!args[0]) return message.reply("give me id first");
-    //  if (textChannel) {
+    let msg2;
+    if (!args[0]) return message.reply("Give me user id first..!");
     msg = args.slice(1).join(" ");
-    //    textChannel.send(msg);
-    //   } else {
-    msg = args.join(" ");
-    msg2 = args.slice(2).join(" ")
-    msg2 = args.join(" 
-    message.channel.send("<@!" + msg + ">");
-
-    //    }
+    msg = args.end(" ");
+    msg2 = args.slice(2);
+    msg2 = args.join(" ");
+    message.channel.send("<@!" + msg + ">" + msg2);
   }
 };
