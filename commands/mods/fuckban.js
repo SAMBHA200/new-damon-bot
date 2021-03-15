@@ -13,7 +13,17 @@ module.exports = {
     "lawdaban",
     "muthban",
     "makichutban",
-    "dickban"
+    "lavdaban",
+    "lovedayban",
+    "lavdeban",
+    "randiban",
+    "ghodiban",
+    "hilaoban",
+    "pussyban",
+    "cockban",
+    "jhaatban",
+    "dickban",
+    "chutban"
   ],
   category: "moderation",
   description: "Bans the user",
