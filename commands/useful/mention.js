@@ -10,7 +10,7 @@ module.exports = {
     //  let msg2;
     if (!args[0]) return message.reply("Give me user id first..!");
     msg = args.slice(1).join(" ");
-    msg = args.split(" ");
+    msg = args.join(" ");
     //   msg2 = args.slice(2);
     //   msg2 = args.join(" ");
     message.channel.send("<@!" + msg + ">");
