@@ -40,6 +40,7 @@ dependencies:
   something-random-on-discord: 0.0.1
   srod-v2: 1.0.2
   tickets: 0.2.2
+  timers: 0.1.1
   weather-js: 2.0.0
   ytdl-core: 4.4.4
 packages:
@@ -3130,6 +3131,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-NxLL0wdkgtiV4Vmdhmdfc9GMmyI=
+  /timers/0.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-hqxceMHuQZaU81pY3k/UGDz7nB4=
   /timm/1.7.1:
     dev: false
     resolution:
@@ -3417,5 +3422,6 @@ specifiers:
   something-random-on-discord: ^0.0.1
   srod-v2: ^1.0.2
   tickets: ^0.2.2
+  timers: ^0.1.1
   weather-js: ^2.0.0
   ytdl-core: ^4.4.4

@@ -7,17 +7,17 @@ module.exports = {
 
   async run(client, message, args) {
     //    let something = ["hello", "hi", " Bye"];
-    message.channel
+    let m = message.channel
       .send(`Loading..`)
-      .then(messageg => {
-        setInterval(function() {
-          message.edit(`Loading..`);
+      .then(m => {
+        setTimeout(function() {
+          m.edit(`Loading..`);
         }, 2000);
       })
-      .then(message => {
-        setInterval(function() {
-          message.edit(`Loading...`);
-        }, 2000);
+      .then(m => {
+        setTimeout(function() {
+          m.edit(`Loading...`);
+        }, 4000);
       });
   }
 };
