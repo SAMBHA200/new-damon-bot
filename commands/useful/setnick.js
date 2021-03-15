@@ -28,10 +28,17 @@ module.exports = {
     if (!args[0]) return message.channel.send(`Usage: ${this.usage}`);
     if (!args[1]) {
       member.setNickname(member.user.username);
-      message.channel.send(`Changed Nickname to ${member.user.username}`);
+      message.channel.send(
+        `Changed Nickname of ${member} to ${member.user.username}`
+      );
     }
+    message.delete();
     const nick = args.join(" ").slice(22);
     member.setNickname(nick);
-    message.channel.send(`Changed Nickname to ${nick}`);
+    message.channel
+      .send(`Changed Nickname of ${member} to ${nick}`)
+      .then(msg => {
+        msg.delete({ timeout: 10000 });
+      });
   }
 };
