@@ -6,17 +6,18 @@ module.exports = {
   usage: "reply <message> or say <message>",
 
   async run(client, message, args) {
-//    let something = ["hello", "hi", " Bye"];
+    //    let something = ["hello", "hi", " Bye"];
     message.channel
-      .send(`Loading..`).then(message => {
+      .send(`Loading..`)
+      .then(message => {
         setTimeout(function() {
           message.edit("phase 1");
-        }, 2000);
+        }, 2500);
       })
       .then(message => {
         setTimeout(function() {
           message.edit("success");
-        }, 2000);
+        }, 5000);
       });
   }
 };
