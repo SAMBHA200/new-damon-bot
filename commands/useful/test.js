@@ -10,14 +10,16 @@ module.exports = {
     let m = message.channel
       .send(`Loading..`)
       .then(m => {
-        setTimeout(function() {
-          m.edit(`Loading..`);
+        setInterval(function() {
+          m.edit(`Loading..`, "hello", "supp");
         }, 2000);
       })
-      .then(m => {
-        setTimeout(function() {
-          m.edit(`Loading...`);
-        }, 4000);
-      });
+      .then(m => m.edit("hii"));
+
+    //   .then(m => {
+    //    setTimeout(function() {
+    //       m.edit(`Loading...`);
+    //      }, 4000);
+    //    });
   }
 };
