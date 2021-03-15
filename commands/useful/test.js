@@ -6,13 +6,7 @@ module.exports = {
   usage: "reply <message> or say <message>",
 
   async run(client, message, args) {
-    let msg;
-    //  let msg2;
-    if (!args[0]) return message.reply("Give me user id first..!");
-    msg = args.slice(1).join(" ");
-    msg = args.join(" ");
-    //   msg2 = args.slice(2);
-    //   msg2 = args.join(" ");
-    let m = message.channel.send("<@!" + msg + ">")//.then(m => m.edit("test"));
-  }
-};
+    let msg = message.channel.send(`Changed`)
+      .then(msg => {
+        msg.edit("hello"+{ timeout: 10000 });
+  })}
