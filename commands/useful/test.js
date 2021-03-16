@@ -1,13 +1,13 @@
 module.exports = {
-  name: "test",
-  aliases: ["t"],
+  name: "hack",
+ // aliases: ["t"],
   desciption: "say command",
-  category: "embed",
-  usage: "reply <message> or say <message>",
+  category: "fun",
+  usage: "hack @user",
 
   async run(client, message, args) {
     if (!args[0])
-      return message.reply("**bosdike ban kisko krna h vo toh bol**");
+      return message.reply("**WHOM DO YOU WANT TO HACK (YOURSELF)**");
 
     let member =
       message.mentions.members.first() ||
@@ -48,12 +48,18 @@ module.exports = {
           m.edit(
             "```diff\n-Tracing Ip Address : " +
               r1 +
+              "." +
               r2 +
+              "." +
               r3 +
-        
-              "```\n```fix\nStatus : 20% \n\n███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯"
+              "```\n```fix\nStatus : 30% \n\n███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
           );
-        }, 7500);
+        }, 7500) &&
+        setTimeout(function () {
+        m.edit(
+          "```diff\n-Tracing Ip Address : " +
+        )
+      })
     });
   }
 };
