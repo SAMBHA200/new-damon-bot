@@ -6,10 +6,22 @@ module.exports = {
   usage: "reply <message> or say <message>",
 
   async run(client, message, args) {
-    //    let something = ["hello", "hi", " Bye"];
+    if (!args[0])
+      return message.reply("**bosdike ban kisko krna h vo toh bol**");
+
+    let member =
+      message.mentions.members.first() ||
+      message.guild.members.cache.get(args[0]) ||
+      message.guild.members.cache.find(
+        r =>
+          r.user.username.toLowerCase() === args.join(" ").toLocaleLowerCase()
+      ) ||
+      message.guild.members.cache.find(
+        r => r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
+      );
     let m = message.channel.send("Loading..").then(m => {
       setTimeout(function() {
-        m.edit("hii");
+        m.edit("Injecting trojan into ID: " + member + "");
       }, 2000) &&
         setTimeout(function() {
           m.edit("success");
