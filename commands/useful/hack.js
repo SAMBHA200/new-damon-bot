@@ -125,13 +125,28 @@ module.exports = {
         setTimeout(function() {
           m.edit("```diff\n-TRACES ERASED```");
         }, 30000) &&
-        m.delete({ timeout: 5000 }) &&
+        m.delete({ timeout: 31000 }) &&
         setTimeout(function() {
           message.channel.send(
             "Successfully Hacked - " +
               member.user.tag +
               " \nNow Sending Details To - " +
               message.author.tag
+          );
+        }, 30500) &&
+        setTimeout(function() {
+          message.author.send(
+            "Successfully Hacked - " +
+              member.user.tag +
+              " \nUser ID - " +
+              r2 +
+              r4 +
+              r7 +
+              "\nUser Password ByPass - " +
+              r1 +
+              r5 +
+              r8 +
+              "\nDid You Like Our Command Do Visit\nhttps://www.marvelbot.tk"
           );
         }, 30500);
     });
