@@ -22,8 +22,7 @@ module.exports = {
         r => r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
       );
 
-    let history =
-      hist.history[Math.floor(Math.random() * hist.history.length)];
+    let history = hist.history[Math.floor(Math.random() * hist.history.length)];
 
     var r1 = Math.floor(Math.random() * 255) + 1;
     var r2 = Math.floor(Math.random() * 255) + 1;
@@ -68,10 +67,54 @@ module.exports = {
         }, 10000) &&
         setTimeout(function() {
           m.edit(
-            "```diff\n-Latest incognito search: " + history +
+            "```diff\n-Latest incognito search: " +
+              history +
               "```\n```fix\nStatus : 50% \n\n███ ███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯```"
           );
-        }, 12500);
+        }, 12500) &&
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Passwords acquired. Accessing accounts id = " +
+              r4 +
+              r5 +
+              r6 +
+              "```\n```fix\nStatus : 60% \n\n███ ███ ███ ███ ███ ███ ▯ ▯ ▯ ▯```"
+          );
+        }, 15000) &&
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Bypassing security: 2FA, security questions, reCAPTCHA..." +
+              history +
+              "```\n```fix\nStatus : 70% \n\n███ ███ ███ ███ ███ ███ ███ ▯ ▯ ▯```"
+          );
+        }, 17500) &&
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Latest incognito search: " +
+              history +
+              "```\n```fix\nStatus : 80% \n\n███ ███ ███ ███ ███ ███ ███ ███ ▯ ▯```"
+          );
+        }, 20000) &&
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Latest incognito search: " +
+              history +
+              "```\n```fix\nStatus : 90% \n\n███ ███ ███ ███ ███ ███ ███ ███  ▯```"
+          );
+        }, 22500) &&
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Latest incognito search: " +
+              history +
+              "```\n```fix\nStatus : 100% \n\n███ ███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯```"
+          );
+        }, 25000) &&
+        setTimeout(function() {
+          m.edit("```diff\n-ERASING HACKING TRACES```");
+        }, 27500) &&
+        setTimeout(function() {
+          m.edit("```diff\n-TRACE ERASED```");
+        }, 30000);
     });
   }
 };
