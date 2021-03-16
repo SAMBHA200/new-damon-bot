@@ -21,14 +21,22 @@ module.exports = {
       );
     let m = message.channel.send("Loading..").then(m => {
       setTimeout(function() {
-        m.edit("Injecting trojan into ID: " + member + "");
-      }, 2000) &&
+        m.edit(
+          "```Injecting trojan into ID: " +
+            member +
+            "```\n```Status : 10% \n\n███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
+        );
+      }, 2500) &&
         setTimeout(function() {
-          m.edit("success");
-        }, 4000) &&
+          m.edit(
+            "```Getting access key from discriminator: " +
+              member.tag +
+              "```\n```Status : 20% \n\n███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
+          );
+        }, 5000) &&
         setTimeout(function() {
-          m.edit("Third edit");
-        }, 6000);
+          m.edit("3rd");
+        }, 7500);
     });
   }
 };
