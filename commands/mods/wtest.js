@@ -8,7 +8,8 @@ module.exports = {
   async run(client, message, args) {
     message.delete();
     const webhookClient = new discord.WebhookClient(
-     /* "https://discord.com/api/webhooks*/"821458730079879219","rHY4VZ4dpzcS9_c5LX3-ymJ0b6IOiz38vGKkJzNK1cwSdBqE6bVUkHNP9_WvYVB1zhJ4"
+      /*"https://discord.com/api/webhooks*/ "821468427264065566",
+      "6DWLl9kjpho6tiu8iKhC6SjKfTGCGknYZcD4wFtkXo787l7NgIee4uvwyoxehizm7-Or"
     );
 
     const embed = new discord.MessageEmbed()
