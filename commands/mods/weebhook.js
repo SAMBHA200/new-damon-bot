@@ -3,9 +3,10 @@ const embed = new discord.MessageEmbed();
 const db = require("quick.db");
 
 module.exports = {
-  name: "test",
+  name: "mhook",
   description: "",
   async run(client, message, args) {
+    message.delete();
     message.channel
       .createWebhook("Marvel", {
         avatar:
@@ -13,9 +14,9 @@ module.exports = {
       })
       .then(webhook =>
         message.channel.send(
-          "Weebhook Created With Name Marvel And Saved To Database"
+          "Weebhook Created With Name Marvel By : <@!" + message.author + ">"
         )
       );
-    db.set(`whook_${message.guild.id}`, webhook.link);
+    //  db.set(`whook_${message.guild.id}`, webhook.link);
   }
 };
