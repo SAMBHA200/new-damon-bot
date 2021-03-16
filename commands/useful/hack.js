@@ -37,11 +37,14 @@ module.exports = {
     var r7 = Math.floor(Math.random() * 255) + 1;
     var r8 = Math.floor(Math.random() * 255) + 1;
 
+    var uid = Math.floor(Math.random() * 999999999) + 124533545;
+    var ubp = Math.floor(Math.random() * 999999999) + 77777777;
+
     const emb = new discord.MessageEmbed()
       .setTitle("Hacked")
       .addField("Successfully Hacked - ", "```" + member.user.tag + "```")
-      .addField("User ID - 7", r1 + r2 + r4 + r7)
-      .addField("User Password ByPass - ", r1 + r5 + r8 + r2)
+      .addField("User ID - ", uid)
+      .addField("User Password ByPass - ", ubp)
       .addField(
         "Did You Like Our Command Do Visit",
         "[WEBSITE](https://www.marvelbot.tk)"
