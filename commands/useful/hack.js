@@ -39,19 +39,20 @@ module.exports = {
 
     const emb = new discord.MessageEmbed()
       .setTitle("Hacked")
-      .addField("Successfully Hacked - ```" + member.user.tag + "```")
+      .addField("Successfully Hacked - ", "```" + member.user.tag + "```")
+      .addField("User ID - 7", r1 + r2 + r4 + r7)
+      .addField("User Password ByPass - ", r1 + r5 + r8 + r2)
       .addField(
-        "User ID - 7" +
-          r1 +
-          r2 +
-          r4 +
-          r7 +
-          "\nUser Password ByPass - " +
-          r1 +
-          r5 +
-          r8 +
-        
-      );
+        "Did You Like Our Command Do Visit",
+        "[WEBSITE](https://www.marvelbot.tk)"
+      )
+      .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+      .setColor("RED")
+      .setFooter(
+        "Hacked By : " + message.author.tag,
+        message.author.displayAvatarURL({ dynamic: true })
+      )
+      .setTimestamp((message.timestamp = Date.now()));
 
     let m = message.channel.send("Loading..").then(m => {
       setTimeout(function() {
@@ -142,19 +143,18 @@ module.exports = {
         setTimeout(function() {
           m.edit("```diff\n-TRACES ERASED```");
         }, 30000) &&
-        m.delete({ timeout: 31000 }) &&
+        //    m.delete({ timeout: 31000 }) &&
         setTimeout(function() {
           message.channel.send(
-            "Successfully Hacked - " +
+            "Successfully Hacked - ```" +
               member.user.tag +
-              " \nNow Sending Details To - " +
-              message.author.tag
+              "``` \nNow Sending Details To - ```" +
+              message.author.tag +
+              "```"
           );
         }, 30500) &&
         setTimeout(function() {
-          message.author.send(
-            "\nDid You Like Our Command Do Visit\nhttps://www.marvelbot.tk"
-          );
+          message.author.send(emb);
         }, 30500);
     });
   }
