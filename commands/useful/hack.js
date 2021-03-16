@@ -22,6 +22,9 @@ module.exports = {
         r => r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
       );
 
+    if (member === message.member)
+      return message.reply("**WHY DO YOU WANT TO `HACK` YOURSELF**");
+
     let history = hist.history[Math.floor(Math.random() * hist.history.length)];
 
     var r1 = Math.floor(Math.random() * 255) + 1;
@@ -120,11 +123,17 @@ module.exports = {
           m.edit("```diff\n-ERASING HACK TRACES```");
         }, 27500) &&
         setTimeout(function() {
-          m.edit("```diff\n-TRACEES ERASED```");
+          m.edit("```diff\n-TRACES ERASED```");
         }, 30000) &&
+        m.delete({ timeout: 5000 }) &&
         setTimeout(function() {
-          message.channel.send("Sending Details To " + message.author.tag);
-        }, 32500);
+          message.channel.send(
+            "Successfully Hacked - " +
+              member.user.tag +
+              " \nNow Sending Details To - " +
+              message.author.tag
+          );
+        }, 30500);
     });
   }
 };
