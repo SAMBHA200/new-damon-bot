@@ -83,38 +83,48 @@ module.exports = {
         }, 15000) &&
         setTimeout(function() {
           m.edit(
-            "```diff\n-Bypassing security: 2FA, security questions, reCAPTCHA..." +
-              history +
+            "```diff\n-Bypassing security: 2FA, security questions, reCAPTCHA... with ids = " +
+              r7 +
+              ", " +
+              r8 +
+              ", " +
+              r3 +
+              ", " +
               "```\n```fix\nStatus : 70% \n\n███ ███ ███ ███ ███ ███ ███ ▯ ▯ ▯```"
           );
         }, 17500) &&
         setTimeout(function() {
           m.edit(
-            "```diff\n-Latest incognito search: " +
-              history +
+            "```diff\n-Extracting data to base with id = " +
+              r2 +
+              r6 +
+              r5 +
               "```\n```fix\nStatus : 80% \n\n███ ███ ███ ███ ███ ███ ███ ███ ▯ ▯```"
           );
         }, 20000) &&
         setTimeout(function() {
           m.edit(
-            "```diff\n-Latest incognito search: " +
-              history +
-              "```\n```fix\nStatus : 90% \n\n███ ███ ███ ███ ███ ███ ███ ███  ▯```"
+            "```diff\n-Selling data on Deep Web In Rs. " +
+              r6 +
+              r1 +
+              "```\n```fix\nStatus : 90% \n\n███ ███ ███ ███ ███ ███ ███ ███ ███ ▯```"
           );
         }, 22500) &&
         setTimeout(function() {
           m.edit(
-            "```diff\n-Latest incognito search: " +
-              history +
-              "```\n```fix\nStatus : 100% \n\n███ ███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯```"
+            "```diff\n-HACKING COMPLETE" +
+              "```\n```fix\nStatus : 100% \n\n███ ███ ███ ███ ███ ███ ███ ███ ███ ███```"
           );
         }, 25000) &&
         setTimeout(function() {
-          m.edit("```diff\n-ERASING HACKING TRACES```");
+          m.edit("```diff\n-ERASING HACK TRACES```");
         }, 27500) &&
         setTimeout(function() {
-          m.edit("```diff\n-TRACE ERASED```");
-        }, 30000);
+          m.edit("```diff\n-TRACEES ERASED```");
+        }, 30000) &&
+        setTimeout(function() {
+          message.channel.send("Sending Details To " + message.author.tag);
+        }, 32500);
     });
   }
 };
