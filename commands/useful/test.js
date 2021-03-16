@@ -19,24 +19,41 @@ module.exports = {
       message.guild.members.cache.find(
         r => r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
       );
+
+    var r1 = Math.floor(Math.random() * 255) + 1;
+    var r2 = Math.floor(Math.random() * 255) + 1;
+    var r3 = Math.floor(Math.random() * 255) + 1;
+    var r4 = Math.floor(Math.random() * 255) + 1;
+    var r5 = Math.floor(Math.random() * 255) + 1;
+    var r6 = Math.floor(Math.random() * 255) + 1;
+    var r7 = Math.floor(Math.random() * 255) + 1;
+    var r8 = Math.floor(Math.random() * 255) + 1;
+
     let m = message.channel.send("Loading..").then(m => {
       setTimeout(function() {
         m.edit(
-          "```Injecting trojan into ID: " +
+          "```diff\n-Injecting trojan into ID: " +
             member +
-            "```\n```Status : 10% \n\n███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
+            "```\n```fix\nStatus : 10% \n\n███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
         );
       }, 2500) &&
         setTimeout(function() {
           m.edit(
-            "```diff\nGetting access key from discriminator: " +
+            "```diff\n-Getting access key from discriminator: " +
               member.user.discriminator +
               "```\n```fix\nStatus : 20% \n\n███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
           );
-        }, 5000); /*&&
+        }, 5000) &&
         setTimeout(function() {
-          m.edit("3rd");
-        }, 7500);*/
+          m.edit(
+            "```diff\n-Tracing Ip Address : " +
+              r1 +
+              r2 +
+              r3 +
+        
+              "```\n```fix\nStatus : 20% \n\n███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯"
+          );
+        }, 7500);
     });
   }
 };
