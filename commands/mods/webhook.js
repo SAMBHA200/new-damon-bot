@@ -1,0 +1,20 @@
+const discord = require("discord.js");
+const embed = new discord.MessageEmbed();
+
+module.exports = {
+  name: "streaming",
+  description: "",
+  async run(client, message, args) {
+    if (!message.author.id === bowner)
+      return message.reply("Owners Only Commamd");
+    const activity = args.join(" ");
+    client.user.setActivity(activity, {
+      type: "STREAMING",
+      url: "https://discord.gg/wXemeVm"
+    });
+    message.delete();
+    await message.channel.send(`Set Activity PLAYING ${activity}`).then(msg => {
+      msg.delete({ timeout: 10000 });
+    });
+  }
+};
