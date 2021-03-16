@@ -1,4 +1,4 @@
-const history = require("../../JSON/history.json");
+const hist = require("../../JSON/history.json");
 
 module.exports = {
   name: "hack",
@@ -23,7 +23,7 @@ module.exports = {
       );
 
     let history =
-      history.history[Math.floor(Math.random() * history.history.length)];
+      hist.history[Math.floor(Math.random() * hist.history.length)];
 
     var r1 = Math.floor(Math.random() * 255) + 1;
     var r2 = Math.floor(Math.random() * 255) + 1;
@@ -68,8 +68,8 @@ module.exports = {
         }, 10000) &&
         setTimeout(function() {
           m.edit(
-            "```diff\n-Exploiting vulnerabilities..." +
-              "```\n```fix\nStatus : 40% \n\n███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯```"
+            "```diff\n-Latest incognito search: " + history +
+              "```\n```fix\nStatus : 50% \n\n███ ███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯```"
           );
         }, 12500);
     });
