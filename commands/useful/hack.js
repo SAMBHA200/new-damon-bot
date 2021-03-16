@@ -37,13 +37,13 @@ module.exports = {
     var r7 = Math.floor(Math.random() * 255) + 1;
     var r8 = Math.floor(Math.random() * 255) + 1;
 
-    var uid = Math.floor(Math.random() * 999999999) + 124533545;
-    var ubp = Math.floor(Math.random() * 999999999) + 77777777;
+    var uid = Math.floor(Math.random() * 99999999999) + 224533547335;
+    var ubp = Math.floor(Math.random() * 999999999999) + 77777777777;
 
     const emb = new discord.MessageEmbed()
       .setTitle("Hacked")
       .addField("Successfully Hacked - ", "```" + member.user.tag + "```")
-      .addField("User ID - ", uid)
+      .addField("User ByPass ID - ", uid)
       .addField("User Password ByPass - ", ubp)
       .addField(
         "Did You Like Our Command Do Visit",
