@@ -29,14 +29,14 @@ module.exports = {
       }, 2500) &&
         setTimeout(function() {
           m.edit(
-            "```Getting access key from discriminator: " +
-              member.tag +
-              "```\n```Status : 20% \n\n███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
+            "```diff\nGetting access key from discriminator: " +
+              member.user.discriminator +
+              "```\n```fix\nStatus : 20% \n\n███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
           );
-        }, 5000) &&
+        }, 5000); /*&&
         setTimeout(function() {
           m.edit("3rd");
-        }, 7500);
+        }, 7500);*/
     });
   }
 };
