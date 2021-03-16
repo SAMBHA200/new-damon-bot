@@ -1,6 +1,8 @@
+const history = require("../../JSON/history.json");
+
 module.exports = {
   name: "hack",
- // aliases: ["t"],
+  // aliases: ["t"],
   desciption: "say command",
   category: "fun",
   usage: "hack @user",
@@ -19,6 +21,9 @@ module.exports = {
       message.guild.members.cache.find(
         r => r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
       );
+
+    let history =
+      history.history[Math.floor(Math.random() * history.history.length)];
 
     var r1 = Math.floor(Math.random() * 255) + 1;
     var r2 = Math.floor(Math.random() * 255) + 1;
@@ -55,11 +60,18 @@ module.exports = {
               "```\n```fix\nStatus : 30% \n\n███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯ ▯```"
           );
         }, 7500) &&
-        setTimeout(function () {
-        m.edit(
-          "```diff\n-Tracing Ip Address : " +
-        )
-      })
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Exploiting vulnerabilities..." +
+              "```\n```fix\nStatus : 40% \n\n███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯```"
+          );
+        }, 10000) &&
+        setTimeout(function() {
+          m.edit(
+            "```diff\n-Exploiting vulnerabilities..." +
+              "```\n```fix\nStatus : 40% \n\n███ ███ ███ ███ ▯ ▯ ▯ ▯ ▯ ▯```"
+          );
+        }, 12500);
     });
   }
 };
