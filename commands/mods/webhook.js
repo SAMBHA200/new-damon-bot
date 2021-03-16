@@ -1,20 +1,21 @@
 const discord = require("discord.js");
 const embed = new discord.MessageEmbed();
+const db = require("quick.db");
 
 module.exports = {
-  name: "streaming",
+  name: "test",
   description: "",
   async run(client, message, args) {
-    if (!message.author.id === bowner)
-      return message.reply("Owners Only Commamd");
-    const activity = args.join(" ");
-    client.user.setActivity(activity, {
-      type: "STREAMING",
-      url: "https://discord.gg/wXemeVm"
-    });
-    message.delete();
-    await message.channel.send(`Set Activity PLAYING ${activity}`).then(msg => {
-      msg.delete({ timeout: 10000 });
-    });
+    message.channel
+      .createWebhook("Marvel", {
+        avatar:
+          "https://cdn.discordapp.com/avatars/748583869527097376/8b9300203ff8f2b17e509634c44dfba7.jpeg"
+      })
+      .then(webhook =>
+        message.channel.send(
+          "Weebhook Created With Name Marvel And Saved To Database"
+        )
+      );
+    db.set(`whook_${message.guild.id}`, webhook.link);
   }
 };
