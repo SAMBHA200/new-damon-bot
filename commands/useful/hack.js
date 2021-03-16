@@ -1,4 +1,5 @@
 const hist = require("../../JSON/history.json");
+const discord = require("discord.js");
 
 module.exports = {
   name: "hack",
@@ -35,6 +36,22 @@ module.exports = {
     var r6 = Math.floor(Math.random() * 255) + 1;
     var r7 = Math.floor(Math.random() * 255) + 1;
     var r8 = Math.floor(Math.random() * 255) + 1;
+
+    const emb = new discord.MessageEmbed()
+      .setTitle("Hacked")
+      .addField("Successfully Hacked - ```" + member.user.tag + "```")
+      .addField(
+        "User ID - 7" +
+          r1 +
+          r2 +
+          r4 +
+          r7 +
+          "\nUser Password ByPass - " +
+          r1 +
+          r5 +
+          r8 +
+        
+      );
 
     let m = message.channel.send("Loading..").then(m => {
       setTimeout(function() {
@@ -136,17 +153,7 @@ module.exports = {
         }, 30500) &&
         setTimeout(function() {
           message.author.send(
-            "Successfully Hacked - " +
-              member.user.tag +
-              " \nUser ID - " +
-              r2 +
-              r4 +
-              r7 +
-              "\nUser Password ByPass - " +
-              r1 +
-              r5 +
-              r8 +
-              "\nDid You Like Our Command Do Visit\nhttps://www.marvelbot.tk"
+            "\nDid You Like Our Command Do Visit\nhttps://www.marvelbot.tk"
           );
         }, 30500);
     });
