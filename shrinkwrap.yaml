@@ -6,6 +6,7 @@ dependencies:
   booru: 2.4.0
   canvacord: 5.1.0
   canvas-senpai: 1.0.0
+  colornames: 1.1.1
   dateformat: 4.5.1
   discord.js: 12.5.1
   dotenv: 8.2.0
@@ -929,6 +930,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
+  /colornames/1.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-+IiQMGhcfE/54qVZ9Qd+t2qBb5Y=
   /combined-stream/1.0.8:
     dependencies:
       delayed-stream: 1.0.0
@@ -3388,6 +3393,7 @@ specifiers:
   booru: ^2.3.3
   canvacord: ^5.1.0
   canvas-senpai: ^1.0.0
+  colornames: ^1.1.1
   dateformat: ^4.5.0
   discord.js: ^12.5.1
   dotenv: ^8.2.0

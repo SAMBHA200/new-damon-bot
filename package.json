@@ -53,7 +53,8 @@
     "morse": "^0.1.0",
     "md5": "^2.3.0",
     "@mikemcbride/dad-jokes": "^1.0.0",
-    "timers": "^0.1.1"
+    "timers": "^0.1.1",
+    "colornames": "^1.1.1"
   },
   "engines": {
     "node": "12.x"
