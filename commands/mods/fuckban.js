@@ -37,6 +37,9 @@ module.exports = {
           "**Chiley huye lawde aukaat mein reh permission nhi h tere pass**"
         );
 
+      return message.channel.send(
+        "My highest role is lower than the mentioned user's role"
+      );
       if (!message.guild.me.hasPermission("BAN_MEMBERS"))
         return message.reply(
           "**Jhaantu phle permissions toh dede mujje aur security se whitelist kr dio**"
@@ -68,10 +71,14 @@ module.exports = {
         message.guild.members.cache.find(
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
-      if (banMember.id === bowner)
-        return message.reply(
-          `Bsdk Owner Hai Vo Mera Gaand Maar Lunga Tere Behenchod`
-        );
+      if (
+        message.guild.members.fetch(member).roles.highest.position >
+        message.guild.members.fetch(message.author).roles.highest.position
+      )
+        if (banMember.id === bowner)
+          return message.reply(
+            `Bsdk Owner Hai Vo Mera Gaand Maar Lunga Tere Behenchod`
+          );
       if (!banMember)
         return message.reply("**ye chutiya iss server me nhi hai**");
       if (banMember === message.member)
@@ -136,7 +143,7 @@ module.exports = {
       sChannel.send(embed);
       banMember.ban();
     } catch (e) {
-      return message.channel.send(`**BHAI MENE NASHA KIA HAI ${e.message}**`);
+      return message.channel.send(`**error ${e.message}**`);
     }
   }
 };
