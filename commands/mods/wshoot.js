@@ -1,15 +1,13 @@
 const discord = require("discord.js");
 const embed = new discord.MessageEmbed();
 const db = require("quick.db");
+const { prefix, bowner } = require("../../config.json");
 
 module.exports = {
   name: "wshoot",
   description: "",
   async run(client, message, args) {
-    
-     if (!message.author.id === bowner)
-      return message.reply("Owners Only Commamd");
-    
+    if (message.author.id !== bowner) return;
     message.delete();
     const channel = message.channel;
 

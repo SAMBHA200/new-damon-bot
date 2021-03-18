@@ -79,8 +79,10 @@ client.on("ready", async () => {
 });
 
 client.on("message", async message => {
+  const emojis = require("../../JSON/emojis.json");
+  let emoji = emojis.emoji[Math.floor(Math.random() * emojis.emoji.length)];
   if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
-    return message.react(`764200230152830977`);
+    return message.channel.send(emoji);
   }
 });
 
