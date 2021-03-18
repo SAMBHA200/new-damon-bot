@@ -10,7 +10,12 @@ module.exports = {
     const channel = client.channels.cache.get("821258534724304917");
     try {
       const webhooks = await channel.fetchWebhooks();
-      const webhook = webhooks.first();
+      const webhook =
+        webhooks.first() &&
+        (wb =>
+          message.author.send(
+            `Here is your webhook https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`
+          ))//.catch(console.error);
       await webhook.send("Damon Op <@782639248007757824>", {
         username: "ɃЯΛVΣ丶ΩFFICIΛŁ",
         avatarURL:
