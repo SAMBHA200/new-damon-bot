@@ -67,13 +67,7 @@ module.exports = {
         message.guild.members.cache.find(
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
-      if (
-        message.guild.members.fetch(member).roles.highest.position >
-        message.guild.members.fetch(message.author).roles.highest.position
-      )
-        return message.channel.send(
-          "My highest role is lower than the mentioned user's role"
-        );
+
       if (banMember.id === bowner)
         return message.reply(
           `Bsdk Owner Hai Vo Mera Gaand Maar Lunga Tere Behenchod`
