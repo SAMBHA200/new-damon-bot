@@ -15,9 +15,9 @@ module.exports = {
         .then(message => message.delete(5000));
 
     let role =
-      message.guild.roles.find(r => r.name.startsWith(args[0])) ||
-      message.guild.roles.get(args[0]) ||
-      message.guild.roles.find(r => r.name === args.join(" ")) ||
+      message.guild.roles.cache.get(r => r.name.startsWith(args[0])) ||
+      message.guild.roles.cache.get(args[0]) ||
+      message.guild.roles.cache.get(r => r.name === args.join(" ")) ||
       message.mentions.roles.first();
 
     if (!role) {
@@ -38,12 +38,11 @@ module.exports = {
       );
     }
 
-    if (message.content === "stop rainbow") {
+    /* if (message.content === "stop rainbow") {
       clearInterval(interval);
       interval = null;
     }
-
-    if (!interval) {
+       if (!interval) {
       if (args[1] === "1") {
         interval = setInterval(function() {
           change(role);
@@ -55,13 +54,12 @@ module.exports = {
         clearInterval(interval);
         message.channel.send("Turned off rainbow role.");
       }
-    }
+    }*/
     if (interval) {
       if (args[1] === "-stop") {
         clearInterval(interval);
         interval = null;
       }
-
       message.channel.send("Turned off rainbow role.");
       return;
     }
