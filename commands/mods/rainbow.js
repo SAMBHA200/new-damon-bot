@@ -15,9 +15,9 @@ module.exports = {
         .then(message => message.delete(5000));
 
     let role =
-      message.guild.roles.find(r => r.name.startsWith(args[0])) ||
-      message.guild.roles.get(args[0]) ||
-      message.guild.roles.find(r => r.name === args.join(" ")) ||
+      message.guild.roles.cache.get(r => r.name.startsWith(args[0])) ||
+      message.guild.roles.cache.get(args[0]) ||
+      message.guild.roles.cache.get(r => r.name === args.join(" ")) ||
       message.mentions.roles.first();
 
     if (!role) {
