@@ -5,7 +5,7 @@ const colors1 = require("random-hex-color");
 module.exports = {
   name: "rainbow",
   description: "Locks the Mentioned Channels for everyone",
-  usage: `\`${prefix}lock <Channel(s)>\``,
+  usage: `\`${prefix}rainbow <role> 1 or 0 ( where 1 is start and 0 is stop)\``,
   async run(client, message, args) {
     message.delete();
 
@@ -42,7 +42,7 @@ module.exports = {
       clearInterval(interval);
       interval = null;
     }*/
-       if (!interval) {
+    if (!interval) {
       if (args[1] === "1") {
         interval = setInterval(function() {
           change(role);
@@ -55,8 +55,7 @@ module.exports = {
         message.channel.send("Turned off rainbow role.");
       }
     }
-    
-    
+
     if (interval) {
       if (args[1] === "-stop") {
         clearInterval(interval);
