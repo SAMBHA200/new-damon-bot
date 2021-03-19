@@ -28,12 +28,17 @@ module.exports = {
       .setColor("RED")
       .setTitle("Urban Bot System Stats")
       .addField("CPU Cores", count, true)
-      .addField("CPU Usage", osu.cpu, true)
-      .addField("Drive Usage", osu.drive, true)
-      .addField("Memory Usage", osu.mem, true)
-      .addField("Network Stats", osu.netstat, true)
-      .addField("Logged In User", "Administrator", true)
-      .addField("Operating System", "Windows Server 2016 Standard", true);
+      .addField("CPU Usage", cpu, true)
+      .addField("Drive Usage", drive, true)
+      .addField("Memory Usage", mem, true)
+      .addField("Network Stats", netstat, true)
+      //      .addField("Logged In User", "Administrator", true)
+      //     .addField("Operating System", "Windows Server 2016 Standard", true);
+      .setFooter(
+        "Requested By : " + message.author.tag,
+        message.author.displayAvatarURL()
+      )
+      .setTimestamp((message.timestamp = Date.now()));
     message.channel.send(systemEmbed);
   }
 };
