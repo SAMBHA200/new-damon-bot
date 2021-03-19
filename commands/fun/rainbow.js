@@ -46,7 +46,7 @@ module.exports = {
       if (args[1] === "1") {
         interval = setInterval(function() {
           change(role);
-        }, 5000);
+        }, 60000);
         message.reply("Starting fast mode rainbow role.");
         return;
       } else if (args[1] === "0") {
