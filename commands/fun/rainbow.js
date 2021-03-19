@@ -41,7 +41,7 @@ module.exports = {
     /* if (message.content === "stop rainbow") {
       clearInterval(interval);
       interval = null;
-    }
+    }*/
        if (!interval) {
       if (args[1] === "1") {
         interval = setInterval(function() {
@@ -54,7 +54,9 @@ module.exports = {
         clearInterval(interval);
         message.channel.send("Turned off rainbow role.");
       }
-    }*/
+    }
+    
+    
     if (interval) {
       if (args[1] === "-stop") {
         clearInterval(interval);

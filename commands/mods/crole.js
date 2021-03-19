@@ -6,7 +6,7 @@ module.exports = {
   name: "createrole",
   aliases: ["cr"],
   description: "Creates A New Role in the Server",
-  usage: `\`${prefix}createrole <Color> <Name>\``,
+  usage: `\`${prefix}rainbow <role> <time>\``,
   async run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_ROLES"))
       return message.reply(
