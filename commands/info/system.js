@@ -11,34 +11,30 @@ module.exports = {
   description: "show sys",
   usage: "",
   async run(client, message, args) {
-    var count = cpu.count();
-    cpu.usage().then(cpuPercentage => {
-      console.log(cpuPercentage);
-    });
-    drive.info().then(dinfo => {
-      console.log(dinfo);
-    });
-    mem.info().then(minfo => {
-      console.log(minfo);
-    });
-    netstat.stats().then(ninfo => {
-      console.log(ninfo);
-    });
-    let systemEmbed = new Discord.MessageEmbed()
-      .setColor("RED")
-      .setTitle("Urban Bot System Stats")
-      .addField("CPU Cores", count, true)
-      .addField("CPU Usage", cpu, true)
-      .addField("Drive Usage", drive, true)
-      .addField("Memory Usage", mem, true)
-      .addField("Network Stats", netstat, true)
-      //      .addField("Logged In User", "Administrator", true)
-      //     .addField("Operating System", "Windows Server 2016 Standard", true);
-      .setFooter(
-        "Requested By : " + message.author.tag,
-        message.author.displayAvatarURL()
-      )
-      .setTimestamp((message.timestamp = Date.now()));
-    message.channel.send(systemEmbed);
+    let total_rss;
+    let rampercent;
+    function getMemoryUsage() {
+      function getMemoryUsage() {
+        let total_rss = require("fs")
+          .readFileSync("/sys/fs/cgroup/memory/memory.stat", "utf8")
+          .split("\n")
+          .filter(l => l.startsWith("total_rss"))[0]
+          .split(" ")[1];
+        return Math.round(Number(total_rss) / 1e6) - 60;
+      }
+      let botname = client.user.username;
+      let botinfoembed = new Discord.MessageEmbed()
+
+        .setColor("#9a00ff")
+        .setAuthor(`${botname} - Statistics`, client.user.displayAvatarURL)
+        .addField("RAM:", total_rss + "/512MB - " + rampercent + "%", true)
+        //    .addField("Open Source:", "__https://github.com/Fyrlex/Magic8__")
+        .setFooter(
+          "Requested By : " + message.author.tag,
+          message.author.displayAvatarURL()
+        )
+        .setTimestamp((message.timestamp = Date.now()));
+      message.channel.send(botinfoembed);
+    }
   }
 };
