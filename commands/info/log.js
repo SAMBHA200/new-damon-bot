@@ -80,6 +80,14 @@ module.exports = {
           prefix +
           "helplog` - to check all logging modules are enabled or not"
       )
+    .addField(
+        " <:marvel_invite:814508240880009276> **INIVITE**",
+        "[discord.gg/invite](" + binvite + ")"
+      )
+      .addField(
+        "<:marvel_discord:814792681157820416> **SUPPORT SERVER**",
+        "[discord.gg/support](https://discord.gg/wXemeVm)"
+      )
       .setThumbnail(client.user.displayAvatarURL())
       .setColor("RED")
       .setFooter(

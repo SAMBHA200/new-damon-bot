@@ -25,6 +25,10 @@ module.exports = {
 
     if (member === message.member)
       return message.reply("**WHY DO YOU WANT TO `HACK` YOURSELF**");
+    if (member.id === client.user.id)
+      return message.reply(
+        "**DUDE DO YOU WANT TO BE BANNED BY ME TRYING TO HACK ME**"
+      );
 
     let history = hist.history[Math.floor(Math.random() * hist.history.length)];
 
