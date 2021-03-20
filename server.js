@@ -8,7 +8,7 @@ const client = new discord.Client({
   disableEveryone: false
 });
 
-require("./logger.js");
+//require("./logger.js");
 require("./uptime.js");
 //require("./op.js");
 //require("./brv.js")
