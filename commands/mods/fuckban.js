@@ -13,6 +13,7 @@ module.exports = {
     "lawdaban",
     "muthban",
     "makichutban",
+    "binban",
     "lavdaban",
     "lovedayban",
     "lavdeban",
