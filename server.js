@@ -1,4 +1,4 @@
-const { prefix } = require("./config.json");
+const { defprefix } = require("./config.json");
 const { config } = require("dotenv");
 const db = require("quick.db");
 const PrefixModel = require("./models/prefix-model");
@@ -49,18 +49,15 @@ client.on("ready", async () => {
     client.on("message", async message => {
       const data = await PrefixModel.findOne({
         GuildID: message.guild.id
-      });
-      if (data) {
-        prefix = data.Prefix;
-      } else {
-        prefix = prefix;
-      }
-      const prefixMention = new RegExp(`^<@!?${client.user.username}>( |)$`);
+    });
+    if (data) { prefix = data.Prefix; }
+    else { prefix = defprefix; }
+      const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
           .setTitle(client.user.username)
-          .addField("PREFIX", `\`${prefix}\``)
-          .addField("USAGE", `\`${prefix}help\``)
+          .addField("PREFIX", `\`${defprefix}\``)
+          .addField("USAGE", `\`${defprefix}help\``)
           .setColor("RANDOM")
           .setFooter(`Bot Mentioned By ${message.author.username}`);
         message.channel.send(mention);
