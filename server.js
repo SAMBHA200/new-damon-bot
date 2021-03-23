@@ -47,11 +47,11 @@ client.on("ready", async () => {
     //  }
 
     client.on("message", async message => {
-      /*     const data = await PrefixModel.findOne({
+           const data = await PrefixModel.findOne({
         GuildID: message.guild.id
     });
     if (data) { prefix = data.Prefix; }
-    else { prefix = defprefix; } */
+    else { prefix = defprefix; } 
       const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
