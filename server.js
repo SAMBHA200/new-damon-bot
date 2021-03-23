@@ -2,14 +2,6 @@ const { defprefix } = require("./config.json");
 const { config } = require("dotenv");
 const db = require("quick.db");
 const PrefixModel = require("./models/prefix-model");
-const mongoose = require("mongoose");
-const mongopath = process.env.mong;
-mongoose.connect(mongopath, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-});
 const { CanvasSenpai } = require("canvas-senpai");
 const canva = new CanvasSenpai();
 const discord = require("discord.js");
@@ -47,11 +39,6 @@ client.on("ready", async () => {
     //  }
 
     client.on("message", async message => {
-           const data = await PrefixModel.findOne({
-        GuildID: message.guild.id
-    });
-    if (data) { prefix = data.Prefix; }
-    else { prefix = defprefix; } 
       const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
