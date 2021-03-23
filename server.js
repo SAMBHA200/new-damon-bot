@@ -47,17 +47,17 @@ client.on("ready", async () => {
     //  }
 
     client.on("message", async message => {
-      const data = await PrefixModel.findOne({
+      /*     const data = await PrefixModel.findOne({
         GuildID: message.guild.id
     });
     if (data) { prefix = data.Prefix; }
-    else { prefix = defprefix; }
+    else { prefix = defprefix; } */
       const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
           .setTitle(client.user.username)
-          .addField("PREFIX", `\`${prefix}\``)
-          .addField("USAGE", `\`${prefix}help\``)
+          .addField("PREFIX", `\`${defprefix}\``)
+          .addField("USAGE", `\`${defprefix}help\``)
           .setColor("RANDOM")
           .setFooter(`Bot Mentioned By ${message.author.username}`);
         message.channel.send(mention);
@@ -66,13 +66,13 @@ client.on("ready", async () => {
 
       if (message.author.bot) return;
       if (!message.guild) return;
-      if (!message.content.startsWith(prefix)) return;
+      if (!message.content.startsWith(defprefix)) return;
 
       if (!message.member)
         message.member = await message.guild.fetchMember(message);
 
       const args = message.content
-        .slice(prefix.length)
+        .slice(defprefix.length)
         .trim()
         .split(/ +/g);
       const cmd = args.shift().toLowerCase();
