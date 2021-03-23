@@ -1,6 +1,7 @@
 const { prefix } = require("./config.json");
 const { config } = require("dotenv");
 const db = require("quick.db");
+const PrefixModel = require("./models/prefix-model");
 const mongoose = require("mongoose");
 const mongopath = process.env.mong;
 mongoose.connect(mongopath, {
@@ -46,6 +47,14 @@ client.on("ready", async () => {
     //  }
 
     client.on("message", async message => {
+      const data = await PrefixModel.findOne({
+        GuildID: message.guild.id
+      });
+      if (data) {
+        prefix = data.Prefix;
+      } else {
+        prefix = prefix;
+      }
       const prefixMention = new RegExp(`^<@!?${client.user.username}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
