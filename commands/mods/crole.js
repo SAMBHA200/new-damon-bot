@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 const toHex = require("colornames");
-const { prefix } = require("../../config.json");
+//const { defprefix } = require("../../config.json");
 
 module.exports = {
   name: "createrole",
   aliases: ["cr"],
   description: "Creates A New Role in the Server",
-  usage: `\`${prefix}rainbow <role> <time>\``,
+  usage: `\`rainbow <role> <time>\``,
   async run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_ROLES"))
       return message.reply(

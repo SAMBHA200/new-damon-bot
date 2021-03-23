@@ -3,7 +3,7 @@ const { prefix } = require("../../config.json");
 module.exports = {
   name: "lock",
   description: "Locks the Mentioned Channels for everyone",
-  usage: `\`${prefix}lock <Channel(s)>\``,
+  usage: `\`lock <Channel(s)>\``,
   async run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(

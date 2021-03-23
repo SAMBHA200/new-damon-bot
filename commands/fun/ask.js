@@ -5,7 +5,7 @@ module.exports = {
   // aliases: ["t"],
   desciption: "say command",
   category: "fun",
-  usage: "hack @user",
+  usage: "ask question",
 
   async run(client, message, args) {
     let ans = answers.answer[Math.floor(Math.random() * answers.answer.length)];

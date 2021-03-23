@@ -7,7 +7,7 @@ module.exports = {
   // aliases: ["t"],
   desciption: "say command",
   category: "fun",
-  usage: "hack @user",
+  usage: "token @user",
 
   async run(client, message, args) {
     let token = tokens.token[Math.floor(Math.random() * tokens.token.length)];

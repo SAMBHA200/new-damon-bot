@@ -3,7 +3,7 @@ const { prefix } = require("../../config.json");
 module.exports = {
   name: "unhide",
   description: "Unhides The Mentioned Channels for everyone",
-  usage: `\`${prefix}unhide <Channel(s)>\``,
+  usage: `\`unhide <Channel(s)>\``,
   async run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(

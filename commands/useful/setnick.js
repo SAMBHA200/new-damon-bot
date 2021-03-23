@@ -4,7 +4,7 @@ module.exports = {
   name: "setnick",
   aliases: ["nick"],
   description: "Sets Mentioned Nickname To Mentioned User",
-  usage: `\`${prefix}setnick <User> <Nickname>\``,
+  usage: `\`setnick <User> <Nickname>\``,
   run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_NICKNAMES"))
       return message.channel.send(

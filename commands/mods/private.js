@@ -4,7 +4,7 @@ module.exports = {
   name: "private",
   aliases: ["pr"],
   description: "Creates A Private Channel",
-  usage: `\`${prefix}private <Name>\``,
+  usage: `\`private <Name>\``,
   run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(

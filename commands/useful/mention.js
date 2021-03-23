@@ -3,7 +3,7 @@ module.exports = {
   aliases: ["mt"],
   desciption: "say command",
   category: "embed",
-  usage: "reply <message> or say <message>",
+  usage: "mt userid",
 
   async run(client, message, args) {
     let msg;

@@ -5,7 +5,7 @@ const colors1 = require("random-hex-color");
 module.exports = {
   name: "rainbow",
   description: "Locks the Mentioned Channels for everyone",
-  usage: `\`${prefix}rainbow <role> 1 or 0 ( where 1 is start and 0 is stop)\``,
+  usage: `\`rainbow <role> 1 or 0 ( where 1 is start and 0 is stop)\``,
   async run(client, message, args) {
     message.delete();
 

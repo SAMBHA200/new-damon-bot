@@ -56,8 +56,8 @@ client.on("ready", async () => {
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
           .setTitle(client.user.username)
-          .addField("PREFIX", `\`${defprefix}\``)
-          .addField("USAGE", `\`${defprefix}help\``)
+          .addField("PREFIX", `\`${prefix}\``)
+          .addField("USAGE", `\`${prefix}help\``)
           .setColor("RANDOM")
           .setFooter(`Bot Mentioned By ${message.author.username}`);
         message.channel.send(mention);

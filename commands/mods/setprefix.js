@@ -4,7 +4,7 @@ const { prefix } = require("../../config.json");
 module.exports = {
   name: "setprefix",
   description: "Sets the Mentioned Symbol as Server Prefix",
-  usage: `\`${prefix}setprefix <Symbol>\``,
+  usage: `\`setprefix <Symbol>\``,
   async run(client, message, args) {
     if (!message.member.permissions.has("ADMINISTRATOR"))
       return message.channel.send(
