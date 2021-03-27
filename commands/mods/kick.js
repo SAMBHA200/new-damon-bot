@@ -51,7 +51,7 @@ module.exports = {
         return message.channel.send("**Cannot Kick This User!**");
 
       if (kickMember.id === bowner) return message.reply(`HE IS MY OWNER`);
-
+      //    var km = client.users.cache.get(kickMember).tag;
       var reason = args.slice(1).join(" ");
 
       try {
@@ -71,12 +71,7 @@ module.exports = {
           .then(() => kickMember.kick())
           .catch(() => null);
       } catch {
-        kickMember.kick(
-          message.author.tag +
-            " kicked " +
-            kickMember.user.tag +
-            " For No Reason Provided"
-        );
+        kickMember.kick(message.author.tag + " kicked For No Reason Provided");
       }
       if (reason) {
         var sembed = new MessageEmbed()
@@ -87,13 +82,7 @@ module.exports = {
           );
 
         message.channel.send(sembed);
-        kickMember.kick(
-          message.author.tag +
-            " kicked " +
-            kickMember.user.tag +
-            " for " +
-            reason
-        );
+        kickMember.kick(message.author.tag + " kicked for " + reason);
       } else {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
@@ -103,9 +92,7 @@ module.exports = {
 
         kickMember.kick(
           message.author.tag +
-            " kicked " +
-            kickMember.user.tag +
-            " for " +
+            " kicked \n" +
             `${reason || "No Reason Provided"}`
         );
       }
@@ -131,11 +118,7 @@ module.exports = {
       sChannel.send(embed);
 
       kickMember.kick(
-        message.author.tag +
-          " kicked " +
-          kickMember.usern +
-          " for " +
-          `${reason || "No Reason Provided"}`
+        message.author.tag + " kicked \n" + `${reason || "No Reason Provided"}`
       );
     } catch (e) {
       return message.channel.send(`**${e.message}**`);
