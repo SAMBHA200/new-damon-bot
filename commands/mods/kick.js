@@ -73,10 +73,9 @@ module.exports = {
       } catch {
         kickMember.kick(
           message.author.tag +
-            "kicked " +
-            kickMember.tag +
-            "for " +
-            `${reason || "No Reason Provided"}`
+            " kicked " +
+            kickMember.user.tag +
+            " For No Reason Provided"
         );
       }
       if (reason) {
@@ -90,10 +89,10 @@ module.exports = {
         message.channel.send(sembed);
         kickMember.kick(
           message.author.tag +
-            "kicked " +
-            kickMember.tag +
-            "for " +
-            `${reason || "No Reason Provided"}`
+            " kicked " +
+            kickMember.user.tag +
+            " for " +
+            reason
         );
       } else {
         var sembed2 = new MessageEmbed()
@@ -104,9 +103,9 @@ module.exports = {
 
         kickMember.kick(
           message.author.tag +
-            "kicked " +
-            kickMember.tag +
-            "for " +
+            " kicked " +
+            kickMember.user.tag +
+            " for " +
             `${reason || "No Reason Provided"}`
         );
       }
@@ -133,9 +132,9 @@ module.exports = {
 
       kickMember.kick(
         message.author.tag +
-          "kicked " +
-          kickMember.tag +
-          "for " +
+          " kicked " +
+          kickMember.usern +
+          " for " +
           `${reason || "No Reason Provided"}`
       );
     } catch (e) {
