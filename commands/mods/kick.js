@@ -51,7 +51,7 @@ module.exports = {
         return message.channel.send("**Cannot Kick This User!**");
 
       if (kickMember.id === bowner) return message.reply(`HE IS MY OWNER`);
-      //    var km = client.users.cache.get(kickMember).tag;
+      var av = kickMember.user.displayAvatarURL({ dynamic: true });
       var reason = args.slice(1).join(" ");
 
       try {
@@ -76,10 +76,7 @@ module.exports = {
       if (reason) {
         var sembed = new MessageEmbed()
           .setColor("RED")
-          .setAuthor(
-            kickMember.user.tag,
-            kickMember.displayAvatarURL({ dynamic: true })
-          )
+          .setAuthor(kickMember.user.tag, av)
           .setDescription(
             `**${kickMember.user.username}** has been kicked for ${reason}`
           );
@@ -89,10 +86,7 @@ module.exports = {
       } else {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
-          .setAuthor(
-            kickMember.user.tag,
-            kickMember.displayAvatarURL({ dynamic: true })
-          )
+          .setAuthor(kickMember.user.tag, av)
           .setDescription(`**${kickMember.user.username}** has been kicked`);
         message.channel.send(sembed2);
 
