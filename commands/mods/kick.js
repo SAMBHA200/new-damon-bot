@@ -71,29 +71,33 @@ module.exports = {
           .then(() => kickMember.kick())
           .catch(() => null);
       } catch {
-        kickMember.kick(message.author.tag + " kicked For No Reason Provided");
+        kickMember.kick(message.author.tag + " For No Reason Provided");
       }
       if (reason) {
         var sembed = new MessageEmbed()
           .setColor("RED")
-          .setAuthor(message.guild.name, message.guild.iconURL())
+          .setAuthor(
+            kickMember.user.tag,
+            kickMember.displayAvatarURL({ dynamic: true })
+          )
           .setDescription(
             `**${kickMember.user.username}** has been kicked for ${reason}`
           );
 
         message.channel.send(sembed);
-        kickMember.kick(message.author.tag + " kicked for " + reason);
+        kickMember.kick(message.author.tag + " For " + reason);
       } else {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
-          .setAuthor(message.guild.name, message.guild.iconURL())
+          .setAuthor(
+            kickMember.user.tag,
+            kickMember.displayAvatarURL({ dynamic: true })
+          )
           .setDescription(`**${kickMember.user.username}** has been kicked`);
         message.channel.send(sembed2);
 
         kickMember.kick(
-          message.author.tag +
-            " kicked \n" +
-            `${reason || "No Reason Provided"}`
+          message.author.tag + `${reason || " No Reason Provided"}`
         );
       }
 
@@ -118,7 +122,7 @@ module.exports = {
       sChannel.send(embed);
 
       kickMember.kick(
-        message.author.tag + " kicked \n" + `${reason || "No Reason Provided"}`
+        message.author.tag + `${reason || " No Reason Provided"}`
       );
     } catch (e) {
       return message.channel.send(`**${e.message}**`);
