@@ -40,14 +40,16 @@ module.exports = {
           "``**"
       );
     }
-    const nick = args.join(" ").slice(22);
-    member.setNickname(nick, message.author.tag);
-    message.channel.send(
-      "<:marvel_tick:814596834814197781> | Changed Nickname of " +
-        member.user.username +
-        " to **``" +
-        nick +
-        "``**"
-    );
+    if (args[1]) {
+      const nick = args.join(" ").slice(22);
+      member.setNickname(nick, message.author.tag);
+      message.channel.send(
+        "<:marvel_tick:814596834814197781> | Changed Nickname of " +
+          member.user.username +
+          " to **``" +
+          nick +
+          "``**"
+      );
+    }
   }
 };

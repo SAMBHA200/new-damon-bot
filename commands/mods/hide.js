@@ -20,12 +20,13 @@ module.exports = {
             message.channel.guild.roles.everyone,
             {
               VIEW_CHANNEL: false
-            }
+            },
+            message.author.tag
           ) &&
           message.channel.send(
             "<:marvel_tick:814596834814197781> | <#" +
               message.channel +
-              "> Is Now Invisible For Everyone.!"
+              "> Is Now Invisible To Everyone.!"
           )
         );
     }
