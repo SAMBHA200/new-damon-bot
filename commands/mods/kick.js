@@ -97,8 +97,8 @@ module.exports = {
           );
         message.channel.send(sembed2);
 
-        kickMember.kick("[
-          message.author.tag + `${reason || " No Reason Provided"}`
+        kickMember.kick(
+          "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
         );
       }
 
@@ -117,13 +117,10 @@ module.exports = {
         .setTimestamp();
 
       var sChannel = message.guild.channels.cache.get(channel);
-
       if (!sChannel) return;
-
       sChannel.send(embed);
-
       kickMember.kick(
-        "[" + message.author.tag + "]" + `${reason || " No Reason Provided"}`
+        "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
       );
     } catch (e) {
       return message.channel.send(`**${e.message}**`);
