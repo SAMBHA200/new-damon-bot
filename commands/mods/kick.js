@@ -14,12 +14,12 @@ module.exports = {
     try {
       if (!message.member.hasPermission("KICK_MEMBERS"))
         return message.channel.send(
-          "**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
+          "**<:marvel_cross:814596854436069376> | You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
         );
 
       if (!message.guild.me.hasPermission("KICK_MEMBERS"))
         return message.channel.send(
-          "**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
+          "**<:marvel_cross:814596854436069376> | I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
         );
 
       if (!args[0]) return message.channel.send("**Enter A User To Kick!**");
@@ -38,14 +38,16 @@ module.exports = {
         return message.channel.send("**User Is Not In The Guild!**");
 
       if (kickMember.id === message.member.id)
-        return message.channel.send("**You Cannot Kick Yourself!**");
+        return message.channel.send(
+          "**<:marvel_cross:814596854436069376> | You Cannot Kick Yourself!**"
+        );
 
       if (
         message.member.roles.highest.position <=
         kickMember.roles.highest.position
       )
         return message.reply(
-          "Your Role isn't High Enough to Kick **``" +
+          "<:marvel_cross:814596854436069376> | Your Role isn't High Enough to Kick **``" +
             kickMember.user.tag +
             "``**"
         );
@@ -55,7 +57,7 @@ module.exports = {
         kickMember.roles.highest.position
       )
         return message.reply(
-          "My Role Isn't High Enough to Kick **``" +
+          "<:marvel_cross:814596854436069376> | My Role Isn't High Enough to Kick **``" +
             kickMember.user.tag +
             "``**"
         );
@@ -89,7 +91,7 @@ module.exports = {
           .setColor("RED")
           .setAuthor(kickMember.user.tag, av)
           .setDescription(
-            `**${kickMember.user.username}** has been kicked for ${reason}`
+            `**<:marvel_cross:814596854436069376> | ${kickMember.user.username}** has been kicked for ${reason}`
           )
           .setFooter(
             "Kicked By : " + message.author.tag,
@@ -103,7 +105,7 @@ module.exports = {
           .setColor("RED")
           .setAuthor(kickMember.user.tag, av)
           .setDescription(
-            `**${kickMember.user.username}** has been kicked : no reason provided`
+            `**<:marvel_cross:814596854436069376> | ${kickMember.user.username}** has been kicked : no reason provided`
           )
           .setFooter(
             "Kicked By : " + message.author.tag,

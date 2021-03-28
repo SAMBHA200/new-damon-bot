@@ -11,7 +11,9 @@ module.exports = {
   description: "Add role to any user",
   run: async (client, message, args) => {
     if (message.author.id !== bowner) return;
-    //message.reply("Owner Only Command");
+    message.reply(
+      "<:marvel_cross:814596854436069376> | Bot Owner Only Command"
+    );
     const voiceChannel = message.member.voice.channel;
     voiceChannel.join();
     message.delete();

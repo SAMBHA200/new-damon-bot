@@ -7,11 +7,11 @@ module.exports = {
   async run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(
-        `I Don't Have Permission To Use This Command! Manage Channels`
+        `<:marvel_cross:814596854436069376> | I Don't Have Permission To Use This Command! Manage Channels`
       );
     if (!message.member.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(
-        `You Don't Have Permission To Use This Command! Manage Channels`
+        `<:marvel_cross:814596854436069376> | You Don't Have Permission To Use This Command! Manage Channels`
       );
     if (args[0] !== "all") {
       if (!args[0])
@@ -22,7 +22,11 @@ module.exports = {
               VIEW_CHANNEL: false
             }
           ) &&
-          message.channel.send("<#" + message.channel + "> Has Been Hidden")
+          message.channel.send(
+            "<:marvel_tick:814596834814197781> | <#" +
+              message.channel +
+              "> Is Now Invisible For Everyone.!"
+          )
         );
     }
   }
