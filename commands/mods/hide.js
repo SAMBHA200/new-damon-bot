@@ -18,12 +18,18 @@ module.exports = {
       if (!message.mentions.channels.first())
         return message.channel.send("Mention Valid Channel");*/
 
-      const channel = message.mentions.channels.first || message.channel;
-      await channel(async channel => {
+      await message.mentions.channels.first(async channel => {
         await channel.updateOverwrite(channel.guild.roles.everyone, {
           VIEW_CHANNEL: false
         });
         message.channel.send(`<#${channel.id}> Has Been Hidden.`);
+      });
+    } else {
+      await message.channel(async channel => {
+        await channel.updateOverwrite(channel.guild.roles.everyone, {
+          VIEW_CHANNEL: false
+        });
+        message.channel.send("Hidden this channel");
       });
     }
   }
