@@ -22,15 +22,15 @@ module.exports = {
       message.guild.roles.cache.get(r => r.name === args.join(" ")) ||
       message.mentions.roles.first();
 
-    /*  if (!role) {
+    if (!role) {
       clearInterval(interval);
       interval = null;
       return message
         .reply(
-          "<:marvel_cross:814596854436069376> | I could not find that role, turning off any current rainbow roles"
+          "<:marvel_tick:814596834814197781> | Turning off current rainbow roles"
         )
         .then(message => message.delete(5000));
-    }*/
+    }
 
     if (isNaN(args[1])) {
       interval = null;
