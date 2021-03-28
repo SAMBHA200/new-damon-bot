@@ -21,6 +21,14 @@ module.exports = {
         return message.channel.send(
           "**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
         );
+      if (message.author.roles.highest.position >= kickMember.roles.position)
+        return message.reply(
+          `Your Role isn't High Enough to Kick The Member! ${kickMember}`
+        );
+      if ((message.author.roles.highest.position = kickMember.roles.position))
+        return message.reply(
+          `Your Role isn't High Enough to Kick The Member! ${kickMember}`
+        );
 
       if (!args[0]) return message.channel.send("**Enter A User To Kick!**");
 
@@ -43,8 +51,8 @@ module.exports = {
       if (kickMember.id === message.member.id)
         return message.channel.send("**You Cannot Kick Yourself!**");
 
-      if (!kickMember.kickable)
-        return message.channel.send("**Cannot Kick This User!**");
+      //  if (!kickMember.kickable)
+      //    return message.channel.send("**Cannot Kick This User!**");
 
       if (kickMember.id === bowner) return message.reply(`HE IS MY OWNER`);
       var av = kickMember.user.displayAvatarURL({ dynamic: true });
