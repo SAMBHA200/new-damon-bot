@@ -1,20 +1,13 @@
 const { MessageEmbed } = require("discord.js");
-
 const db = require("quick.db");
-
 const { bowner } = require("../../config.json");
 
 module.exports = {
   name: "kick",
-
   category: "moderation",
-
   description: "Kicks the user",
-
   accessableby: "Administrator",
-
   usage: "[name | nickname | mention | ID] <reason> (optional)",
-
   aliases: ["kickuser"],
 
   run: async (client, message, args) => {
@@ -28,7 +21,7 @@ module.exports = {
         return message.channel.send(
           "**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
         );
-
+      
       if (!args[0]) return message.channel.send("**Enter A User To Kick!**");
 
       var kickMember =
@@ -41,6 +34,11 @@ module.exports = {
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
 
+      if (ber.hasPermission("KICK_MEMBERS"))
+        return message.channel.send(
+          "**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
+        );
+      
       if (!kickMember)
         return message.channel.send("**User Is Not In The Guild!**");
 
