@@ -6,6 +6,7 @@ module.exports = {
   description: "Sets Mentioned Nickname To Mentioned User",
   usage: `\`${defprefix}setnick <User> <Nickname>\``,
   run(client, message, args) {
+    message.delete({ timeout: 2000 });
     if (!message.guild.me.permissions.has("MANAGE_NICKNAMES"))
       return message.channel.send(
         `<:marvel_cross:814596854436069376> | I Don't Have Permission To Use This Command! Manage NickNames`
@@ -32,13 +33,21 @@ module.exports = {
     if (!args[1]) {
       member.setNickname(member.user.username, message.authormtag);
       message.channel.send(
-        `<:marvel_tick:814596834814197781> | Changed Nickname of ${member.user.tag} to `+"**``"${member.user.username}``**`
+        "<:marvel_tick:814596834814197781> | Changed Nickname of **" +
+          member.user.tag +
+          "** to **``" +
+          member.user.username +
+          "``**"
       );
     }
     const nick = args.join(" ").slice(22);
     member.setNickname(nick, message.author.tag);
     message.channel.send(
-      `<:marvel_tick:814596834814197781> | Changed Nickname to ${nick}`
+      "<:marvel_tick:814596834814197781> | Changed Nickname of " +
+        member.user.username +
+        " to **``" +
+        nick +
+        "``**"
     );
   }
 };
