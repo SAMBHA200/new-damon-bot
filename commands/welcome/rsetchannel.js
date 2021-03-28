@@ -16,6 +16,6 @@ module.exports = {
 
     //Now we gonna use quick.db
     db.delete(`welchannel_${message.guild.id}`);
-    message.channel.send(`<:marvel_tick:814596834814197781> | Welcomer Disabled`);
+    message.channel.send(`<:marvel_tick:814596834814197781> | Welcomer Disabled.!`);
   }
 };

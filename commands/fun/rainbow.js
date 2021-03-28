@@ -81,7 +81,7 @@ module.exports = {
     function change(role) {
       const randomColor = colors1();
 
-      role.setColor(randomColor);
+      role.setColor(randomColor, message.author.tag);
     }
   }
 };
