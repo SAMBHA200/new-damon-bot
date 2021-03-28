@@ -14,23 +14,16 @@ module.exports = {
         `You Don't Have Permission To Use This Command! Manage Channels`
       );
     if (args[0] !== "all") {
-      /*   if (!args[0]) return message.channel.send(`Usage: ${this.usage}`);
-      if (!message.mentions.channels.first())
-        return message.channel.send("Mention Valid Channel");*/
-
-      await message.mentions.channels.first(async channel => {
-        await channel.updateOverwrite(channel.guild.roles.everyone, {
-          VIEW_CHANNEL: false
-        });
-        message.channel.send(`<#${channel.id}> Has Been Hidden.`);
-      });
-    } else {
-      await message.channel(async channel => {
-        await channel.updateOverwrite(channel.guild.roles.everyone, {
-          VIEW_CHANNEL: false
-        });
-        message.channel.send("Hidden this channel");
-      });
+      if (!args[0])
+        return (
+          message.channel.updateOverwrite(
+            message.channel.guild.roles.everyone,
+            {
+              VIEW_CHANNEL: false
+            }
+          ) &&
+          message.channel.send("<#" + message.channel + "> Has Been Hidden")
+        );
     }
   }
 };
