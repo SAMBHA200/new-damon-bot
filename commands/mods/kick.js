@@ -45,7 +45,7 @@ module.exports = {
         kickMember.roles.highest.position
       )
         return message.reply(
-          `Your Role isn't High Enough to Kick The Member! ${kickMember}`
+          `Your Role isn't High Enough to Kick ${kickMember.user}`
         );
 
       if (
@@ -53,7 +53,7 @@ module.exports = {
         kickMember.roles.highest.position
       )
         return message.reply(
-          `My Role Isn't High Enough to Kick The Member! ${kickMember}`
+          `My Role Isn't High Enough to Kick ${kickMember.user}`
         );
 
       if (kickMember.id === bowner) return message.reply(`HE IS MY OWNER`);
