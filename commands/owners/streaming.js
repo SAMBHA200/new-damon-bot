@@ -1,10 +1,10 @@
 const { prefix, bowner } = require("../../config.json");
 module.exports = {
-  name: "streaming",
+  name: "stream",
   description: "",
   async run(client, message, args) {
-  if (message.author.id !== bowner) return;
-     // return message.reply("Owners Only Commamd");
+    if (message.author.id !== bowner)
+      return message.reply("Owners Only Commamd");
     const activity = args.join(" ");
     client.user.setActivity(activity, {
       type: "STREAMING",
