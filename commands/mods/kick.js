@@ -21,7 +21,7 @@ module.exports = {
         return message.channel.send(
           "**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
         );
-      
+
       if (!args[0]) return message.channel.send("**Enter A User To Kick!**");
 
       var kickMember =
@@ -34,11 +34,9 @@ module.exports = {
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
 
-      if (ber.hasPermission("KICK_MEMBERS"))
-        return message.channel.send(
-          "**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
-        );
-      
+      if (kickMember.hasPermission("KICK_MEMBERS"))
+        return message.channel.send("**I CAN'T KICK MODS**");
+
       if (!kickMember)
         return message.channel.send("**User Is Not In The Guild!**");
 
