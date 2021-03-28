@@ -21,14 +21,6 @@ module.exports = {
         return message.channel.send(
           "**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
         );
-      if (message.author.roles.highest.position >= kickMember.roles.position)
-        return message.reply(
-          `Your Role isn't High Enough to Kick The Member! ${kickMember}`
-        );
-      if ((message.author.roles.highest.position = kickMember.roles.position))
-        return message.reply(
-          `Your Role isn't High Enough to Kick The Member! ${kickMember}`
-        );
 
       if (!args[0]) return message.channel.send("**Enter A User To Kick!**");
 
@@ -42,8 +34,8 @@ module.exports = {
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
 
-      if (kickMember.hasPermission("KICK_MEMBERS"))
-        return message.channel.send("**I CAN'T KICK MODS**");
+      // if (kickMember.hasPermission("KICK_MEMBERS"))
+      //    return message.channel.send("**I CAN'T KICK MODS**");
 
       if (!kickMember)
         return message.channel.send("**User Is Not In The Guild!**");
@@ -51,8 +43,12 @@ module.exports = {
       if (kickMember.id === message.member.id)
         return message.channel.send("**You Cannot Kick Yourself!**");
 
-      //  if (!kickMember.kickable)
-      //    return message.channel.send("**Cannot Kick This User!**");
+     if  (message.member.roles.highest.position <=
+        kickMember.roles.highest.position
+      )
+        return message.reply(
+          `Your Role isn't High Enough to Kick The Member! ${kickMember}`
+        );
 
       if (kickMember.id === bowner) return message.reply(`HE IS MY OWNER`);
       var av = kickMember.user.displayAvatarURL({ dynamic: true });
