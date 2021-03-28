@@ -48,6 +48,14 @@ module.exports = {
           `Your Role isn't High Enough to Kick The Member! ${kickMember}`
         );
 
+      if (
+        message.guild.me.roles.highest.position <=
+        kickMember.roles.highest.position
+      )
+        return message.reply(
+          `My Role Isn't High Enough to Kick The Member! ${kickMember}`
+        );
+
       if (kickMember.id === bowner) return message.reply(`HE IS MY OWNER`);
       var av = kickMember.user.displayAvatarURL({ dynamic: true });
       var reason = args.slice(1).join(" ");

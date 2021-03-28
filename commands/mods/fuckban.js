@@ -80,8 +80,21 @@ module.exports = {
           "**abe ohh saste nashe krke aaya h kya khud ki gaand maarne ka shauk h tujhe**"
         );
       var reason = args.slice(1).join(" ");
-      if (!banMember.bannable)
-        return message.reply("**me nhi kr skta isko ban jhaat phaad le**");
+      if (
+        message.member.roles.highest.position <=
+        banMember.roles.highest.position
+      )
+        return message.reply(
+          `Isko Ban Krna Tere Aukaat Ke Bahar Hai Baap Ko Bhej Bsdk`
+        );
+
+      if (
+        message.guild.me.roles.highest.position <=
+        banMember.roles.highest.position
+      )
+        return message.reply(
+          `Bsdk Me Jisko Ban Nhi Kr Skta Usko Ban Kyu Krvaa Raha Hai`
+        );
       try {
         banMember
           .send(
