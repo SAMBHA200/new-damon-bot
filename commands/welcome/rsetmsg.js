@@ -9,9 +9,9 @@ module.exports = {
   run: async (client, message, args) => {
     //PERMISSION
     if (!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send("You don't enough powers");
+      return message.channel.send("<:marvel_cross:814596854436069376> | You don't have permission to reset welcome message.!");
     }
     db.delete(`msg_${message.guild.id}`);
-    return await message.channel.send("Non Embed Welcome Message Reset");
+    return await message.channel.send("<:marvel_tick:814596834814197781> | Non Embed Welcome Message Reset Success");
   }
 };
