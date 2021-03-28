@@ -1,7 +1,7 @@
 const { defprefix } = require("../../config.json");
 
 module.exports = {
-  name: "lock",
+  name: "unhide",
   description: "Hides The Mentioned Channels for everyone",
   usage: `\`${defprefix}hide <Channel(s)>\``,
   async run(client, message, args) {
@@ -19,14 +19,14 @@ module.exports = {
           message.channel.updateOverwrite(
             message.channel.guild.roles.everyone,
             {
-              SEND_MESSAGES: false
+              VIEW_CHANNEL: true
             },
             message.author.tag
           ) &&
           message.channel.send(
             "<:marvel_tick:814596834814197781> | <#" +
               message.channel +
-              "> Is Now Locked For Everyone.!"
+              "> Is Now Visible To Everyone.!"
           )
         );
     }
