@@ -34,16 +34,14 @@ module.exports = {
           ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
         );
 
-      // if (kickMember.hasPermission("KICK_MEMBERS"))
-      //    return message.channel.send("**I CAN'T KICK MODS**");
-
       if (!kickMember)
         return message.channel.send("**User Is Not In The Guild!**");
 
       if (kickMember.id === message.member.id)
         return message.channel.send("**You Cannot Kick Yourself!**");
 
-     if  (message.member.roles.highest.position <=
+      if (
+        message.member.roles.highest.position <=
         kickMember.roles.highest.position
       )
         return message.reply(
