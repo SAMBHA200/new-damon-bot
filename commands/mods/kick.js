@@ -54,13 +54,11 @@ module.exports = {
         const sembed2 = new MessageEmbed()
 
           .setColor("RED")
-
           .setDescription(
             `**Hello, You Have Been Kicked From ${
               message.guild.name
-            } for - ${reason || "No Reason!"}**`
+            } for - ${reason || "No Reason!"}** By : **${message.author.tag}`
           )
-
           .setFooter(message.guild.name, message.guild.iconURL());
         kickMember
           .send(sembed2)
@@ -75,6 +73,10 @@ module.exports = {
           .setAuthor(kickMember.user.tag, av)
           .setDescription(
             `**${kickMember.user.username}** has been kicked for ${reason}`
+          )
+          .setFooter(
+            "Kicked By : " + message.author.tag,
+            message.author.displayAvatarURL({ dynamic: true })
           );
 
         message.channel.send(sembed);
@@ -83,7 +85,11 @@ module.exports = {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
           .setAuthor(kickMember.user.tag, av)
-          .setDescription(`**${kickMember.user.username}** has been kicked`);
+          .setDescription(`**${kickMember.user.username}** has been kicked`)
+          .setFooter(
+            "Kicked By : " + message.author.tag,
+            message.author.displayAvatarURL({ dynamic: true })
+          );
         message.channel.send(sembed2);
 
         kickMember.kick(
