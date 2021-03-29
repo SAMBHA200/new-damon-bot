@@ -28,9 +28,8 @@ module.exports = {
             user: sender.id
           })
             .then(() => {
-              sender
-                .send("I have marked you as AFK. Safe travels!")
-                .then(msg => msg.delete(5000).catch());
+              sender.send("I have marked you as AFK. Safe travels!") &&
+                (msg => msg.delete(5000).catch());
             })
             .catch(err => {
               if (err.name == "SequelizeUniqueConstraintError") {
