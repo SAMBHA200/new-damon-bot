@@ -63,15 +63,10 @@ client.on("ready", async () => {
       const cmd = args.shift().toLowerCase();
 
       if (cmd.length === 0) return;
-
       let command = client.commands.get(cmd);
-
       if (!command) command = client.commands.get(client.aliases.get(cmd));
-
       if (command) command.run(client, message, args);
     });
-
-    //  setInterval(pickStatus, 5000);
   } catch (err) {
     console.log(err);
   }
@@ -111,16 +106,9 @@ client.on("guildMemberAdd", async member => {
   let url = db.get(`url_${member.guild.id}`);
   if (url === null) url = default_url;
 
-  // let data = await canva.welcome(member, {
-  //   link: "https://wallpapercave.com/wp/wp5128415.jpg"
-  // });
-  // const attachment = new discord.MessageAttachment(data, "welcome-image.png");
-
   let wembed = new discord.MessageEmbed()
     .setAuthor(
       member.guild
-      //     member.user.username,
-      //   member.user.avatarURL({ dynamic: true, size: 2048 })
     )
 
     .setColor("RANDOM")
@@ -128,7 +116,7 @@ client.on("guildMemberAdd", async member => {
     .setDescription(msg);
 
   client.channels.cache.get(chx).send(msg);
-  //  client.channels.cache.get(chx).send(attachment);
+  
 });
 
 client.login(process.env.TOKEN);
@@ -136,10 +124,4 @@ client.login(process.env.TOKEN);
 //auto pinging
 
 let count = 0;
-setInterval(
-  () =>
-    require("node-fetch")(process.env.URL).then(() =>
-      console.log(`[${++count}] here i pinged ${process.env.URL}`)
-    ),
-  300000
-);
+setInterval(() => require("node-fetch")(process.env.URL), 300000);
