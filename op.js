@@ -15,7 +15,7 @@ client.on("message", message => {
     db.delete(message.author.id + ".afk");
     db.delete(message.author.id + ".messageafk");
   }
-  if (message.content.startsWith("*afk")) {
+  if (message.content.startsWith("*afkall")) {
     message.channel.send(
       "Aight, I have set your AFK. I will send a message to the users who mention you.."
     );
@@ -26,7 +26,7 @@ client.on("message", message => {
       message.content.split(" ").slice(2)
     );
   }
-  if (message.content.includes("+afk off")) {
+  if (message.content.includes("*afkall off")) {
     db.delete(message.author.id + ".afk");
     db.delete(message.author.id + ".messageafk");
   }
@@ -43,8 +43,8 @@ client.on("message", message => {
       message.content.includes("@everyone")
     )
       return false;
-    if (db.has(user.id + ".afk"))
-      message.channel.send(`${message.mention.user.first()}, is afk `);
+    if (db.has(user.id + ".afk")) message.channel.send(`is afk `);
   });
 });
+
 client.login(process.env.TOKEN);
