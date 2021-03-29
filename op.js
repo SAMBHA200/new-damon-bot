@@ -1,13 +1,10 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 const moment = require("moment");
-const fs = require("fs")
+const fs = require("fs");
 const { bowner, prefix } = require("./config.json");
-const afkAction = require("../eventActions/afkMessageCheckAction");
-
-client.on("ready", async => {
-  console.log(client.user.tag + " ready");
-});
+const afkAction = require("./eventActions/afkMessageCheckAction");
+const connect = require("./databaseFiles/connect.js");
 
 const client = new Discord.Client({
   partials: ["USER", "REACTION", "MESSAGE"],
@@ -40,5 +37,9 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 connect.instantiateConnection();
+
+client.on("ready", async => {
+  console.log(client.user.tag + " ready");
+});
 
 client.login(process.env.TOKEN);
