@@ -3,23 +3,23 @@ const db = require("quick.db");
 const { bowner } = require("../../config.json");
 
 module.exports = {
-  name: "kick",
+  name: "ban",
   category: "moderation",
   description: "Kicks the user",
   accessableby: "Administrator",
   usage: "[name | nickname | mention | ID] <reason> (optional)",
-  aliases: ["kickuser"],
+  aliases: ["banuser"],
 
   run: async (client, message, args) => {
     try {
-      if (!message.member.hasPermission("KICK_MEMBERS"))
+      if (!message.member.hasPermission("BAN_MEMBERS"))
         return message.channel.send(
-          "**<:marvel_cross:814596854436069376> | You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
+          "**<:marvel_cross:814596854436069376> | You Do Not Have Permissions To Kick Members! - [BAN_MEMBERS]**"
         );
 
-      if (!message.guild.me.hasPermission("KICK_MEMBERS"))
+      if (!message.guild.me.hasPermission("BAN_MEMBERS"))
         return message.channel.send(
-          "**<:marvel_cross:814596854436069376> | I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**"
+          "**<:marvel_cross:814596854436069376> | I Do Not Have Permissions To Kick Members! - [BAN_MEMBERS]**"
         );
 
       if (!args[0]) return message.channel.send("**Enter A User To Kick!**");
@@ -39,7 +39,7 @@ module.exports = {
 
       if (kickMember.id === message.member.id)
         return message.channel.send(
-          "**<:marvel_cross:814596854436069376> | You Cannot Kick Yourself!**"
+          "**<:marvel_cross:814596854436069376> | You Cannot Ban Yourself!**"
         );
 
       if (
@@ -47,7 +47,7 @@ module.exports = {
         kickMember.roles.highest.position
       )
         return message.reply(
-          "<:marvel_cross:814596854436069376> | Your Role isn't High Enough to Kick **``" +
+          "<:marvel_cross:814596854436069376> | Your Role isn't High Enough to Ban **``" +
             kickMember.user.tag +
             "``**"
         );
@@ -57,7 +57,7 @@ module.exports = {
         kickMember.roles.highest.position
       )
         return message.reply(
-          "<:marvel_cross:814596854436069376> | My Role Isn't High Enough to Kick **``" +
+          "<:marvel_cross:814596854436069376> | My Role Isn't High Enough to Ban **``" +
             kickMember.user.tag +
             "``**"
         );
@@ -71,7 +71,7 @@ module.exports = {
 
           .setColor("RED")
           .setAuthor(
-            "Kicked By : " + message.author.tag,
+            "Banned By : " + message.author.tag,
             message.author.displayAvatarURL({ namic: true })
           )
           .setDescription(
@@ -84,36 +84,36 @@ module.exports = {
           .then(() => kickMember.kick())
           .catch(() => null);
       } catch {
-        kickMember.kick(message.author.tag + " For No Reason Provided");
+        kickMember.ban(message.author.tag + " For No Reason Provided");
       }
       if (reason) {
         var sembed = new MessageEmbed()
           .setColor("RED")
           .setAuthor(kickMember.user.tag, av)
           .setDescription(
-            `**<:marvel_tick:814596834814197781> | ${kickMember.user.username}** has been kicked for ${reason}`
+            `**<:marvel_tick:814596834814197781> | ${kickMember.user.username}** has been banneded for ${reason}`
           )
           .setFooter(
-            "Kicked By : " + message.author.tag,
+            "Banned By : " + message.author.tag,
             message.author.displayAvatarURL({ dynamic: true })
           );
 
         message.channel.send(sembed);
-        kickMember.kick(message.author.tag + " For " + reason);
+        kickMember.ban(message.author.tag + " For " + reason);
       } else {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
           .setAuthor(kickMember.user.tag, av)
           .setDescription(
-            `**<:marvel_tick:814596834814197781> | ${kickMember.user.username}** has been kicked : no reason provided`
+            `**<:marvel_tick:814596834814197781> | ${kickMember.user.username}** has been banneded : no reason provided`
           )
           .setFooter(
-            "Kicked By : " + message.author.tag,
+            "Banned By : " + message.author.tag,
             message.author.displayAvatarURL({ dynamic: true })
           );
         message.channel.send(sembed2);
 
-        kickMember.kick(
+        kickMember.ban(
           "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
         );
       }
@@ -125,8 +125,8 @@ module.exports = {
         .setColor("RED")
         .setThumbnail(kickMember.user.displayAvatarURL({ dynamic: true }))
         .setFooter(message.guild.name, message.guild.iconURL())
-        .addField("**Moderation**", "kick")
-        .addField("**User Kicked**", kickMember.user.username)
+        .addField("**Moderation**", "Ban")
+        .addField("**User Banned**", kickMember.user.username)
         .addField("**Kicked By**", message.author.username)
         .addField("**Reason**", `${reason || "**No Reason**"}`)
         .addField("**Date**", message.createdAt.toLocaleString())
@@ -135,7 +135,7 @@ module.exports = {
       var sChannel = message.guild.channels.cache.get(channel);
       if (!sChannel) return;
       sChannel.send(embed);
-      kickMember.kick(
+      kickMember.ban(
         "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
       );
     } catch (e) {
