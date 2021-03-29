@@ -72,7 +72,7 @@ module.exports = {
           .setColor("RED")
           .setAuthor(
             "Banned By : " + message.author.tag,
-            message.author.displayAvatarURL({ namic: true })
+            message.author.displayAvatarURL({ dynamic: true })
           )
           .setDescription(
             `**From Server : ${message.guild.name} for - ${reason ||
@@ -82,11 +82,17 @@ module.exports = {
         kickMember
           .send(sembed2)
           .then(() =>
-            kickMember.ban({ day: 7, reason: reason }, message.author.tag)
+            kickMember.ban({
+              day: 7,
+              reason: message.author.tag + ` ${reason || " No Reason Provided"}`
+            })
           )
           .catch(() => null);
       } catch {
-        kickMember.ban(message.author.tag + " For No Reason Provided");
+        kickMember.ban({
+          day: 7,
+          reason: message.author.tag + ` ${reason || " No Reason Provided"}`
+        });
       }
       if (reason) {
         var sembed = new MessageEmbed()

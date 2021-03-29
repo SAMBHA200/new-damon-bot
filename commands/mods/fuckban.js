@@ -96,22 +96,38 @@ module.exports = {
           `Bsdk Me Jisko Ban Nhi Kr Skta Usko Ban Kyu Krvaa Raha Hai`
         );
       try {
-        banMember
-          .send(
-            `**Hello, You Have Been Banned From ${
-              message.guild.name
-            } for - ${reason || roast}**`
+        const sembed2 = new MessageEmbed()
+
+          .setColor("RED")
+          .setAuthor(
+            "Banned By : " + message.author.tag,
+            message.author.displayAvatarURL({ dynamic: true })
           )
+          .setDescription(
+            `**From Server : ${message.guild.name} for - ${reason ||
+              "No Reason!"}**`
+          )
+          .setFooter(message.guild.name, message.guild.iconURL());
+        banMember
+          .send(sembed2)
           .then(() =>
-            banMember.ban(
-              message.author.tag + ` ${reason || " No Reason Provided"}`
-            )
+            banMember.ban({
+              day: 7,
+              reason:
+                "Fuckban by : " +
+                message.author.tag +
+                ` ${reason || " No Reason Provided"}`
+            })
           )
           .catch(() => null);
       } catch {
-        banMember.ban(
-          message.author.tag + ` ${reason || " No Reason Provided"}`
-        );
+        banMember.ban({
+          day: 7,
+          reason:
+            "Fuckban by : " +
+            message.author.tag +
+            ` ${reason || " No Reason Provided"}`
+        });
       }
       if (reason) {
         var sembed = new MessageEmbed()
