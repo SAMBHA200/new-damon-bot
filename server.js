@@ -37,6 +37,10 @@ client.on("ready", async () => {
     //  }
 
     client.on("message", async message => {
+      if (message.author.bot) return;
+      if (message.author.id === client.user.id) return;
+      if (!message.guild) return;
+
       const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
@@ -49,10 +53,7 @@ client.on("ready", async () => {
         return;
       }
 
-      if (message.author.bot) return;
-      if (!message.guild) return;
       if (!message.content.startsWith(defprefix)) return;
-
       if (!message.member)
         message.member = await message.guild.fetchMember(message);
 
@@ -87,8 +88,6 @@ client.on("guildMemberAdd", async member => {
     return;
   }
 
-  let default_url = `https://cdn.discordapp.com/attachments/800690453484929095/801910235001651280/2020-pubg-game-4k-91-3840x2160.jpg`;
-
   let default_msg = `**Welcome {member} To ${member.guild}** <a:vshield:764199958257336321> 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -102,26 +101,11 @@ client.on("guildMemberAdd", async member => {
   const msg = m1
     .replace("{member}", member.user)
     .replace("{member.guild}", member.guild);
-
-  let url = db.get(`url_${member.guild.id}`);
-  if (url === null) url = default_url;
-
-  let wembed = new discord.MessageEmbed()
-    .setAuthor(
-      member.guild
-    )
-
-    .setColor("RANDOM")
-    .setImage(url)
-    .setDescription(msg);
-
   client.channels.cache.get(chx).send(msg);
-  
 });
 
 client.login(process.env.TOKEN);
 
-//auto pinging
-
-let count = 0;
-setInterval(() => require("node-fetch")(process.env.URL), 300000);
+c
+lient.channel..cache
+                                                .get()"").send826219699511361586
