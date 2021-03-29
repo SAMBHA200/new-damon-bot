@@ -103,11 +103,17 @@ module.exports = {
             } for - ${reason || roast}**`
           )
           .then(() =>
-            message.guild.members.ban(banMember, { days: 7, reason: reason })
+            message.guild.members.ban(
+              banMember,
+              message.author.tag + ` ${reason || " No Reason Provided"}`
+            )
           )
           .catch(() => null);
       } catch {
-        message.guild.members.ban(banMember, { days: 7, reason: reason });
+        message.guild.members.ban(
+          banMember,
+          message.author.tag + ` ${reason || " No Reason Provided"}`
+        );
       }
       if (reason) {
         var sembed = new MessageEmbed()
