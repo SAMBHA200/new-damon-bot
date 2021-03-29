@@ -15,7 +15,7 @@ client.on("message", message => {
     db.delete(message.author.id + ".afk");
     db.delete(message.author.id + ".messageafk");
   }
-  if (message.content.startsWith(prefix + "afk")) {
+  if (message.content.startsWith("*afk")) {
     message.channel.send(
       "Aight, I have set your AFK. I will send a message to the users who mention you.."
     );
@@ -44,7 +44,7 @@ client.on("message", message => {
     )
       return false;
     if (db.has(user.id + ".afk"))
-      message.channel.send(`${message.author}, is afk `);
+      message.channel.send(`${message.mention.user.first()}, is afk `);
   });
 });
 client.login(process.env.TOKEN);
