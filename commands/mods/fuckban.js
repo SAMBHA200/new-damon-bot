@@ -118,7 +118,12 @@ module.exports = {
             `**${banMember.user.username}** has been banned for ${roast}`
           );
         message.channel.send(sembed);
-        banMember.ban();
+        banMember.ban(
+          "[" +
+            message.author.tag +
+            "]" +
+            ` ${roast}, ${reason || " No Reason Provided"}`
+        );
       } else {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
@@ -127,7 +132,12 @@ module.exports = {
             `**${banMember.user.username}** has been banned ${roast}`
           );
         message.channel.send(sembed2);
-        banMember.ban();
+        banMember.ban(
+          "[" +
+            message.author.tag +
+            "]" +
+            ` ${roast}, ${reason || " No Reason Provided"}`
+        );
       }
 
       let channel = db.fetch(`modlog_${message.guild.id}`);
@@ -142,13 +152,18 @@ module.exports = {
         .addField("**Banned**", banMember.user.username)
         .addField("**ID**", `${banMember.id}`)
         .addField("**Banned By**", message.author.username)
-        .addField("**Reason**", `${reason || "**No Reason**"}`)
+        .addField("**Reason**", `${roast}, ${reason || "**No Reason**"}`)
         .addField("**Date**", message.createdAt.toLocaleString())
         .setTimestamp();
       var sChannel = message.guild.channels.cache.get(channel);
       if (!sChannel) return;
       sChannel.send(embed);
-      banMember.ban();
+      banMember.ban(
+        "[" +
+          message.author.tag +
+          "]" +
+          ` ${roast}, ${reason || " No Reason Provided"}`
+      );
     } catch (e) {
       return message.channel.send(`**error ${e.message}**`);
     }

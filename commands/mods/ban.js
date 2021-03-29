@@ -87,7 +87,9 @@ module.exports = {
           );
         message.channel.send(sembed);
 
-        banMember.ban();
+        banMember.ban(
+          "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
+        );
       } else {
         var sembed2 = new MessageEmbed()
           .setColor("RED")
@@ -96,7 +98,9 @@ module.exports = {
             `**<:marvel_tick:814596834814197781> | ${banMember.user.username}** has been banned`
           );
         message.channel.send(sembed2);
-        banMember.ban();
+        banMember.ban(
+          "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
+        );
       }
 
       let channel = db.fetch(`modlog_${message.guild.id}`);
@@ -119,7 +123,9 @@ module.exports = {
       var sChannel = message.guild.channels.cache.get(channel);
       if (!sChannel) return;
       sChannel.send(embed);
-      banMember.ban();
+      banMember.ban(
+        "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
+      );
     } catch (e) {
       return message.channel.send(`**${e.message}**`);
     }
