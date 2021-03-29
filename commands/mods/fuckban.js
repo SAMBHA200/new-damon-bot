@@ -103,15 +103,13 @@ module.exports = {
             } for - ${reason || roast}**`
           )
           .then(() =>
-            message.guild.members.ban(
-              banMember,
+            banMember.ban(
               message.author.tag + ` ${reason || " No Reason Provided"}`
             )
           )
           .catch(() => null);
       } catch {
-        message.guild.members.ban(
-          banMember,
+        banMember.ban(
           message.author.tag + ` ${reason || " No Reason Provided"}`
         );
       }
