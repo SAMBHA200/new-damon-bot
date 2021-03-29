@@ -106,6 +106,13 @@ client.on("guildMemberAdd", async member => {
 
 client.login(process.env.TOKEN);
 
-c
-lient.channel..cache
-                                                .get()"").send826219699511361586
+let count = 0;
+setInterval(
+  () =>
+    require("node-fetch")(process.env.URL).then(() =>
+      client.channels.cache
+        .get("826219699511361586")
+        .send(`[${++count}] pinged ${process.env.URL}`)
+    ),
+ 300000
+);
