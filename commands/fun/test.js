@@ -20,14 +20,12 @@ module.exports = {
 
     // Giveaway channel
     let Channel = message.mentions.channels.first();
-    let giveawayChannel = message.guild.channels.cache.find(channel =>
-      channel.name.toLowerCase()
-    );
+    let giveawayChannel = message.guild.channels.cache.get(Channel.id);
 
     // If no channel is mentionned
     if (!giveawayChannel) {
       return message.channel.send(":x: You have to mention a valid channel!");
-
+    } else {
       giveawayChannel.send("success");
     }
   }
