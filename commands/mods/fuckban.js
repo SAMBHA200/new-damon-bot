@@ -119,10 +119,7 @@ module.exports = {
           );
         message.channel.send(sembed);
         banMember.ban(
-          "[" +
-            message.author.tag +
-            "]" +
-            ` ${roast}, ${reason || " No Reason Provided"}`
+          "[" + message.author.tag + "]" + " For No Reason Provided"
         );
       } else {
         var sembed2 = new MessageEmbed()
@@ -132,12 +129,7 @@ module.exports = {
             `**${banMember.user.username}** has been banned ${roast}`
           );
         message.channel.send(sembed2);
-        banMember.ban(
-          "[" +
-            message.author.tag +
-            "]" +
-            ` ${roast}, ${reason || " No Reason Provided"}`
-        );
+        banMember.ban("[" + message.author.tag + "]" + " For " + reason);
       }
 
       let channel = db.fetch(`modlog_${message.guild.id}`);
@@ -159,10 +151,7 @@ module.exports = {
       if (!sChannel) return;
       sChannel.send(embed);
       banMember.ban(
-        "[" +
-          message.author.tag +
-          "]" +
-          ` ${roast}, ${reason || " No Reason Provided"}`
+        "[" + message.author.tag + "]" + ` ${reason || " No Reason Provided"}`
       );
     } catch (e) {
       return message.channel.send(`**error ${e.message}**`);
