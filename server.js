@@ -1,7 +1,6 @@
-const { defprefix } = require("./config.json");
+const { prefix, serverid, bowner } = require("./config.json");
 const { config } = require("dotenv");
 const db = require("quick.db");
-const PrefixModel = require("./models/prefix-model");
 const { CanvasSenpai } = require("canvas-senpai");
 const canva = new CanvasSenpai();
 const discord = require("discord.js");
@@ -9,7 +8,6 @@ const client = new discord.Client({
   disableEveryone: false
 });
 
-//require("./security.js");
 require("./uptime.js");
 
 client.commands = new discord.Collection();
@@ -19,22 +17,12 @@ client.aliases = new discord.Collection();
   require(`./handlers/${handler}`)(client);
 });
 client.on("ready", async () => {
-  const channel = client.channels.cache.get("805785436399861790");
-  channel.join().then(connection => {
-    connection.voice.setSelfDeaf(true);
-  });
-
   try {
-    console.log(`Successfully logged in as ${client.user.tag}!`);
-    //   function pickStatus() {
-    //    let status = ["BLACKOUT OFFICIAL", "bhelp | bsupport"];
-    //    let Status = Math.floor(Math.random() * status.length);
-    client.user.setActivity("MARVEL BETA", {
-      type: "STREAMING",
+    console.log(`BOT ${client.user.tag} IS NOW ONLINE AND READY TO USE`);
+    client.user.setActivity("DAMON OP", {
+      type: "WATCHING",
       url: "https://twitch.tv/4matxshadow"
     });
-
-    //  }
 
     client.on("message", async message => {
       if (message.author.bot) return;
@@ -45,20 +33,20 @@ client.on("ready", async () => {
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
           .setTitle(client.user.username)
-          .addField("PREFIX", `\`${defprefix}\``)
-          .addField("USAGE", `\`${defprefix}help\``)
+          .addField("PREFIX", `\`${prefix}\``)
+          .addField("USAGE", `\`${prefix}help\``)
           .setColor("RANDOM")
           .setFooter(`Bot Mentioned By ${message.author.username}`);
         message.channel.send(mention);
         return;
       }
 
-      if (!message.content.startsWith(defprefix)) return;
+      if (!message.content.startsWith(prefix)) return;
       if (!message.member)
         message.member = await message.guild.fetchMember(message);
 
       const args = message.content
-        .slice(defprefix.length)
+        .slice(prefix.length)
         .trim()
         .split(/ +/g);
       const cmd = args.shift().toLowerCase();
@@ -69,7 +57,7 @@ client.on("ready", async () => {
       if (command) command.run(client, message, args);
     });
   } catch (err) {
-    console.log(err);
+    bowner.send(err);
   }
 });
 
@@ -110,9 +98,7 @@ let count = 0;
 setInterval(
   () =>
     require("node-fetch")(process.env.URL).then(() =>
-      client.channels.cache
-        .get("826219699511361586")
-        .send(`[${++count}] pinged ${process.env.URL}`)
+      console.log(`[${++count}] pinged ${process.env.URL}`)
     ),
- 300000
+  300000
 );

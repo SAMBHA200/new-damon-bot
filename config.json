@@ -1,13 +1,7 @@
 {
-  "defprefix": "*",
+  "prefix": "*",
   "bowner": "672027578181353473",
   "sserver": "https://discord.gg/wXemeVm",
   "binvite": "https://discord.com/oauth2/authorize?client_id=748583869527097376&permissions=21174635438&scope=bot",
-  "guild": "739419850614767707",
-  "log": "819209888973717514",
-  "roles": {
-    "bot": "775224044253347851",
-    "mod": "739517804780322817"
-  },
-  "ticketCategory": "819209990304038972"
+  "serverid": "739419850614767707"
 }
