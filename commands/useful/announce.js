@@ -5,7 +5,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "announce",
   aliases: ["a", "announce"],
-  category: "embed",
+  category: "useful",
   usage: "`announce <#channel> then wait..`",
   description: "Embeds Your Given Message",
 

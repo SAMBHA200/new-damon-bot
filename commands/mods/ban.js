@@ -14,12 +14,12 @@ module.exports = {
     try {
       if (!message.member.hasPermission("BAN_MEMBERS"))
         return message.channel.send(
-          "**<:marvel_cross:814596854436069376> | You Do Not Have Permissions To Ban Members! - [BAN_MEMBERS]**"
+          "**You Do Not Have Permissions To Ban Members! - [BAN_MEMBERS]**"
         );
 
       if (!message.guild.me.hasPermission("BAN_MEMBERS"))
         return message.channel.send(
-          "**<:marvel_cross:814596854436069376> | I Do Not Have Permissions To Ban Members! - [BAN_MEMBERS]**"
+          "**I Do Not Have Permissions To Ban Members! - [BAN_MEMBERS]**"
         );
 
       if (!args[0]) return message.channel.send("**Enter A User To Ban!**");
@@ -38,16 +38,14 @@ module.exports = {
         return message.channel.send("**User Is Not In The Guild!**");
 
       if (kickMember.id === message.member.id)
-        return message.channel.send(
-          "**<:marvel_cross:814596854436069376> | You Cannot Ban Yourself!**"
-        );
+        return message.channel.send("**You Cannot Ban Yourself!**");
 
       if (
         message.member.roles.highest.position <=
         kickMember.roles.highest.position
       )
         return message.reply(
-          "<:marvel_cross:814596854436069376> | Your Role isn't High Enough to Ban **``" +
+          "Your Role isn't High Enough to Ban **``" +
             kickMember.user.tag +
             "``**"
         );
@@ -57,9 +55,7 @@ module.exports = {
         kickMember.roles.highest.position
       )
         return message.reply(
-          "<:marvel_cross:814596854436069376> | My Role Isn't High Enough to Ban **``" +
-            kickMember.user.tag +
-            "``**"
+          "My Role Isn't High Enough to Ban **``" + kickMember.user.tag + "``**"
         );
 
       if (kickMember.id === bowner) return message.reply("HE IS MY OWNER");

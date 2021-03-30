@@ -1,17 +1,17 @@
-const { defprefix } = require("../../config.json");
+const { prefix } = require("../../config.json");
 
 module.exports = {
   name: "hide",
   description: "Hides The Mentioned Channels for everyone",
-  usage: `\`${defprefix}hide <Channel(s)>\``,
+  usage: `\`${prefix}hide <Channel(s)>\``,
   async run(client, message, args) {
     if (!message.guild.me.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(
-        `<:marvel_cross:814596854436069376> | I Don't Have Permission To Use This Command! Manage Channels`
+        `I Don't Have Permission To Use This Command! Manage Channels`
       );
     if (!message.member.permissions.has("MANAGE_CHANNELS"))
       return message.channel.send(
-        `<:marvel_cross:814596854436069376> | You Don't Have Permission To Use This Command! Manage Channels`
+        `You Don't Have Permission To Use This Command! Manage Channels`
       );
     if (args[0] !== "all") {
       if (!args[0])
@@ -24,9 +24,7 @@ module.exports = {
             message.author.tag
           ) &&
           message.channel.send(
-            "<:marvel_tick:814596834814197781> | <#" +
-              message.channel +
-              "> Is Now Invisible To Everyone.!"
+            "<#" + message.channel + "> Is Now Invisible To Everyone.!"
           )
         );
     }
