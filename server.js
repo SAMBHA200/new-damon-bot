@@ -61,12 +61,28 @@ client.on("ready", async () => {
   }
 });
 
-client.on("message", async message => {
-  const emojis = require("./JSON/emojis.json");
-  let emoji = emojis.emoji[Math.floor(Math.random() * emojis.emoji.length)];
-  if (message.content.match(`^<@!?672027578181353473>( |)$`)) {
-    return message.channel.send(emoji);
-  }
+client.on("guildCreate", async guild => {
+  let Invite = await guild.channels.cache
+    .find(c => c.type === "text")
+    .createInvite({
+      maxAge: 0,
+      maxUser: 0
+    });
+  const owner = client.users.cache.get(guild.ownerID);
+  const joinembed = new discord.MessageEmbed()
+    .setTitle("SOMEONE TRIED TO ADD ME")
+    .addField("Server Name", `${guild.name}`)
+    .addField("Server Owner", `${owner.username}`)
+    .addField("Member Count", guild.memberCount)
+    .addField("Invite Link", `[Invite](${Invite})`)
+    .setColor("RED")
+    .setFooter("LEFT " + guild.name)
+    .setTimestamp()
+    .setThumbnail(guild.iconURL({ dynamic: true }));
+  client.users.cache.get(bowner).send(joinembed);
+
+  if (!serverid === guild.id) return;
+  client.guilds.cache.get(guild.id).leave();
 });
 
 client.on("guildMemberAdd", async member => {
