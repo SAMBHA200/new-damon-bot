@@ -60,15 +60,7 @@ client.on("ready", async () => {
     bowner.send(err);
   }
 });
-
-client.on("guildCreate", async guild => {
-  const guildid = client.guilds.cache.get(guild.id);
-  const owner = client.users.cache.get(bowner);
-  if (!serverid === guild.id) return;
-  guildid.leave();
-  owner.send("I Cannot Join More Than One Guild Leaving " + guild.name);
-});
-
+require("./event/verify.js");
 client.on("guildMemberAdd", async member => {
   let chx = db.get(`welchannel_${member.guild.id}`);
 

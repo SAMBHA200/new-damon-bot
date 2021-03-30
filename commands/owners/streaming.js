@@ -4,7 +4,7 @@ module.exports = {
   description: "",
   async run(client, message, args) {
     if (message.author.id !== bowner)
-      return message.reply("<:marvel_cross:814596854436069376> | Bot Owner Only Commamd");
+      return message.reply("✓ | Bot Owner Only Commamd");
     const activity = args.join(" ");
     client.user.setActivity(activity, {
       type: "STREAMING",

@@ -1,15 +1,13 @@
 const { prefix, bowner } = require("../../config.json");
 module.exports = {
-  name: "play",
+  name: "watch",
   description: "",
   async run(client, message, args) {
     if (message.author.id !== bowner)
-      return message.reply(
-        "✓ | Bot Owner Only Commamd"
-      );
+      return message.reply("✓ | Bot Owner Only Commamd");
     const activity = args.join(" ");
     client.user.setActivity(activity, {
-      type: "PLAYING",
+      type: "WATCHING",
       url: "https://discord.gg/wXemeVm"
     });
     message.delete();
