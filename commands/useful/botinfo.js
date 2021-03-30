@@ -11,48 +11,19 @@ module.exports = {
   run: async (client, message, args) => {
     let embed = new discord.MessageEmbed()
 
-      .setTitle(
-        `<:marvel_bot:814481094732415026> **INFORMATION ABOUT ${client.user.username}** <:marvel_bot:814481094732415026>`
-      )
+      .setTitle(`**INFORMATION ABOUT ${client.user.username}**`)
       .setThumbnail(client.user.displayAvatarURL())
+      .addField("BOT NAME", `${client.user.username}`)
+      .addField("BOT TAG", client.user.tag)
+      .addField("BOT ID", client.user.id)
+      .addField("BOT DEVELOPER", "<@" + bowner + ">")
       .addField(
-        "<:marvel_bot:814481094732415026> BOT NAME",
-        `${client.user.username}`
-      )
-      .addField("<:marvel_bot:814481094732415026> BOT TAG", client.user.tag)
-      .addField("<:marvel_bot:814481094732415026> BOT ID", client.user.id)
-      .addField(
-        "<:marvel_bot_dev:815466828028969000> BOT DEVELOPER",
-
-        "<@" + bowner + ">"
-      )
-      .addField(
-        "<:marvel_bot_dev:815466828028969000> BOT DEVELOPER TAG",
+        "BOT DEVELOPER TAG",
         "```" + client.users.cache.get(bowner).tag + "```"
       )
-      .addField(
-        "<:marvel_bot_dev:815466828028969000> BOT DEVELOPER ID",
-
-        bowner
-      )
-      .addField(
-        "<:marvel_arrow_right:815105698853552128> TOTAL SERVER",
-        `${client.guilds.cache.size}`,
-        true
-      )
-      .addField(
-        "<:marvel_channels:815112539230175232> TOTAL CHANNAL",
-        `${client.channels.cache.size}`
-      )
-      .addField("<:marvel_arrow_right:815105698853552128> BOT VERSION", `2.0.1`)
-      .addField(
-        "<:marvel_js:814806752184631317> BOT LIBRARY",
-        `[discord.js](https://discord.js.org/#/)`
-      )
-      .addField(
-        "**Invite**",
-        `[discord.gg/invite](${binvite})`
-      )
+      .addField("BOT DEVELOPER ID", bowner)
+      .addField("BOT LIBRARY", `[discord.js](https://discord.js.org/#/)`)
+      .addField("**Invite**", `[discord.gg/invite](${binvite})`)
       .addField(
         "**Support Server**",
         "[discord.gg/support](https://discord.gg/wXemeVm)"
