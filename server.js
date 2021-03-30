@@ -62,27 +62,11 @@ client.on("ready", async () => {
 });
 
 client.on("guildCreate", async guild => {
-  let Invite = await guild.channels.cache
-    .find(c => c.type === "text")
-    .createInvite({
-      maxAge: 0,
-      maxUser: 0
-    });
-  const owner = client.users.cache.get(guild.ownerID);
-  const joinembed = new discord.MessageEmbed()
-    .setTitle("SOMEONE TRIED TO ADD ME")
-    .addField("Server Name", `${guild.name}`)
-    .addField("Server Owner", `${owner.username}`)
-    .addField("Member Count", guild.memberCount)
-    .addField("Invite Link", `[Invite](${Invite})`)
-    .setColor("RED")
-    .setFooter("LEFT " + guild.name)
-    .setTimestamp()
-    .setThumbnail(guild.iconURL({ dynamic: true }));
-  client.users.cache.get(bowner).send(joinembed);
-
+  const guildid = client.guilds.cache.get(guild.id);
+  const owner = client.users.cache.get(bowner);
   if (!serverid === guild.id) return;
-  client.guilds.cache.get(guild.id).leave();
+  guildid.leave();
+  owner.send("I Cannot Join More Than One Guild Leaving " + guild.name);
 });
 
 client.on("guildMemberAdd", async member => {
