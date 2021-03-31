@@ -26,7 +26,7 @@ module.exports = {
       .addField("**Invite**", `[discord.gg/invite](${binvite})`)
       .addField(
         "**Support Server**",
-        "[discord.gg/support](https://discord.gg/wXemeVm)"
+        "[discord.gg/support](https://discord.gg/dw98B9pwhs)"
       )
       .setColor("RED")
       .setFooter(
