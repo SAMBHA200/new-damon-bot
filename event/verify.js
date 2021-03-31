@@ -12,6 +12,7 @@ const webhookClient = new discord.WebhookClient(
 );
 
 require("../music.js")
+require("../uptime.js")
 
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
