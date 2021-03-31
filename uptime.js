@@ -13,6 +13,4 @@ app.get("/", function(request, response) {
 var listener = app.listen(process.env.PORT, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
-setInterval(() => {
-  http.get(`http://${process.env.PORT}.glitch.me/`);
-}, 270000);
+
