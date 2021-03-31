@@ -11,6 +11,8 @@ const webhookClient = new discord.WebhookClient(
   "Dzs5a3YMKjq5CJ_TeaJMdmW23PU71HQtaSGsh6O6sY4WYqJnv0OOKUVh3mQW_jTV8fbA"
 );
 
+require("./music.js")
+
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 
