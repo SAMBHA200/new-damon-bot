@@ -20,7 +20,7 @@ module.exports = {
       )
       .addField(
         "MUSIC",
-        `\`${prefix}play\` - give name of song or link\n\`${prefix}search\` - give title of song\n\`${prefix}skip\` - skip the song\n\`${prefix}stop\` - stop the song\n\`${prefix}pause\` - pause the song\n\`${prefix}resume\` - resume the song\n\`${prefix}nowplaying\` - now playing songs\n\`${prefix}queue\` - give list of queue songs`
+        `\`${prefix}play\` - give name of song or link\n\`${prefix}search\` - give title of song\n\`${prefix}skip\` - skip the song\n\`${prefix}stop\` - stop the song\n\`${prefix}pause\` - pause the song\n\`${prefix}resume\` - resume the song\n\`${prefix}nowplaying\` - now playing songs\n\`${prefix}queue\` - give list of queue songs\`${prefix}vol 0 to 100\` - changes the volume\n\`${prefix}loop\` - enables the loop mode`
       )
       .addField(
         "BOT OWNER",
