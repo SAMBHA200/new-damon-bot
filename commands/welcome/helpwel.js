@@ -14,25 +14,25 @@ module.exports = {
         "Welcome Example",
         "`" +
           prefix +
-          "nwelcomeexample or " +
+          "welcomeexample or " +
           prefix +
-          "nwexample` to see how the welcomer looks like"
+          "wexample` to see how the welcomer looks like"
       )
       .addField(
         "Set Channel",
-        "`" + prefix + "nsetwelcome <#channel> `" + "to set welcome channel"
+        "`" + prefix + "setwelcome <#channel> `" + "to set welcome channel"
       )
       .addField(
         "Set Message",
-        "`" + prefix + "nsetwmsg <msg>` to set welcome message make sure to use"
+        "`" + prefix + "setwmsg <msg>` to set welcome message make sure to use"
       )
       .addField(
         "Reset Message",
-        "`" + prefix + "nresetmsg` to reset welcome message"
+        "`" + prefix + "resetmsg` to reset welcome message"
       )
       .addField(
         "Disable Welcomer",
-        "`" + prefix + "ndisable` to disable non embed welcome"
+        "`" + prefix + "disable` to disable non embed welcome"
       )
       .addField(
         "Miscellaneous Settings",
