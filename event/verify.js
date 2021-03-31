@@ -80,13 +80,13 @@ client.on("guildMemberAdd", async member => {
     return;
   }
 
-  let default_msg = `**Welcome {member} To ${member.guild}** <a:vshield:764199958257336321> 
+  let default_msg = `**Welcome {member} To ${member.guild}**
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<a:rainbowleft:764200797629186049> **Make Sure To Take Self Roles.**
-<a:rainbowleft:764200797629186049> **Make Sure You Read Rules.**
-<a:rainbowleft:764200797629186049> **Have Fun In Chatting.**`;
+**Make Sure To Take Self Roles.**
+**Make Sure You Read Rules.**
+**Have Fun In Chatting.**`;
 
   let m1 = db.get(`msg_${member.guild.id}`);
   if (!m1) m1 = default_msg;

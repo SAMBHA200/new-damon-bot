@@ -1,10 +1,10 @@
 const db = require("quick.db");
 const { prefix } = require("../../config.json");
-const { msg } = require("../../server.js");
+const { msg } = require("../../event/verify.js");
 const discord = require("discord.js");
 module.exports = {
-  name: "nsetmessage",
-  aliases: ["nsetwmessage", "nsetwmsg", "nsetmessage"],
+  name: "setmessage",
+  aliases: ["setwmessage", "setwmsg", "setmessage"],
   category: "moderation",
   usage: `${prefix}setmessage <message>`,
   description: "Change the guild prefix",
@@ -13,18 +13,14 @@ module.exports = {
     //PERMISSION
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send(
-        "<:marvel_cross:814596854436069376> | You don't have permission to set welcome message"
+        "You don't have permission to set welcome message"
       );
     }
     if (!args[0]) {
-      return message.channel.send(
-        "<:marvel_cross:814596854436069376> | Please provide a message to set"
-      );
+      return message.channel.send("Please provide a message to set");
     }
     let msg = args.slice(0).join(" ");
     db.set(`msg_${message.guild.id}`, `${msg}`);
-    message.channel.send(
-      "<:marvel_tick:814596834814197781> | New welcome message is now " + msg
-    );
+    message.channel.send("New welcome message is now " + msg);
   }
 };
