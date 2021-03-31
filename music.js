@@ -5,7 +5,7 @@ const ytdl = require("ytdl-core");
 const dotenv = require("dotenv").config();
 
 const TOKEN = process.env.TOKEN;
-const PREFIX = process.env.PREFIX;
+const PREFIX = process.env.PREFIX
 const GOOGLE_API_KEY = process.env.YTAPI_KEY;
 
 const bot = new Client({
