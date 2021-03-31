@@ -22,8 +22,8 @@ client.aliases = new discord.Collection();
 
 client.on("guildCreate", async guild => {
   const guildid = client.guilds.cache.get(guild.id);
-  if (!serverid === guild.id) return;
-  guildid.leave();
+  if (!serverid === guild.id) return console.log("Joined your guild successfully")
+ else guildid.leave()
   console.log("I Cannot Join More Than One Guild Leaving " + guild.name);
 });
 
