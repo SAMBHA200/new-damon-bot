@@ -1,9 +1,9 @@
 {
-  "prefix": "d",
-  "bowner": "672027578181353473",
+  "prefix": "your prefix here",
+  "bowner": "your id here",
   "sserver": "https://discord.gg/wXemeVm",
   "binvite": "https://discord.com/oauth2/authorize?client_id=748583869527097376&permissions=21174635438&scope=bot",
-  "serverid": "739419850614767707",
+  "serverid": "server id here",
   "status": "Damon OP",
   "type": "WATCHING"
 }
