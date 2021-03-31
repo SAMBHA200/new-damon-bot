@@ -21,7 +21,11 @@ module.exports = {
       .addField(
         "MUSIC",
         `\`${prefix}play\` - give name of song or link\n\`${prefix}search\` - give title of song\n\`${prefix}skip\` - skip the song\n\`${prefix}stop\` - stop the song\n\`${prefix}pause\` - pause the song\n\`${prefix}resume\` - resume the song\n\`${prefix}nowplaying\` - now playing songs\n\`${prefix}queue\` - give list of queue songs
-`
+      )
+      .addField(
+        "BOT OWNER",
+        prefix}listen\` - to set listening status of bot\n\`${prefix}playing\` - to set playing status of bot\n\`${prefix}watch\` - to set watching status of bot\n\`${prefix}stream\` - to set streaming statyus of bot\n \`${prefix}say\` or \`${prefix}reply\` - to send any message via bot
+        `
       )
       .addField("**Invite**", `[discord.gg/invite](${binvite})`)
       .addField(
