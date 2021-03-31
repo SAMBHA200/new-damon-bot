@@ -1,4 +1,4 @@
-const { prefix, serverid, bowner } = require("./config.json");
+const { prefix, serverid, bowner, status, type } = require("./config.json");
 const { config } = require("dotenv");
 const db = require("quick.db");
 const { CanvasSenpai } = require("canvas-senpai");
@@ -19,8 +19,8 @@ client.aliases = new discord.Collection();
 client.on("ready", async () => {
   try {
     console.log(`BOT ${client.user.tag} IS NOW ONLINE AND READY TO USE`);
-    client.user.setActivity("DAMON OP", {
-      type: "WATCHING",
+    client.user.setActivity(status, {
+      type: type,
       url: "https://twitch.tv/4matxshadow"
     });
 
@@ -32,11 +32,14 @@ client.on("ready", async () => {
       const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
       if (message.content.match(prefixMention)) {
         let mention = new discord.MessageEmbed()
-          .setTitle(client.user.username)
+          .setAuthor(client.user.username, client.user.displayAvatarURL())
           .addField("PREFIX", `\`${prefix}\``)
           .addField("USAGE", `\`${prefix}help\``)
           .setColor("RANDOM")
-          .setFooter(`Bot Mentioned By ${message.author.username}`);
+          .setFooter(
+            `Bot Mentioned By ${message.author.username}`,
+            message.author.displayAvatarURL({ dynamic: true })
+          );
         message.channel.send(mention);
         return;
       }
