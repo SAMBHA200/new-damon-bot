@@ -30,7 +30,7 @@
     "request": "^2.88.2",
     "canvas-senpai": "^1.0.0",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^4.4.4",
+    "ytdl-core": "^4.4.5",
     "opusscript": "^0.0.7",
     "mathjs": "^9.0.0",
     "novelcovid": "^3.0.0",

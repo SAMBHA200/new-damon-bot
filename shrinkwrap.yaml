@@ -51,7 +51,7 @@ dependencies:
   tickets: 0.2.2
   timers: 0.1.1
   weather-js: 2.0.0
-  ytdl-core: 4.4.4
+  ytdl-core: 4.5.0
 packages:
   /@aero/centra/1.0.6:
     dev: false
@@ -2198,7 +2198,7 @@ packages:
       integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   /m3u8stream/0.8.3:
     dependencies:
-      miniget: 4.1.0
+      miniget: 4.2.0
       sax: 1.2.4
     dev: false
     engines:
@@ -2372,12 +2372,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
-  /miniget/4.1.0:
+  /miniget/4.2.0:
     dev: false
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-kzhrNv5L7LlomwGmPGQsLQ2PnT1LeJJWfB0wNFGyv426gEM1gsfziBQmfkr6XOBA8EusZg9nowlNT5CbuKTjZg==
+      integrity: sha512-IzTOaNgBw/qEpzkPTE7X2cUVXQfSKbG8w52Emi93zb+Zya2ZFrbmavpixzebuDJD9Ku4ecbaFlC7Y1cEESzQtQ==
   /minimatch/3.0.4:
     dependencies:
       brace-expansion: 1.1.11
@@ -4045,16 +4045,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
-  /ytdl-core/4.4.4:
+  /ytdl-core/4.5.0:
     dependencies:
       m3u8stream: 0.8.3
-      miniget: 4.1.0
+      miniget: 4.2.0
       sax: 1.2.4
     dev: false
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-/IFJTM5RjN20q6RVaE/9rv9tKoBtx95lKZCI/pUPDiDzu9fXyuPbkVzEQJmsYEwzi0zdv4d6iJy0gHWz49o6mw==
+      integrity: sha512-e8r6skrakWNixsVlNPBMoRM1HrdW1swE97If9nenDUjF65uogYk4DvxIuqlmqRfBWKe+6aIZwqedNxUU9XLYJA==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -4111,4 +4111,4 @@ specifiers:
   tickets: ^0.2.2
   timers: ^0.1.1
   weather-js: ^2.0.0
-  ytdl-core: ^4.4.4
+  ytdl-core: ^4.4.5
