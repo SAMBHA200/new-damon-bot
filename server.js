@@ -1,8 +1,3 @@
-const { prefix, serverid, bowner, status, type } = require("./config.json");
-const { config } = require("dotenv");
-const db = require("quick.db");
-const { CanvasSenpai } = require("canvas-senpai");
-const canva = new CanvasSenpai();
 const discord = require("discord.js");
 const client = new discord.Client({
   disableEveryone: false
