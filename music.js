@@ -3,9 +3,10 @@ const { Client, Util } = require("discord.js");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 const dotenv = require("dotenv").config();
+const { prefix } = require("./congif.json");
 
 const TOKEN = process.env.TOKEN;
-const PREFIX = process.env.PREFIX
+const PREFIX = prefix
 const GOOGLE_API_KEY = process.env.YTAPI_KEY;
 
 const bot = new Client({
