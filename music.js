@@ -3,7 +3,7 @@ const { Client, Util } = require("discord.js");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 const dotenv = require("dotenv").config();
-const { prefix } = require("./congif.json");
+const { prefix } = require("./config.json");
 
 const TOKEN = process.env.TOKEN;
 const PREFIX = prefix
